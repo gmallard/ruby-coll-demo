@@ -1,13 +1,12 @@
 require 'mycollection'
 require 'test/unit'
-require 'log4r'
-include Log4r    # Mix it in
+require 'logger'
 #
 class TestMyColl < Test::Unit::TestCase
   def initialize(name)
     super(name)
-    @@log = Logger.new "#{self.class}"
-    @@log.outputters = Outputter.stdout
+    @@log = Logger.new(STDOUT)
+    @@log.level = Logger::DEBUG
   end
   def test_delete
     mda = MyData.new("A")
