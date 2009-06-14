@@ -42,8 +42,21 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_size starts" if @@log.debug?
     list = MyCollection::new
 	assert_equal(list.size, 0)
-    list.append("abcde")
+    list.append(MyData.new("A"))
 	assert_equal(list.size, 1)
     @@log.debug "test_size ends" if @@log.debug?
+  end
+  #
+  def test_each
+    @@log.debug "test_each starts" if @@log.debug?
+    list = MyCollection::new
+    list.append(MyData.new("A"))
+	count = 0
+	list.each do |elt|
+      count += 1
+      assert_equal(elt.ndata, 123)
+    end
+    assert_equal(count, 1)
+    @@log.debug "test_each ends" if @@log.debug?
   end
 end

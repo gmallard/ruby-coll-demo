@@ -1,4 +1,5 @@
 class MyCollection
+  include Enumerable
   def initialize
     @data = Array.new
   end
@@ -22,6 +23,12 @@ class MyCollection
   #
   def size
     @data.size
+  end
+  #
+  def each
+    @data.each do |elt|
+      yield elt if block_given?
+    end
   end
 end
 
