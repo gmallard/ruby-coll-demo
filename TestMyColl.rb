@@ -4,12 +4,15 @@ require 'test/unit'
 require 'logger'
 #
 class TestMyColl < Test::Unit::TestCase
+  #
   def initialize(name)
     super(name)
     @@log = Logger.new(STDOUT)
     @@log.level = Logger::DEBUG
   end
-  def test_delete
+  #
+  def test_methods
+    @@log.debug "test_methods starts" if @@log.debug?
     mda = MyData.new("A")
     mdb = MyData.new("B",2)
     mdc = MyData.new("C",3)
@@ -32,9 +35,15 @@ class TestMyColl < Test::Unit::TestCase
     assert_equal(mdd, list.delete_last)
     assert_equal(mdc, list.delete_last)
     assert_nil(list.delete_last)
-    if @@log.debug?
-      @@log.debug "test_delete ends"
-    end
-    
+    @@log.debug "test_methods ends" if @@log.debug?
+  end
+  #
+  def test_size
+    @@log.debug "test_size starts" if @@log.debug?
+    list = MyCollection::new
+	assert_equal(list.size, 0)
+    list.append("abcde")
+	assert_equal(list.size, 1)
+    @@log.debug "test_size ends" if @@log.debug?
   end
 end
