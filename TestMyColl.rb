@@ -1,4 +1,5 @@
 require 'mycollection'
+require 'mydata'
 require 'test/unit'
 require 'logger'
 #
