@@ -1,7 +1,11 @@
-require 'mycollection'
-require 'mydata'
+# Ruby stuff
 require 'test/unit'
 require 'logger'
+# To be tested or used
+$:.unshift File.join(File.dirname(__FILE__), "..", "lib")
+require 'mycollection'
+require 'mydata'
+
 #
 class TestMyColl < Test::Unit::TestCase
   #
