@@ -26,18 +26,21 @@ class TestMyData < Test::Unit::TestCase
   #
   def test_lt
     @@log.debug "test_lt starts" if @@log.debug?
+		assert_respond_to(@mda, :<, "test_lt_respond")
 		assert_equal(@mda < @mdb, true)
     @@log.debug "test_lt ends" if @@log.debug?
   end
   #
   def test_gt
     @@log.debug "test_gt starts" if @@log.debug?
+		assert_respond_to(@mda, :>, "test_gt_respond")
 		assert_equal(@mdb > @mda, true)
     @@log.debug "test_gt ends" if @@log.debug?
   end
   #
   def test_eq
     @@log.debug "test_eq starts" if @@log.debug?
+		assert_respond_to(@mda, :==, "test_eq_respond")
 		assert_equal(@mda == @mdb, false)
     @@log.debug "test_eq ends" if @@log.debug?
   end
@@ -50,6 +53,7 @@ class TestMyData < Test::Unit::TestCase
   #
   def test_le
     @@log.debug "test_le starts" if @@log.debug?
+		assert_respond_to(@mda, :<=, "test_le_respond")
 		assert_equal(@mda <= @mdb, true)
 		assert_equal(@mda <= @mda, true)
     @@log.debug "test_le ends" if @@log.debug?
@@ -57,6 +61,7 @@ class TestMyData < Test::Unit::TestCase
   #
   def test_ge
     @@log.debug "test_ge starts" if @@log.debug?
+		assert_respond_to(@mda, :>=, "test_ge_respond")
 		assert_equal(@mdb >= @mda, true)
 		assert_equal(@mda >= @mda, true)
     @@log.debug "test_ge ends" if @@log.debug?
