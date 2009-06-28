@@ -98,4 +98,13 @@ class TestMyData < Test::Unit::TestCase
 		assert_equal(@mda >= @mda, true)
     @@log.debug "test_ge ends" if @@log.debug?
   end
+  #
+	# Test the between method.
+	#
+  def test_betweenq
+    @@log.debug "test_betweenq starts" if @@log.debug?
+		assert_respond_to(@mdb, :between?, "test_betweenq_respond")
+		assert(@mdb.between?(@mda,@mdc),"test_betweenq_basic")
+    @@log.debug "test_betweenq ends" if @@log.debug?
+  end
 end
