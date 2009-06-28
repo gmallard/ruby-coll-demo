@@ -1,4 +1,17 @@
-# Ruby stuff
+#
+# == Purpose
+#
+# Unit tests for MyCollection objects.
+#
+# == Author
+#
+# Guy Allard
+#
+# == Copyright
+#
+# Copyright (c) 2009 Guy Allard
+# Licensed under the same terms as Ruby.  No warranty is provided.
+#
 require 'test/unit'
 require 'logger'
 # To be tested or used
@@ -9,6 +22,8 @@ require 'mydata'
 #
 class TestMyColl < Test::Unit::TestCase
   #
+	# Initialize this test class.
+	#
   def initialize(name)
     super(name)
     @@log = Logger.new(STDOUT)
@@ -20,6 +35,11 @@ class TestMyColl < Test::Unit::TestCase
 		@list = nil
   end
 	#
+	# Setup for each test.
+	# * Define four MyData objects
+	# * Define one MyCollection object
+	# * Add all MyData objects to the MyCollection object
+	#
 	def setup
     @mda = MyData.new("AA12")
     @mdb = MyData.new("BB1",2)
@@ -30,10 +50,12 @@ class TestMyColl < Test::Unit::TestCase
     @list.append(@mda).append(@mdb).append(@mdc).append(@mdd)
 	end
 	#
+	# Teardown after each test.  Currently does nothing.
+	#
 	def teardown
 	end
   #
-	# Test each method
+	# Test the +each+ method.
 	#
   def test_010_each
     @@log.debug "test_010_each starts" if @@log.debug?
@@ -45,7 +67,7 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_010_each ends" if @@log.debug?
   end
   #
-	# Test basic custom collection methods
+	# Test the +size+ method.
 	#
   def test_020_size
     @@log.debug "test_020_size starts" if @@log.debug?
@@ -55,6 +77,8 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_020_size ends" if @@log.debug?
   end
   #
+	# Test the +index+ method.
+	#
   def test_030_index_method
     @@log.debug "test_030_index_method starts" if @@log.debug?
     # Appends done in setup
@@ -67,6 +91,8 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_030_index_method ends" if @@log.debug?
   end
   #
+	# Test the +delete_first+ method.
+	#
   def test_040_del_methods
     @@log.debug "test_040_del_methods starts" if @@log.debug?
     assert_equal(@mda, @list.delete_first)
@@ -104,7 +130,12 @@ class TestMyColl < Test::Unit::TestCase
 
 =end
 
+		#--
 		# all? / 100 / *DONE
+		#++
+		#
+		# Test the <tt>all?</tt> method.
+		#
 		def test_100_allq
 	    @@log.debug "test_100_allq starts" if @@log.debug?
 			assert_respond_to(@list, :all?, "test_100_allq_respond")
@@ -118,7 +149,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_100_allq ends" if @@log.debug?
 		end
 
+		#--
 		# any? / 110 / *DONE
+		#++
+		#
+		# Test the <tt>any?</tt> method.
+		#
 		def test_110_anyq
 	    @@log.debug "test_110_anyq starts" if @@log.debug?
 			assert_respond_to(@list, :any?, "test_110_anyq_respond")
@@ -132,7 +168,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_110_anyq ends" if @@log.debug?
 		end
 
+		#--
 		# collect (map synonym) / 120 / *DONE / See comments
+		#++
+		#
+		# Test the +collect+ method.
+		#
 		def test_120_collect
 	    @@log.debug "test_120_collect starts" if @@log.debug?
 			assert_respond_to(@list, :collect, "test_120_collect_respond")
@@ -146,7 +187,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_120_collect ends" if @@log.debug?
 		end
 
+		#--
 		#  map (collect synonym) / 130 / *DONE / See comments
+		#++
+		#
+		# Test the +map+ method.
+		#
 		def test_130_map
 	    @@log.debug "test_130_map starts" if @@log.debug?
 			assert_respond_to(@list, :map, "test_130_map_respond")
@@ -160,7 +206,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_130_map ends" if @@log.debug?
 		end
 
+		#--
 		# detect (find synonym) / 140 / *DONE
+		#++
+		#
+		# Test the +detect+ method.
+		#
 		def test_140_detect
 	    @@log.debug "test_140_detect starts" if @@log.debug?
 			assert_respond_to(@list, :detect, "test_140_detect_respond")
@@ -174,7 +225,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_140_detect ends" if @@log.debug?
 		end
 
+		#--
 		# find (detect synonym) / 150 / *DONE
+		#++
+		#
+		# Test the +find+ method.
+		#
 		def test_150_find
 	    @@log.debug "test_150_find starts" if @@log.debug?
 			assert_respond_to(@list, :find, "test_150_find_respond")
@@ -188,7 +244,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_150_find ends" if @@log.debug?
 		end
 
+		#--
 		# each_with_index / 160 / *DONE
+		#++
+		#
+		# Test the +each_with_index+ method.
+		#
 		def test_160_each_with_index
 	    @@log.debug "test_160_each_with_index starts" if @@log.debug?
 			assert_respond_to(@list, :each_with_index, "test_160_each_with_index_respond")
@@ -202,7 +263,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_160_each_with_index ends" if @@log.debug?
 		end
 
+		#--
 		# entries (to_a synonym) / 170 / *DONE
+		#++
+		#
+		# Test the +entries+ method.
+		#
 		def test_170_entries
 	    @@log.debug "test_170_entries starts" if @@log.debug?
 			assert_respond_to(@list, :entries, "test_170_entries_respond")
@@ -213,7 +279,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_170_entries ends" if @@log.debug?
 		end
 
+		#--
 		# to_a (entries synonym) / 180 / *DONE
+		#++
+		#
+		# Test the +to_a+ method.
+		#
 		def test_180_to_a
 	    @@log.debug "test_180_to_a starts" if @@log.debug?
 			assert_respond_to(@list, :to_a, "test_180_to_a_respond")
@@ -224,7 +295,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_180_to_a ends" if @@log.debug?
 		end
 
+		#--
 		# find_all (select synonym) / 190 / *DONE
+		#++
+		#
+		# Test the +find_all+ method.
+		#
 		def test_190_find_all
 	    @@log.debug "test_190_find_all starts" if @@log.debug?
 			assert_respond_to(@list, :find_all, "test_190_find_all_respond")
@@ -235,7 +311,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_190_find_all ends" if @@log.debug?
 		end
 
+		#--
 		# grep / 200 / *DONE
+		#++
+		#
+		# Test the +grep+ method.
+		#
 		def test_200_grep
 	    @@log.debug "test_200_grep starts" if @@log.debug?
 			assert_respond_to(@list, :grep, "test_200_grep_respond")
@@ -249,7 +330,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_200_grep ends" if @@log.debug?
 		end
 
+		#--
 		# include? / 210 / *DONE
+		#++
+		#
+		# Test the <tt>include?</tt> method.
+		#
 		def test_210_includeq
 	    @@log.debug "test_210_includeq starts" if @@log.debug?
 			assert_respond_to(@list, :include?, "test_210_includeq_respond")
@@ -261,7 +347,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_210_includeq ends" if @@log.debug?
 		end
 
+		#--
 		# inject / 220 / *DONE
+		#++
+		#
+		# Test the +inject+ method.
+		#
 		def test_220_inject
 	    @@log.debug "test_220_inject starts" if @@log.debug?
 			assert_respond_to(@list, :inject, "test_220_inject_respond")
@@ -275,7 +366,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_220_inject ends" if @@log.debug?
 		end
 
+		#--
 		# max / 230 / *DONE
+		#++
+		#
+		# Test the +max+ method.
+		#
 		def test_230_max
 	    @@log.debug "test_230_max starts" if @@log.debug?
 			assert_respond_to(@list, :max, "test_230_max_respond")
@@ -285,7 +381,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_230_max ends" if @@log.debug?
 		end
 
+		#--
 		# member? / 240 / *DONE
+		#++
+		#
+		# Test the <tt>member?</tt> method.
+		#
 		def test_240_memberq
 	    @@log.debug "test_240_memberq starts" if @@log.debug?
 			assert_respond_to(@list, :member?, "test_240_memberq_respond")
@@ -297,7 +398,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_240_memberq ends" if @@log.debug?
 		end
 
+		#--
 		# min / 250 / *DONE
+		#++
+		#
+		# Test the +min+ method.
+		#
 		def test_250_min
 	    @@log.debug "test_250_min starts" if @@log.debug?
 			assert_respond_to(@list, :min, "test_250_min_respond")
@@ -307,7 +413,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_250_min ends" if @@log.debug?
 		end
 
+		#--
 		# partition / 260 / *DONE
+		#++
+		#
+		# Test the +partition+ method.
+		#
 		def test_260_partition
 	    @@log.debug "test_260_partition starts" if @@log.debug?
 			assert_respond_to(@list, :partition, "test_260_partition_respond")
@@ -320,7 +431,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_260_partition ends" if @@log.debug?
 		end
 
+		#--
 		# reject / 270 / *DONE
+		#++
+		#
+		# Test the +reject+ method.
+		#
 		def test_270_reject
 	    @@log.debug "test_270_reject starts" if @@log.debug?
 			assert_respond_to(@list, :reject, "test_270_reject_respond")
@@ -331,7 +447,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_270_reject ends" if @@log.debug?
 		end
 
+		#--
 		# select (find_all synonym) / 275 / *DONE
+		#++
+		#
+		# Test the +select+ method.
+		#
 		def test_275_select
 	    @@log.debug "test_275_select starts" if @@log.debug?
 			assert_respond_to(@list, :select, "test_275_select_respond")
@@ -342,7 +463,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_275_select ends" if @@log.debug?
 		end
 
+		#--
 		# sort / 280 / *DONE
+		#++
+		#
+		# Test the +sort+ method.
+		#
 		def test_280_sort
 	    @@log.debug "test_280_sort starts" if @@log.debug?
 			assert_respond_to(@list, :sort, "test_280_sort_respond")
@@ -353,7 +479,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_280_sort ends" if @@log.debug?
 		end
 
+		#--
 		# sort_by / 290 / *DONE
+		#++
+		#
+		# Test the +sort_by+ method.
+		#
 		def test_290_sort_by
 	    @@log.debug "test_290_sort_by starts" if @@log.debug?
 			assert_respond_to(@list, :sort_by, "test_290_sort_by_respond")
@@ -364,7 +495,12 @@ class TestMyColl < Test::Unit::TestCase
 	    @@log.debug "test_290_sort_by ends" if @@log.debug?
 		end
 
+		#--
 		# zip / 300 / *DONE
+		#++
+		#
+		# Test the +zip+ method.
+		#
 		def test_300_zip
 	    @@log.debug "test_300_zip starts" if @@log.debug?
 			assert_respond_to(@list, :zip, "test_300_zip_respond")
