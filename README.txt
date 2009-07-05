@@ -6,7 +6,7 @@
 # 1. Defining a collection element type that mixes-in Comparable
 # 2. Defining a collection that mixes-in Enumerable
 #
-# The collection element and collection type show here are of no practical
+# The collection element and collection type shown here are of no practical
 # value.
 #
 # The intent is to show how little must be done in order to get back a large
