@@ -1,7 +1,7 @@
 #
 # == Purpose
 #
-# Provide an example collection which is suitable fir
+# Provide an example collection which is suitable for
 # mixing in Enumerable.
 #
 # == Author
