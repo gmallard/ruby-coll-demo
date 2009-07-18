@@ -20,6 +20,7 @@ require 'mycollection'
 require 'mydata'
 
 #
+module Colldemo
 class TestMyColl < Test::Unit::TestCase
   #
   # Initialize this test class.
@@ -520,4 +521,5 @@ class TestMyColl < Test::Unit::TestCase
       @@log.debug "test_300_zip ends" if @@log.debug?
     end
 
-end
+endend # of Module Colldemo
+

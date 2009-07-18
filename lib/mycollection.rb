@@ -13,6 +13,7 @@
 # Copyright (c) 2009 Guy Allard
 # Licensed under the same terms as Ruby.  No warranty is provided.
 #
+module Colldemo
 class MyCollection
   include Enumerable
 	#
@@ -62,4 +63,5 @@ class MyCollection
     end
   end
 end
+end # of Module Colldemo
 

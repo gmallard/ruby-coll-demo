@@ -14,6 +14,7 @@
 #
 require 'logger'
 #
+module Colldemo
 class MyData
   include Comparable
   attr_reader :sdata, :ndata
@@ -38,4 +39,5 @@ class MyData
   def <=>(other)
     self.ndata <=> other.ndata
   end
-end
+endend # of Module CollDemo
+

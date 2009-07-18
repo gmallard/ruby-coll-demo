@@ -18,6 +18,7 @@ require 'logger'
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'mydata'
 #
+module Colldemo
 class TestMyData < Test::Unit::TestCase
   #
   # Initialize this test class.
@@ -107,4 +108,5 @@ class TestMyData < Test::Unit::TestCase
     assert(@mdb.between?(@mda,@mdc),"test_betweenq_basic")
     @@log.debug "test_betweenq ends" if @@log.debug?
   end
-end
+endend # of Module Colldemo
+
