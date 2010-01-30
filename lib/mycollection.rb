@@ -16,47 +16,47 @@
 module Colldemo
 class MyCollection
   include Enumerable
-	#
-	# Initialize the collection.
-	#
+  #
+  # Initialize the collection.
+  #
   def initialize
     @data = Array.new
   end
   #
-	# Append an object to the end of the collection.
-	#
+  # Append an object to the end of the collection.
+  #
   def append(data)
     @data.push(data)
     self
   end
   #
-	# Remove and return the first object in the collection.
-	#
+  # Remove and return the first object in the collection.
+  #
   def delete_first
     @data.shift
   end
   #
-	# Remove and return the last object in the collection.
-	#
+  # Remove and return the last object in the collection.
+  #
   def delete_last
     @data.pop
   end
   #
-	# Remove and return the object at the specified index in the collection.
-	#
+  # Remove and return the object at the specified index in the collection.
+  #
   def [](index)
     @data[index]
   end
   #
-	# Return the size of the collection.
-	#
+  # Return the size of the collection.
+  #
   def size
     @data.size
   end
   #
-	# Iterate through the items in the collection and yeid each item in turn
-	# to the supplied block (if any).
-	#
+  # Iterate through the items in the collection and yeid each item in turn
+  # to the supplied block (if any).
+  #
   def each
     @data.each do |elt|
       yield elt if block_given?
