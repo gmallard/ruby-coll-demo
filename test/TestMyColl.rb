@@ -109,417 +109,417 @@ class TestMyColl < Test::Unit::TestCase
 
   To be tested:
 
-    all? / 100 / *DONE
-    any? / 110 / *DONE
-    collect (map synonym) / 120, 130 / *DONE / See comments
-    detect (find synonym) / 140, 150 / *DONE
-    each_with_index / 160 / *DONE
-    entries (to_a synonym) / 170, 180 / *DONE
-    find_all (select synonym) / 190 / *DONE
-    grep / 200 / *DONE / See comments
-    include? (member? synonym) / 210 / *DONE
-    inject / 220 / *DONE
-    max / 230 / *DONE
-    member? (include? synonym) / 240 / *DONE
-    min / 250 / *DONE
-    partition / 260 / *DONE
-    reject / 270 / *DONE
-    select (find_all synonym) / 275 / *DONE
-    sort / 280 / *DONE
-    sort_by / 290 / *DONE
-    zip / 300 / *DONE
+  all? / 100 / *DONE
+  any? / 110 / *DONE
+  collect (map synonym) / 120, 130 / *DONE / See comments
+  detect (find synonym) / 140, 150 / *DONE
+  each_with_index / 160 / *DONE
+  entries (to_a synonym) / 170, 180 / *DONE
+  find_all (select synonym) / 190 / *DONE
+  grep / 200 / *DONE / See comments
+  include? (member? synonym) / 210 / *DONE
+  inject / 220 / *DONE
+  max / 230 / *DONE
+  member? (include? synonym) / 240 / *DONE
+  min / 250 / *DONE
+  partition / 260 / *DONE
+  reject / 270 / *DONE
+  select (find_all synonym) / 275 / *DONE
+  sort / 280 / *DONE
+  sort_by / 290 / *DONE
+  zip / 300 / *DONE
 
 =end
 
-    #--
-    # all? / 100 / *DONE
-    #++
-    #
-    # Test the <tt>all?</tt> method.
-    #
-    def test_100_allq
-      @@log.debug "test_100_allq starts" if @@log.debug?
-      assert_respond_to(@list, :all?, "test_100_allq_respond")
+  #--
+  # all? / 100 / *DONE
+  #++
+  #
+  # Test the <tt>all?</tt> method.
+  #
+  def test_100_allq
+    @@log.debug "test_100_allq starts" if @@log.debug?
+    assert_respond_to(@list, :all?, "test_100_allq_respond")
 
-      assert(@list.all?,"test_100_allq_basic")
-      result = @list.all? {|obj| true}
-      assert(result, "test_100_allq_block_01")
-      result = @list.all? {|obj| obj.ndata == 123 }
-      assert(result == false, "test_100_allq_block_02")
+    assert(@list.all?,"test_100_allq_basic")
+    result = @list.all? {|obj| true}
+    assert(result, "test_100_allq_block_01")
+    result = @list.all? {|obj| obj.ndata == 123 }
+    assert(result == false, "test_100_allq_block_02")
 
-      @@log.debug "test_100_allq ends" if @@log.debug?
+    @@log.debug "test_100_allq ends" if @@log.debug?
+  end
+
+  #--
+  # any? / 110 / *DONE
+  #++
+  #
+  # Test the <tt>any?</tt> method.
+  #
+  def test_110_anyq
+    @@log.debug "test_110_anyq starts" if @@log.debug?
+    assert_respond_to(@list, :any?, "test_110_anyq_respond")
+
+    assert(@list.any?, "test_110_anyq_basic")
+    result = @list.any? {|obj| true}
+    assert(result, "test_100_anyq_block_01")
+    result = @list.any? {|obj| obj.ndata == 3 }
+    assert(result, "test_100_anyq_block_02")
+
+    @@log.debug "test_110_anyq ends" if @@log.debug?
+  end
+
+  #--
+  # collect (map synonym) / 120 / *DONE / See comments
+  #++
+  #
+  # Test the +collect+ method.
+  #
+  def test_120_collect
+    @@log.debug "test_120_collect starts" if @@log.debug?
+    assert_respond_to(@list, :collect, "test_120_collect_respond")
+
+    #
+    new_list = @list.collect { "dummy" }
+    assert(new_list.size == @list.size,"test_120_collect_basic")
+    assert(new_list[@list.size - 1] == "dummy","test_120_collect_sizecheck")
+    # Something else needs to be done for testing.  What is practical?
+
+    @@log.debug "test_120_collect ends" if @@log.debug?
+  end
+
+  #--
+  #  map (collect synonym) / 130 / *DONE / See comments
+  #++
+  #
+  # Test the +map+ method.
+  #
+  def test_130_map
+    @@log.debug "test_130_map starts" if @@log.debug?
+    assert_respond_to(@list, :map, "test_130_map_respond")
+
+    #
+    new_list = @list.map { "dummy" }
+    assert(new_list.size == @list.size,"test_130_map_basic")
+    assert(new_list[@list.size - 1] == "dummy","test_130_map_sizecheck")
+    # Something else needs to be done for testing.  What is practical?
+
+    @@log.debug "test_130_map ends" if @@log.debug?
+  end
+
+  #--
+  # detect (find synonym) / 140 / *DONE
+  #++
+  #
+  # Test the +detect+ method.
+  #
+  def test_140_detect
+    @@log.debug "test_140_detect starts" if @@log.debug?
+    assert_respond_to(@list, :detect, "test_140_detect_respond")
+
+    mdx = @list.detect {|obj| obj.ndata == 3 }
+    assert_equal(@mdc, mdx, "test_140_detect_feq_01")
+    sorry = lambda { "not found" }
+    mdx = @list.detect(sorry) {|obj| obj.ndata == 999 }      
+    assert_equal("not found", mdx, "test_140_detect_feq_02")
+
+    @@log.debug "test_140_detect ends" if @@log.debug?
+  end
+
+  #--
+  # find (detect synonym) / 150 / *DONE
+  #++
+  #
+  # Test the +find+ method.
+  #
+  def test_150_find
+    @@log.debug "test_150_find starts" if @@log.debug?
+    assert_respond_to(@list, :find, "test_150_find_respond")
+
+    mdx = @list.find {|obj| obj.ndata == 3 }
+    assert_equal(@mdc, mdx, "test_150_find_feq_01")
+    sorry = lambda { "not found" }
+    mdx = @list.find(sorry) {|obj| obj.ndata == 999 }      
+    assert_equal("not found", mdx, "test_150_find_feq_02")
+
+    @@log.debug "test_150_find ends" if @@log.debug?
+  end
+
+  #--
+  # each_with_index / 160 / *DONE
+  #++
+  #
+  # Test the +each_with_index+ method.
+  #
+  def test_160_each_with_index
+    @@log.debug "test_160_each_with_index starts" if @@log.debug?
+    assert_respond_to(@list, :each_with_index, "test_160_each_with_index_respond")
+
+    ta = []
+    @list.each_with_index do |obj, ndx|
+      ta << "#{obj.ndata}-#{ndx}"
     end
+    assert_equal(["123-0", "2-1", "3-2", "4-3"], ta, "test_160_each_with_index_basic")
 
-    #--
-    # any? / 110 / *DONE
-    #++
+    @@log.debug "test_160_each_with_index ends" if @@log.debug?
+  end
+
+  #--
+  # entries (to_a synonym) / 170 / *DONE
+  #++
+  #
+  # Test the +entries+ method.
+  #
+  def test_170_entries
+    @@log.debug "test_170_entries starts" if @@log.debug?
+    assert_respond_to(@list, :entries, "test_170_entries_respond")
+
+    ta = @list.entries
+    assert_equal([@mda, @mdb, @mdc, @mdd], ta, "test_170_entries_basic")
+
+    @@log.debug "test_170_entries ends" if @@log.debug?
+  end
+
+  #--
+  # to_a (entries synonym) / 180 / *DONE
+  #++
+  #
+  # Test the +to_a+ method.
+  #
+  def test_180_to_a
+    @@log.debug "test_180_to_a starts" if @@log.debug?
+    assert_respond_to(@list, :to_a, "test_180_to_a_respond")
+
+    ta = @list.to_a
+    assert_equal([@mda, @mdb, @mdc, @mdd], ta, "test_180_to_a_basic")
+
+    @@log.debug "test_180_to_a ends" if @@log.debug?
+  end
+
+  #--
+  # find_all (select synonym) / 190 / *DONE
+  #++
+  #
+  # Test the +find_all+ method.
+  #
+  def test_190_find_all
+    @@log.debug "test_190_find_all starts" if @@log.debug?
+    assert_respond_to(@list, :find_all, "test_190_find_all_respond")
+
+    ta = @list.find_all {|obj| obj.ndata <= 3 }
+    assert_equal([@mdb, @mdc], ta, "test_190_find_all_eq01")
+
+    @@log.debug "test_190_find_all ends" if @@log.debug?
+  end
+
+  #--
+  # grep / 200 / *DONE
+  #++
+  #
+  # Test the +grep+ method.
+  #
+  def test_200_grep
+    @@log.debug "test_200_grep starts" if @@log.debug?
+    assert_respond_to(@list, :grep, "test_200_grep_respond")
+
+    # very contrived
+    @list.append("aaa")
+    @list.append(456)
+    ta = @list.grep(MyData)
+    assert_equal([@mda, @mdb, @mdc, @mdd], ta, "test_200_grep_class")
+
+    @@log.debug "test_200_grep ends" if @@log.debug?
+  end
+
+  #--
+  # include? / 210 / *DONE
+  #++
+  #
+  # Test the <tt>include?</tt> method.
+  #
+  def test_210_includeq
+    @@log.debug "test_210_includeq starts" if @@log.debug?
+    assert_respond_to(@list, :include?, "test_210_includeq_respond")
+
+    assert(@list.include?(@mdb),"test_210_includeq_basic")
+    ta = MyData.new("XYZ", 456)
+    assert(@list.include?(ta) == false,"test_210_includeq_backwards")
+
+    @@log.debug "test_210_includeq ends" if @@log.debug?
+  end
+
+  #--
+  # inject / 220 / *DONE
+  #++
+  #
+  # Test the +inject+ method.
+  #
+  def test_220_inject
+    @@log.debug "test_220_inject starts" if @@log.debug?
+    assert_respond_to(@list, :inject, "test_220_inject_respond")
+
+    sumnd = @list.inject(0) {|memo, obj| memo + obj.ndata }
+    assert_equal(132, sumnd, "test_220_inject_sumnd")
+
+    catsd = @list.inject("") {|memo, obj| "#{memo}#{obj.sdata}" }
+    assert_equal("AA12BB1CA1234DB123", catsd, "test_220_inject_catsd")
+
+    @@log.debug "test_220_inject ends" if @@log.debug?
+  end
+
+  #--
+  # max / 230 / *DONE
+  #++
+  #
+  # Test the +max+ method.
+  #
+  def test_230_max
+    @@log.debug "test_230_max starts" if @@log.debug?
+    assert_respond_to(@list, :max, "test_230_max_respond")
+
+    assert_equal(123, @list.max.ndata, "test_230_max_basic")
+
+    @@log.debug "test_230_max ends" if @@log.debug?
+  end
+
+  #--
+  # member? / 240 / *DONE
+  #++
+  #
+  # Test the <tt>member?</tt> method.
+  #
+  def test_240_memberq
+    @@log.debug "test_240_memberq starts" if @@log.debug?
+    assert_respond_to(@list, :member?, "test_240_memberq_respond")
+
+    assert(@list.member?(@mdb),"test_240_memberq_basic")
+    ta = MyData.new("XYZ", 456)
+    assert(@list.member?(ta) == false,"test_240_memberq_backwards")
+
+    @@log.debug "test_240_memberq ends" if @@log.debug?
+  end
+
+  #--
+  # min / 250 / *DONE
+  #++
+  #
+  # Test the +min+ method.
+  #
+  def test_250_min
+    @@log.debug "test_250_min starts" if @@log.debug?
+    assert_respond_to(@list, :min, "test_250_min_respond")
+
+    assert_equal(2, @list.min.ndata, "test_250_min_basic")
+
+    @@log.debug "test_250_min ends" if @@log.debug?
+  end
+
+  #--
+  # partition / 260 / *DONE
+  #++
+  #
+  # Test the +partition+ method.
+  #
+  def test_260_partition
+    @@log.debug "test_260_partition starts" if @@log.debug?
+    assert_respond_to(@list, :partition, "test_260_partition_respond")
+
+    ta = @list.partition {|obj| obj.ndata <= 3 }
+    assert_equal(2, ta.size,"test_260_partition_basic_01")
+    assert_equal([@mdb, @mdc], ta[0], "test_260_partition_basic_02")
+    assert_equal([@mda, @mdd], ta[1], "test_260_partition_basic_03")
+
+    @@log.debug "test_260_partition ends" if @@log.debug?
+  end
+
+  #--
+  # reject / 270 / *DONE
+  #++
+  #
+  # Test the +reject+ method.
+  #
+  def test_270_reject
+    @@log.debug "test_270_reject starts" if @@log.debug?
+    assert_respond_to(@list, :reject, "test_270_reject_respond")
+
+    ta = @list.reject {|obj| obj.ndata <= 3 }
+    assert_equal([@mda, @mdd], ta, "test_270_reject_eq01")
+
+    @@log.debug "test_270_reject ends" if @@log.debug?
+  end
+
+  #--
+  # select (find_all synonym) / 275 / *DONE
+  #++
+  #
+  # Test the +select+ method.
+  #
+  def test_275_select
+    @@log.debug "test_275_select starts" if @@log.debug?
+    assert_respond_to(@list, :select, "test_275_select_respond")
+
+    ta = @list.select {|obj| obj.ndata <= 3 }
+    assert_equal([@mdb, @mdc], ta, "test_275_select_eq01")
+
+    @@log.debug "test_275_select ends" if @@log.debug?
+  end
+
+  #--
+  # sort / 280 / *DONE
+  #++
+  #
+  # Test the +sort+ method.
+  #
+  def test_280_sort
+    @@log.debug "test_280_sort starts" if @@log.debug?
+    assert_respond_to(@list, :sort, "test_280_sort_respond")
+
+    ta = @list.sort
+    assert_equal([@mdb, @mdc, @mdd, @mda], ta, "test_280_sort_basic")
+
+    @@log.debug "test_280_sort ends" if @@log.debug?
+  end
+
+  #--
+  # sort_by / 290 / *DONE
+  #++
+  #
+  # Test the +sort_by+ method.
+  #
+  def test_290_sort_by
+    @@log.debug "test_290_sort_by starts" if @@log.debug?
+    assert_respond_to(@list, :sort_by, "test_290_sort_by_respond")
+
+    ta = @list.sort_by {|obj| obj.sdata.length }
+    assert_equal([@mdb, @mda, @mdd, @mdc], ta, "test_290_sort_by_basic")
+
+    @@log.debug "test_290_sort_by ends" if @@log.debug?
+  end
+
+  #--
+  # zip / 300 / *DONE
+  #++
+  #
+  # Test the +zip+ method.
+  #
+  def test_300_zip
+    @@log.debug "test_300_zip starts" if @@log.debug?
+    assert_respond_to(@list, :zip, "test_300_zip_respond")
+
+    a = [1]
+    b = [2,3]
+    c = [4,5,6]
+    ta = @list.zip(a, b, c)
     #
-    # Test the <tt>any?</tt> method.
+    te = [[@mda, 1, 2, 4], 
+          [@mdb, nil, 3, 5], 
+          [@mdc, nil, nil, 6], 
+          [@mdd, nil, nil, nil]]
     #
-    def test_110_anyq
-      @@log.debug "test_110_anyq starts" if @@log.debug?
-      assert_respond_to(@list, :any?, "test_110_anyq_respond")
+    assert_equal(te, ta, "test_300_zip_basic")
 
-      assert(@list.any?, "test_110_anyq_basic")
-      result = @list.any? {|obj| true}
-      assert(result, "test_100_anyq_block_01")
-      result = @list.any? {|obj| obj.ndata == 3 }
-      assert(result, "test_100_anyq_block_02")
-
-      @@log.debug "test_110_anyq ends" if @@log.debug?
-    end
-
-    #--
-    # collect (map synonym) / 120 / *DONE / See comments
-    #++
-    #
-    # Test the +collect+ method.
-    #
-    def test_120_collect
-      @@log.debug "test_120_collect starts" if @@log.debug?
-      assert_respond_to(@list, :collect, "test_120_collect_respond")
-
-      #
-      new_list = @list.collect { "dummy" }
-      assert(new_list.size == @list.size,"test_120_collect_basic")
-      assert(new_list[@list.size - 1] == "dummy","test_120_collect_sizecheck")
-      # Something else needs to be done for testing.  What is practical?
-
-      @@log.debug "test_120_collect ends" if @@log.debug?
-    end
-
-    #--
-    #  map (collect synonym) / 130 / *DONE / See comments
-    #++
-    #
-    # Test the +map+ method.
-    #
-    def test_130_map
-      @@log.debug "test_130_map starts" if @@log.debug?
-      assert_respond_to(@list, :map, "test_130_map_respond")
-
-      #
-      new_list = @list.map { "dummy" }
-      assert(new_list.size == @list.size,"test_130_map_basic")
-      assert(new_list[@list.size - 1] == "dummy","test_130_map_sizecheck")
-      # Something else needs to be done for testing.  What is practical?
-
-      @@log.debug "test_130_map ends" if @@log.debug?
-    end
-
-    #--
-    # detect (find synonym) / 140 / *DONE
-    #++
-    #
-    # Test the +detect+ method.
-    #
-    def test_140_detect
-      @@log.debug "test_140_detect starts" if @@log.debug?
-      assert_respond_to(@list, :detect, "test_140_detect_respond")
-
-      mdx = @list.detect {|obj| obj.ndata == 3 }
-      assert_equal(@mdc, mdx, "test_140_detect_feq_01")
-      sorry = lambda { "not found" }
-      mdx = @list.detect(sorry) {|obj| obj.ndata == 999 }      
-      assert_equal("not found", mdx, "test_140_detect_feq_02")
-
-      @@log.debug "test_140_detect ends" if @@log.debug?
-    end
-
-    #--
-    # find (detect synonym) / 150 / *DONE
-    #++
-    #
-    # Test the +find+ method.
-    #
-    def test_150_find
-      @@log.debug "test_150_find starts" if @@log.debug?
-      assert_respond_to(@list, :find, "test_150_find_respond")
-
-      mdx = @list.find {|obj| obj.ndata == 3 }
-      assert_equal(@mdc, mdx, "test_150_find_feq_01")
-      sorry = lambda { "not found" }
-      mdx = @list.find(sorry) {|obj| obj.ndata == 999 }      
-      assert_equal("not found", mdx, "test_150_find_feq_02")
-
-      @@log.debug "test_150_find ends" if @@log.debug?
-    end
-
-    #--
-    # each_with_index / 160 / *DONE
-    #++
-    #
-    # Test the +each_with_index+ method.
-    #
-    def test_160_each_with_index
-      @@log.debug "test_160_each_with_index starts" if @@log.debug?
-      assert_respond_to(@list, :each_with_index, "test_160_each_with_index_respond")
-
-      ta = []
-      @list.each_with_index do |obj, ndx|
-        ta << "#{obj.ndata}-#{ndx}"
-      end
-      assert_equal(["123-0", "2-1", "3-2", "4-3"], ta, "test_160_each_with_index_basic")
-
-      @@log.debug "test_160_each_with_index ends" if @@log.debug?
-    end
-
-    #--
-    # entries (to_a synonym) / 170 / *DONE
-    #++
-    #
-    # Test the +entries+ method.
-    #
-    def test_170_entries
-      @@log.debug "test_170_entries starts" if @@log.debug?
-      assert_respond_to(@list, :entries, "test_170_entries_respond")
-
-      ta = @list.entries
-      assert_equal([@mda, @mdb, @mdc, @mdd], ta, "test_170_entries_basic")
-
-      @@log.debug "test_170_entries ends" if @@log.debug?
-    end
-
-    #--
-    # to_a (entries synonym) / 180 / *DONE
-    #++
-    #
-    # Test the +to_a+ method.
-    #
-    def test_180_to_a
-      @@log.debug "test_180_to_a starts" if @@log.debug?
-      assert_respond_to(@list, :to_a, "test_180_to_a_respond")
-
-      ta = @list.to_a
-      assert_equal([@mda, @mdb, @mdc, @mdd], ta, "test_180_to_a_basic")
-
-      @@log.debug "test_180_to_a ends" if @@log.debug?
-    end
-
-    #--
-    # find_all (select synonym) / 190 / *DONE
-    #++
-    #
-    # Test the +find_all+ method.
-    #
-    def test_190_find_all
-      @@log.debug "test_190_find_all starts" if @@log.debug?
-      assert_respond_to(@list, :find_all, "test_190_find_all_respond")
-
-      ta = @list.find_all {|obj| obj.ndata <= 3 }
-      assert_equal([@mdb, @mdc], ta, "test_190_find_all_eq01")
-
-      @@log.debug "test_190_find_all ends" if @@log.debug?
-    end
-
-    #--
-    # grep / 200 / *DONE
-    #++
-    #
-    # Test the +grep+ method.
-    #
-    def test_200_grep
-      @@log.debug "test_200_grep starts" if @@log.debug?
-      assert_respond_to(@list, :grep, "test_200_grep_respond")
-
-      # very contrived
-      @list.append("aaa")
-      @list.append(456)
-      ta = @list.grep(MyData)
-      assert_equal([@mda, @mdb, @mdc, @mdd], ta, "test_200_grep_class")
-
-      @@log.debug "test_200_grep ends" if @@log.debug?
-    end
-
-    #--
-    # include? / 210 / *DONE
-    #++
-    #
-    # Test the <tt>include?</tt> method.
-    #
-    def test_210_includeq
-      @@log.debug "test_210_includeq starts" if @@log.debug?
-      assert_respond_to(@list, :include?, "test_210_includeq_respond")
-
-      assert(@list.include?(@mdb),"test_210_includeq_basic")
-      ta = MyData.new("XYZ", 456)
-      assert(@list.include?(ta) == false,"test_210_includeq_backwards")
-
-      @@log.debug "test_210_includeq ends" if @@log.debug?
-    end
-
-    #--
-    # inject / 220 / *DONE
-    #++
-    #
-    # Test the +inject+ method.
-    #
-    def test_220_inject
-      @@log.debug "test_220_inject starts" if @@log.debug?
-      assert_respond_to(@list, :inject, "test_220_inject_respond")
-
-      sumnd = @list.inject(0) {|memo, obj| memo + obj.ndata }
-      assert_equal(132, sumnd, "test_220_inject_sumnd")
-
-      catsd = @list.inject("") {|memo, obj| "#{memo}#{obj.sdata}" }
-      assert_equal("AA12BB1CA1234DB123", catsd, "test_220_inject_catsd")
-
-      @@log.debug "test_220_inject ends" if @@log.debug?
-    end
-
-    #--
-    # max / 230 / *DONE
-    #++
-    #
-    # Test the +max+ method.
-    #
-    def test_230_max
-      @@log.debug "test_230_max starts" if @@log.debug?
-      assert_respond_to(@list, :max, "test_230_max_respond")
-
-      assert_equal(123, @list.max.ndata, "test_230_max_basic")
-
-      @@log.debug "test_230_max ends" if @@log.debug?
-    end
-
-    #--
-    # member? / 240 / *DONE
-    #++
-    #
-    # Test the <tt>member?</tt> method.
-    #
-    def test_240_memberq
-      @@log.debug "test_240_memberq starts" if @@log.debug?
-      assert_respond_to(@list, :member?, "test_240_memberq_respond")
-
-      assert(@list.member?(@mdb),"test_240_memberq_basic")
-      ta = MyData.new("XYZ", 456)
-      assert(@list.member?(ta) == false,"test_240_memberq_backwards")
-
-      @@log.debug "test_240_memberq ends" if @@log.debug?
-    end
-
-    #--
-    # min / 250 / *DONE
-    #++
-    #
-    # Test the +min+ method.
-    #
-    def test_250_min
-      @@log.debug "test_250_min starts" if @@log.debug?
-      assert_respond_to(@list, :min, "test_250_min_respond")
-
-      assert_equal(2, @list.min.ndata, "test_250_min_basic")
-
-      @@log.debug "test_250_min ends" if @@log.debug?
-    end
-
-    #--
-    # partition / 260 / *DONE
-    #++
-    #
-    # Test the +partition+ method.
-    #
-    def test_260_partition
-      @@log.debug "test_260_partition starts" if @@log.debug?
-      assert_respond_to(@list, :partition, "test_260_partition_respond")
-
-      ta = @list.partition {|obj| obj.ndata <= 3 }
-      assert_equal(2, ta.size,"test_260_partition_basic_01")
-      assert_equal([@mdb, @mdc], ta[0], "test_260_partition_basic_02")
-      assert_equal([@mda, @mdd], ta[1], "test_260_partition_basic_03")
-
-      @@log.debug "test_260_partition ends" if @@log.debug?
-    end
-
-    #--
-    # reject / 270 / *DONE
-    #++
-    #
-    # Test the +reject+ method.
-    #
-    def test_270_reject
-      @@log.debug "test_270_reject starts" if @@log.debug?
-      assert_respond_to(@list, :reject, "test_270_reject_respond")
-
-      ta = @list.reject {|obj| obj.ndata <= 3 }
-      assert_equal([@mda, @mdd], ta, "test_270_reject_eq01")
-
-      @@log.debug "test_270_reject ends" if @@log.debug?
-    end
-
-    #--
-    # select (find_all synonym) / 275 / *DONE
-    #++
-    #
-    # Test the +select+ method.
-    #
-    def test_275_select
-      @@log.debug "test_275_select starts" if @@log.debug?
-      assert_respond_to(@list, :select, "test_275_select_respond")
-
-      ta = @list.select {|obj| obj.ndata <= 3 }
-      assert_equal([@mdb, @mdc], ta, "test_275_select_eq01")
-
-      @@log.debug "test_275_select ends" if @@log.debug?
-    end
-
-    #--
-    # sort / 280 / *DONE
-    #++
-    #
-    # Test the +sort+ method.
-    #
-    def test_280_sort
-      @@log.debug "test_280_sort starts" if @@log.debug?
-      assert_respond_to(@list, :sort, "test_280_sort_respond")
-
-      ta = @list.sort
-      assert_equal([@mdb, @mdc, @mdd, @mda], ta, "test_280_sort_basic")
-
-      @@log.debug "test_280_sort ends" if @@log.debug?
-    end
-
-    #--
-    # sort_by / 290 / *DONE
-    #++
-    #
-    # Test the +sort_by+ method.
-    #
-    def test_290_sort_by
-      @@log.debug "test_290_sort_by starts" if @@log.debug?
-      assert_respond_to(@list, :sort_by, "test_290_sort_by_respond")
-
-      ta = @list.sort_by {|obj| obj.sdata.length }
-      assert_equal([@mdb, @mda, @mdd, @mdc], ta, "test_290_sort_by_basic")
-
-      @@log.debug "test_290_sort_by ends" if @@log.debug?
-    end
-
-    #--
-    # zip / 300 / *DONE
-    #++
-    #
-    # Test the +zip+ method.
-    #
-    def test_300_zip
-      @@log.debug "test_300_zip starts" if @@log.debug?
-      assert_respond_to(@list, :zip, "test_300_zip_respond")
-
-      a = [1]
-      b = [2,3]
-      c = [4,5,6]
-      ta = @list.zip(a, b, c)
-      #
-      te = [[@mda, 1, 2, 4], 
-            [@mdb, nil, 3, 5], 
-            [@mdc, nil, nil, 6], 
-            [@mdd, nil, nil, nil]]
-      #
-      assert_equal(te, ta, "test_300_zip_basic")
-
-      @@log.debug "test_300_zip ends" if @@log.debug?
-    end
+    @@log.debug "test_300_zip ends" if @@log.debug?
+  end
 
 endend # of Module Colldemo
 
