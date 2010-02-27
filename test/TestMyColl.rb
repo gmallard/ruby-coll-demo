@@ -521,6 +521,39 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_300_zip ends" if @@log.debug?
   end
   #
+if RUBY_VERSION =~ /(1.9)|(2.)/
+=begin
+
+  Test methods provided by Enumerable mixin for ruby 1.9+
+
+  To be tested:
+
+//  count / ### / * NEW, TBD
+//  cycle / ### / * NEW, TBD
+//  drop / ### / * NEW, TBD
+//  drop_while / ### / * NEW, TBD
+//  each_cons / ### / * NEW, TBD
+//  each_slice / ### / * NEW, TBD
+//  each_with_object / ### / * NEW, TBD
+//  find_index / ### / * NEW, TBD
+//  first / ### / * NEW, TBD
+//  group_by / ### / * NEW, TBD
+//  inject / 220, ### / * MOD1.9, TBD
+//  max_by / ### / * NEW, TBD
+//  min_by / ### / * NEW, TBD
+//  minmax / ### / * NEW, TBD
+//  minmax_by / ### / * NEW, TBD
+//  none? / ### / * NEW, TBD
+//  one? / ### / * NEW, TBD
+//  reduce (inject synonym)  / ### / * NEW, TBD
+//  reverse_each / ### / * NEW, TBD
+//  take / ### / * NEW, TBD
+//  take_while / ### / * NEW, TBD
+//  to_a / ### / * NEW, TBD
+
+=end
+end # of ruby 1.9+ code
+
 end # of class TestMyColl
 end # of module Colldemo
 
