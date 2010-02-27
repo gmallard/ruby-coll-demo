@@ -528,30 +528,295 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 
   To be tested:
 
-//  count / ### / * NEW, TBD
-//  cycle / ### / * NEW, TBD
-//  drop / ### / * NEW, TBD
-//  drop_while / ### / * NEW, TBD
-//  each_cons / ### / * NEW, TBD
-//  each_slice / ### / * NEW, TBD
-//  each_with_object / ### / * NEW, TBD
-//  find_index / ### / * NEW, TBD
-//  first / ### / * NEW, TBD
-//  group_by / ### / * NEW, TBD
-//  inject / 220, ### / * MOD1.9, TBD
-//  max_by / ### / * NEW, TBD
-//  min_by / ### / * NEW, TBD
-//  minmax / ### / * NEW, TBD
-//  minmax_by / ### / * NEW, TBD
-//  none? / ### / * NEW, TBD
-//  one? / ### / * NEW, TBD
-//  reduce (inject synonym)  / ### / * NEW, TBD
-//  reverse_each / ### / * NEW, TBD
-//  take / ### / * NEW, TBD
-//  take_while / ### / * NEW, TBD
-//  to_a / ### / * NEW, TBD
+//  count / 600 / * NEW, TBD
+//  cycle / 610 / * NEW, TBD
+//  drop / 620 / * NEW, TBD
+//  drop_while / 630 / * NEW, TBD
+//  each_cons / 640 / * NEW, TBD
+//  each_slice / 650 / * NEW, TBD
+//  each_with_object / 660 / * NEW, TBD
+//  find_index / 670 / * NEW, TBD
+//  first / 680 / * NEW, TBD
+//  group_by / 690 / * NEW, TBD
+//  inject / 700 / * MOD1.9, TBD
+//  max_by / 710 / * NEW, TBD
+//  min_by / 720 / * NEW, TBD
+//  minmax / 730 / * NEW, TBD
+//  minmax_by / 740 / * NEW, TBD
+//  none? / 750 / * NEW, TBD
+//  one? / 760 / * NEW, TBD
+//  reduce (inject synonym)  / 770 / * NEW, TBD
+//  reverse_each / 780 / * NEW, TBD
+//  take / 790 / * NEW, TBD
+//  take_while / 800 / * NEW, TBD
+//  to_a / 810 / * NEW, TBD
 
 =end
+
+  #--
+  # count / 600 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>count</tt> method.
+  #
+  def test_600_count
+    @@log.debug "test_600_count starts" if @@log.debug?
+    flunk("FIXME test_600_count")
+    @@log.debug "test_600_count ends" if @@log.debug?
+  end
+
+  #--
+  # cycle / 610 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>cycle</tt> method.
+  #
+  def test_610_cycle
+    @@log.debug "test_610_cycle starts" if @@log.debug?
+    flunk("FIXME test_610_cycle")
+    @@log.debug "test_610_cycle ends" if @@log.debug?
+  end
+
+  #--
+  # drop / 620 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>drop</tt> method.
+  #
+  def test_620_drop
+    @@log.debug "test_620_drop starts" if @@log.debug?
+    flunk("FIXME test_620_drop")
+    @@log.debug "test_620_drop ends" if @@log.debug?
+  end
+
+  #--
+  # drop_while / 630 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>drop_while</tt> method.
+  #
+  def test_630_drop_while
+    @@log.debug "test_630_drop_while starts" if @@log.debug?
+    flunk("FIXME test_630_drop_while")
+    @@log.debug "test_630_drop_while ends" if @@log.debug?
+  end
+
+  #--
+  # each_cons / 640 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>each_cons</tt> method.
+  #
+  def test_640_each_cons
+    @@log.debug "test_640_each_cons starts" if @@log.debug?
+    flunk("FIXME test_640_each_cons")
+    @@log.debug "test_640_each_cons ends" if @@log.debug?
+  end
+
+  #--
+  # each_slice / 650 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>each_slice</tt> method.
+  #
+  def test_650_each_slice
+    @@log.debug "test_650_each_slice starts" if @@log.debug?
+    flunk("FIXME test_650_each_slice")
+    @@log.debug "test_650_each_slice ends" if @@log.debug?
+  end
+
+  #--
+  # each_with_object / 660 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>each_with_object</tt> method.
+  #
+  def test_660_each_with_object
+    @@log.debug "test_660_each_with_object starts" if @@log.debug?
+    flunk("FIXME test_660_each_with_object")
+    @@log.debug "test_660_each_with_object ends" if @@log.debug?
+  end
+
+  #--
+  # find_index / 670 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>find_index</tt> method.
+  #
+  def test_670_find_index
+    @@log.debug "test_670_find_index starts" if @@log.debug?
+    flunk("FIXME test_670_find_index")
+    @@log.debug "test_670_find_index ends" if @@log.debug?
+  end
+
+  #--
+  # first / 680 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>first</tt> method.
+  #
+  def test_680_first
+    @@log.debug "test_680_first starts" if @@log.debug?
+    flunk("FIXME test_680_first")
+    @@log.debug "test_680_first ends" if @@log.debug?
+  end
+
+  #--
+  # group_by / 690 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>group_by</tt> method.
+  #
+  def test_690_group_by
+    @@log.debug "test_690_group_by starts" if @@log.debug?
+    flunk("FIXME test_690_group_by")
+    @@log.debug "test_690_group_by ends" if @@log.debug?
+  end
+
+  #--
+  # inject / 700 / * MOD1.9, TBD
+  #++
+  #
+  # Test the <tt>inject</tt> method.
+  #
+  def test_700_inject
+    @@log.debug "test_700_inject starts" if @@log.debug?
+    flunk("FIXME test_700_inject")
+    @@log.debug "test_700_inject ends" if @@log.debug?
+  end
+
+  #--
+  # max_by / 710 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>max_by</tt> method.
+  #
+  def test_710_max_by
+    @@log.debug "test_710_max_by starts" if @@log.debug?
+    flunk("FIXME test_710_max_by")
+    @@log.debug "test_710_max_by ends" if @@log.debug?
+  end
+
+  #--
+  # min_by / 720 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>min_by</tt> method.
+  #
+  def test_720_min_by
+    @@log.debug "test_720_min_by starts" if @@log.debug?
+    flunk("FIXME test_720_min_by")
+    @@log.debug "test_720_min_by ends" if @@log.debug?
+  end
+
+  #--
+  # minmax / 730 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>minmax</tt> method.
+  #
+  def test_730_minmax
+    @@log.debug "test_730_minmax starts" if @@log.debug?
+    flunk("FIXME test_730_minmax")
+    @@log.debug "test_730_minmax ends" if @@log.debug?
+  end
+
+  #--
+  # minmax_by / 740 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>minmax_by</tt> method.
+  #
+  def test_740_minmax_by
+    @@log.debug "test_740_minmax_by starts" if @@log.debug?
+    flunk("FIXME test_740_minmax_by")
+    @@log.debug "test_740_minmax_by ends" if @@log.debug?
+  end
+
+  #--
+  # none? / 750 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>none?</tt> method.
+  #
+  def test_750_none?
+    @@log.debug "test_750_none? starts" if @@log.debug?
+    flunk("FIXME test_750_none?")
+    @@log.debug "test_750_none? ends" if @@log.debug?
+  end
+
+  #--
+  # one? / 760 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>one?</tt> method.
+  #
+  def test_760_one?
+    @@log.debug "test_760_one? starts" if @@log.debug?
+    flunk("FIXME test_760_one?")
+    @@log.debug "test_760_one? ends" if @@log.debug?
+  end
+
+  #--
+  # reduce / 770 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>reduce</tt> method.
+  #
+  def test_770_reduce
+    @@log.debug "test_770_reduce starts" if @@log.debug?
+    flunk("FIXME test_770_reduce")
+    @@log.debug "test_770_reduce ends" if @@log.debug?
+  end
+
+  #--
+  # reverse_each / 780 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>reverse_each</tt> method.
+  #
+  def test_780_reverse_each
+    @@log.debug "test_780_reverse_each starts" if @@log.debug?
+    flunk("FIXME test_780_reverse_each")
+    @@log.debug "test_780_reverse_each ends" if @@log.debug?
+  end
+
+  #--
+  # take / 790 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>take</tt> method.
+  #
+  def test_790_take
+    @@log.debug "test_790_take starts" if @@log.debug?
+    flunk("FIXME test_790_take")
+    @@log.debug "test_790_take ends" if @@log.debug?
+  end
+
+  #--
+  # take_while / 800 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>take_while</tt> method.
+  #
+  def test_800_take_while
+    @@log.debug "test_800_take_while starts" if @@log.debug?
+    flunk("FIXME test_800_take_while")
+    @@log.debug "test_800_take_while ends" if @@log.debug?
+  end
+
+  #--
+  # to_a / 810 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>to_a</tt> method.
+  #
+  def test_810_to_a
+    @@log.debug "test_810_to_a starts" if @@log.debug?
+    flunk("FIXME test_810_to_a")
+    @@log.debug "test_810_to_a ends" if @@log.debug?
+  end
+
 end # of ruby 1.9+ code
 
 end # of class TestMyColl
