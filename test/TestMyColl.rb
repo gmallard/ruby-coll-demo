@@ -520,6 +520,7 @@ class TestMyColl < Test::Unit::TestCase
 
     @@log.debug "test_300_zip ends" if @@log.debug?
   end
-
-endend # of Module Colldemo
+  #
+end # of class TestMyColl
+end # of module Colldemo
 
