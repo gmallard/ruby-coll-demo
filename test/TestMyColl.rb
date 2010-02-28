@@ -536,7 +536,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  each_slice / 650 / * DONE
 //  each_with_index / 655 / * DONE
 //  each_with_object / 660 / * DONE
-//  find_index / 670 / * NEW, TBD
+//  find_index / 670 / * DONE
 //  first / 680 / * NEW, TBD
 //  group_by / 690 / * NEW, TBD
 //  inject / 700 / * MOD1.9, TBD
@@ -756,7 +756,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # find_index / 670 / * NEW, TBD
+  # find_index / 670 / * DONE
   #++
   #
   # Test the <tt>find_index</tt> method.
@@ -769,7 +769,12 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     result = enum.is_a? Enumerator
     assert(result,"test_670_find_index_class") 
     #
-    flunk("FIXME test_670_find_index")
+    enum = @list.find_index {|item| false }
+    assert_nil(enum, "test_670_find_index_allfalse")
+    #
+    enum = @list.find_index {|item| item.ndata == 3 }
+    assert(enum == 2, "test_670_find_index_ndata3")
+    #
     @@log.debug "test_670_find_index ends" if @@log.debug?
   end
 
