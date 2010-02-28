@@ -534,7 +534,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  drop_while / 630 / * DONE
 //  each_cons / 640 / * DONE
 //  each_slice / 650 / * DONE
-//  each_with_index / 655 / * NEW, TBD
+//  each_with_index / 655 / * DONE
 //  each_with_object / 660 / * NEW, TBD
 //  find_index / 670 / * NEW, TBD
 //  first / 680 / * NEW, TBD
@@ -699,7 +699,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # each_with_index / 655 / * NEW, TBD
+  # each_with_index / 655 / * DONE
   #++
   #
   # Test the <tt>each_with_index</tt> method.
