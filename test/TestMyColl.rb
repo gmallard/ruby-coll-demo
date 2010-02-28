@@ -530,7 +530,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 
 //  count / 600 / * DONE
 //  cycle / 610 / * DONE
-//  drop / 620 / * NEW, TBD
+//  drop / 620 / * DONE
 //  drop_while / 630 / * NEW, TBD
 //  each_cons / 640 / * NEW, TBD
 //  each_slice / 650 / * NEW, TBD
@@ -592,7 +592,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # drop / 620 / * NEW, TBD
+  # drop / 620 / * DONE
   #++
   #
   # Test the <tt>drop</tt> method.
@@ -600,7 +600,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_620_drop
     @@log.debug "test_620_drop starts" if @@log.debug?
     assert_respond_to(@list, :drop, "test_620_drop_respond")
-    flunk("FIXME test_620_drop")
+    #
+    assert_equal([@mdb, @mdc, @mdd], @list.drop(1), "test_620_drop_one")
+    assert_equal([@mdc, @mdd], @list.drop(2), "test_620_drop_two")
     @@log.debug "test_620_drop ends" if @@log.debug?
   end
 
