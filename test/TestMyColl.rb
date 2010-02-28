@@ -546,7 +546,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  minmax_by / 740 / * NEW, TBD
 //  none? / 750 / * NEW, TBD
 //  one? / 760 / * NEW, TBD
-//  reduce (inject synonym)  / 770 / * NEW, TBD
+//  reduce (inject synonym)  / 770 / * NEW, DONE
 //  reverse_each / 780 / * NEW, TBD
 //  take / 790 / * NEW, TBD
 //  take_while / 800 / * NEW, TBD
@@ -930,7 +930,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # reduce / 770 / * NEW, TBD
+  # reduce / 770 / * NEW, DONE
   #++
   #
   # Test the <tt>reduce</tt> method.
@@ -938,7 +938,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_770_reduce
     @@log.debug "test_770_reduce starts" if @@log.debug?
     assert_respond_to(@list, :reduce, "test_770_reduce_respond")
-    flunk("FIXME test_770_reduce")
+    #
+    test_700_inject
+    # What else?
     @@log.debug "test_770_reduce ends" if @@log.debug?
   end
 
