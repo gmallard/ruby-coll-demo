@@ -533,7 +533,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  drop / 620 / * DONE
 //  drop_while / 630 / * DONE
 //  each_cons / 640 / * DONE
-//  each_slice / 650 / * NEW, TBD
+//  each_slice / 650 / * DONE
 //  each_with_object / 660 / * NEW, TBD
 //  find_index / 670 / * NEW, TBD
 //  first / 680 / * NEW, TBD
@@ -651,13 +651,12 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
         else
           fail("test_640_each_cons_invalid")
       end
-      # p suba
     }
     @@log.debug "test_640_each_cons ends" if @@log.debug?
   end
 
   #--
-  # each_slice / 650 / * NEW, TBD
+  # each_slice / 650 / * DONE
   #++
   #
   # Test the <tt>each_slice</tt> method.
@@ -665,7 +664,36 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_650_each_slice
     @@log.debug "test_650_each_slice starts" if @@log.debug?
     assert_respond_to(@list, :each_slice, "test_650_each_slice_respond")
-    flunk("FIXME test_650_each_slice")
+    #
+    enum = @list.each_slice(2)
+    result = enum.is_a? Enumerator
+    assert(result,"test_650_each_slice_class") 
+    #
+    pass = 0
+    @list.each_slice(2) {|suba|
+      pass += 1
+      case pass
+        when 1
+          assert_equal([@mda, @mdb], suba, "test_650_each_slice_p1")
+        when 2
+          assert_equal([@mdc, @mdd], suba, "test_650_each_slice_p2")
+        else
+          fail("test_650_each_slice_invalid")
+      end
+    }
+    #
+    pass = 0
+    @list.each_slice(3) {|suba|
+      pass += 1
+      case pass
+        when 1
+          assert_equal([@mda, @mdb, @mdc], suba, "test_650_each_slice_p1b")
+        when 2
+          assert_equal([@mdd], suba, "test_650_each_slice_p2b")
+        else
+          fail("test_650_each_slice_invalid_b")
+      end
+    }
     @@log.debug "test_650_each_slice ends" if @@log.debug?
   end
 
