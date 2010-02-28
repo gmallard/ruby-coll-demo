@@ -561,6 +561,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_600_count
     @@log.debug "test_600_count starts" if @@log.debug?
+    assert_respond_to(@list, :count, "test_600_count_respond")
     flunk("FIXME test_600_count")
     @@log.debug "test_600_count ends" if @@log.debug?
   end
@@ -573,6 +574,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_610_cycle
     @@log.debug "test_610_cycle starts" if @@log.debug?
+    assert_respond_to(@list, :cycle, "test_610_cycle_respond")
     flunk("FIXME test_610_cycle")
     @@log.debug "test_610_cycle ends" if @@log.debug?
   end
@@ -585,6 +587,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_620_drop
     @@log.debug "test_620_drop starts" if @@log.debug?
+    assert_respond_to(@list, :drop, "test_620_drop_respond")
     flunk("FIXME test_620_drop")
     @@log.debug "test_620_drop ends" if @@log.debug?
   end
@@ -597,6 +600,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_630_drop_while
     @@log.debug "test_630_drop_while starts" if @@log.debug?
+    assert_respond_to(@list, :drop_while, "test_630_drop_while_respond")
     flunk("FIXME test_630_drop_while")
     @@log.debug "test_630_drop_while ends" if @@log.debug?
   end
@@ -609,6 +613,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_640_each_cons
     @@log.debug "test_640_each_cons starts" if @@log.debug?
+    assert_respond_to(@list, :each_cons, "test_640_each_cons_respond")
     flunk("FIXME test_640_each_cons")
     @@log.debug "test_640_each_cons ends" if @@log.debug?
   end
@@ -621,6 +626,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_650_each_slice
     @@log.debug "test_650_each_slice starts" if @@log.debug?
+    assert_respond_to(@list, :each_slice, "test_650_each_slice_respond")
     flunk("FIXME test_650_each_slice")
     @@log.debug "test_650_each_slice ends" if @@log.debug?
   end
@@ -633,6 +639,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_660_each_with_object
     @@log.debug "test_660_each_with_object starts" if @@log.debug?
+    assert_respond_to(@list, :each_with_object, "test_660_each_with_object_respond")
     flunk("FIXME test_660_each_with_object")
     @@log.debug "test_660_each_with_object ends" if @@log.debug?
   end
@@ -645,6 +652,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_670_find_index
     @@log.debug "test_670_find_index starts" if @@log.debug?
+    assert_respond_to(@list, :find_index, "test_670_find_index_respond")
     flunk("FIXME test_670_find_index")
     @@log.debug "test_670_find_index ends" if @@log.debug?
   end
@@ -657,6 +665,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_680_first
     @@log.debug "test_680_first starts" if @@log.debug?
+    assert_respond_to(@list, :first, "test_680_first_respond")
     flunk("FIXME test_680_first")
     @@log.debug "test_680_first ends" if @@log.debug?
   end
@@ -669,6 +678,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_690_group_by
     @@log.debug "test_690_group_by starts" if @@log.debug?
+    assert_respond_to(@list, :group_by, "test_690_group_by_respond")
     flunk("FIXME test_690_group_by")
     @@log.debug "test_690_group_by ends" if @@log.debug?
   end
@@ -681,6 +691,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_700_inject
     @@log.debug "test_700_inject starts" if @@log.debug?
+    assert_respond_to(@list, :inject, "test_700_inject_respond")
     flunk("FIXME test_700_inject")
     @@log.debug "test_700_inject ends" if @@log.debug?
   end
@@ -693,6 +704,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_710_max_by
     @@log.debug "test_710_max_by starts" if @@log.debug?
+    assert_respond_to(@list, :max_by, "test_710_max_by_respond")
     flunk("FIXME test_710_max_by")
     @@log.debug "test_710_max_by ends" if @@log.debug?
   end
@@ -705,6 +717,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_720_min_by
     @@log.debug "test_720_min_by starts" if @@log.debug?
+    assert_respond_to(@list, :min_by, "test_720_min_by_respond")
     flunk("FIXME test_720_min_by")
     @@log.debug "test_720_min_by ends" if @@log.debug?
   end
@@ -717,6 +730,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_730_minmax
     @@log.debug "test_730_minmax starts" if @@log.debug?
+    assert_respond_to(@list, :minmax, "test_730_minmax_respond")
     flunk("FIXME test_730_minmax")
     @@log.debug "test_730_minmax ends" if @@log.debug?
   end
@@ -729,6 +743,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_740_minmax_by
     @@log.debug "test_740_minmax_by starts" if @@log.debug?
+    assert_respond_to(@list, :minmax_by, "test_740_minmax_by_respond")
     flunk("FIXME test_740_minmax_by")
     @@log.debug "test_740_minmax_by ends" if @@log.debug?
   end
@@ -741,6 +756,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_750_none?
     @@log.debug "test_750_none? starts" if @@log.debug?
+    assert_respond_to(@list, :none?, "test_750_none?_respond")
     flunk("FIXME test_750_none?")
     @@log.debug "test_750_none? ends" if @@log.debug?
   end
@@ -753,6 +769,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_760_one?
     @@log.debug "test_760_one? starts" if @@log.debug?
+    assert_respond_to(@list, :one?, "test_760_one?_respond")
     flunk("FIXME test_760_one?")
     @@log.debug "test_760_one? ends" if @@log.debug?
   end
@@ -765,6 +782,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_770_reduce
     @@log.debug "test_770_reduce starts" if @@log.debug?
+    assert_respond_to(@list, :reduce, "test_770_reduce_respond")
     flunk("FIXME test_770_reduce")
     @@log.debug "test_770_reduce ends" if @@log.debug?
   end
@@ -777,6 +795,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_780_reverse_each
     @@log.debug "test_780_reverse_each starts" if @@log.debug?
+    assert_respond_to(@list, :reverse_each, "test_780_reverse_each_respond")
     flunk("FIXME test_780_reverse_each")
     @@log.debug "test_780_reverse_each ends" if @@log.debug?
   end
@@ -789,6 +808,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_790_take
     @@log.debug "test_790_take starts" if @@log.debug?
+    assert_respond_to(@list, :take, "test_790_take_respond")
     flunk("FIXME test_790_take")
     @@log.debug "test_790_take ends" if @@log.debug?
   end
@@ -801,6 +821,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_800_take_while
     @@log.debug "test_800_take_while starts" if @@log.debug?
+    assert_respond_to(@list, :take_while, "test_800_take_while_respond")
     flunk("FIXME test_800_take_while")
     @@log.debug "test_800_take_while ends" if @@log.debug?
   end
@@ -813,6 +834,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #
   def test_810_to_a
     @@log.debug "test_810_to_a starts" if @@log.debug?
+    assert_respond_to(@list, :to_a, "test_810_to_a_respond")
     flunk("FIXME test_810_to_a")
     @@log.debug "test_810_to_a ends" if @@log.debug?
   end
