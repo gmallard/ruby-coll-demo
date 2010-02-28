@@ -541,7 +541,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  group_by / 690 / * DONE
 //  inject / 700 / * MOD1.9, DONE
 //  max_by / 710 / * NEW, DONE
-//  min_by / 720 / * NEW, TBD
+//  min_by / 720 / * NEW, DONE
 //  minmax / 730 / * NEW, TBD
 //  minmax_by / 740 / * NEW, TBD
 //  none? / 750 / * NEW, TBD
@@ -856,7 +856,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # min_by / 720 / * NEW, TBD
+  # min_by / 720 / * NEW, DONE
   #++
   #
   # Test the <tt>min_by</tt> method.
@@ -869,7 +869,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     result = enum.is_a? Enumerator
     assert(result,"test_720_min_by_class") 
     #
-    flunk("FIXME test_720_min_by")
+    result = @list.min_by {|item| item == @mda ? 0 : 9999 }
+    assert_equal(result, @mda, "test_720_min_by_mda")
+    #
     @@log.debug "test_720_min_by ends" if @@log.debug?
   end
 
