@@ -538,7 +538,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  each_with_object / 660 / * DONE
 //  find_index / 670 / * DONE
 //  first / 680 / * DONE
-//  group_by / 690 / * NEW, TBD
+//  group_by / 690 / * DONE
 //  inject / 700 / * MOD1.9, TBD
 //  max_by / 710 / * NEW, TBD
 //  min_by / 720 / * NEW, TBD
@@ -796,7 +796,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # group_by / 690 / * NEW, TBD
+  # group_by / 690 / * DONE
   #++
   #
   # Test the <tt>group_by</tt> method.
@@ -809,7 +809,10 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     result = enum.is_a? Enumerator
     assert(result,"test_690_group_by_class") 
     #
-    flunk("FIXME test_690_group_by")
+    hash = @list.group_by {|item| item.ndata <= 2 ? "le2" : "gt2"}
+    assert_equal(hash,
+      {"gt2" => [@mda, @mdc, @mdd], "le2" => [@mdb]},
+      "test_690_group_by_hash")
     @@log.debug "test_690_group_by ends" if @@log.debug?
   end
 
