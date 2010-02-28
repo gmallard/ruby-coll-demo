@@ -534,6 +534,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  drop_while / 630 / * DONE
 //  each_cons / 640 / * DONE
 //  each_slice / 650 / * DONE
+//  each_with_index / 655 / * NEW, TBD
 //  each_with_object / 660 / * NEW, TBD
 //  find_index / 670 / * NEW, TBD
 //  first / 680 / * NEW, TBD
@@ -695,6 +696,38 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
       end
     }
     @@log.debug "test_650_each_slice ends" if @@log.debug?
+  end
+
+  #--
+  # each_with_index / 655 / * NEW, TBD
+  #++
+  #
+  # Test the <tt>each_with_index</tt> method.
+  #
+  def test_655_each_with_index
+    @@log.debug "test_655_each_with_index starts" if @@log.debug?
+    assert_respond_to(@list, :each_with_index, "test_655_each_with_index_respond")
+    #
+    enum = @list.each_with_index
+    result = enum.is_a? Enumerator
+    assert(result,"test_655_each_with_index_class") 
+    #
+    @list.each_with_index {|item, index|
+      case
+        when item == @mda
+          assert(index == 0, "test_655_each_with_index_i0")
+        when item == @mdb
+          assert(index == 1, "test_655_each_with_index_i1")
+        when item == @mdc
+          assert(index == 2, "test_655_each_with_index_i2")
+        when item == @mdd
+          assert(index == 3, "test_655_each_with_index_i3")
+        else
+          flunk("test_655_each_with_index_invalid")
+      end
+    }
+    #
+    @@log.debug "test_655_each_with_index ends" if @@log.debug?
   end
 
   #--
