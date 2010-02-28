@@ -537,7 +537,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  each_with_index / 655 / * DONE
 //  each_with_object / 660 / * DONE
 //  find_index / 670 / * DONE
-//  first / 680 / * NEW, TBD
+//  first / 680 / * DONE
 //  group_by / 690 / * NEW, TBD
 //  inject / 700 / * MOD1.9, TBD
 //  max_by / 710 / * NEW, TBD
@@ -779,7 +779,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # first / 680 / * NEW, TBD
+  # first / 680 / * DONE
   #++
   #
   # Test the <tt>first</tt> method.
@@ -787,7 +787,12 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_680_first
     @@log.debug "test_680_first starts" if @@log.debug?
     assert_respond_to(@list, :first, "test_680_first_respond")
-    flunk("FIXME test_680_first")
+    #
+    result = @list.first
+    assert_equal(result, @mda, "test_680_first_one")
+    #
+    result = @list.first(2)
+    assert_equal(result, [@mda,@mdb], "test_680_first_two")
     @@log.debug "test_680_first ends" if @@log.debug?
   end
 
