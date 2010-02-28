@@ -751,7 +751,6 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
       {"AA12"=>123, "BB1"=>2, "CA1234"=>3, "DB123"=>4},
       "test_660_each_with_object_hash")
     #
-    flunk("FIXME test_660_each_with_object")
     @@log.debug "test_660_each_with_object ends" if @@log.debug?
   end
 
