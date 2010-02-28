@@ -528,7 +528,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 
   To be tested:
 
-//  count / 600 / * NEW, TBD
+//  count / 600 / * DONE
 //  cycle / 610 / * NEW, TBD
 //  drop / 620 / * NEW, TBD
 //  drop_while / 630 / * NEW, TBD
@@ -554,7 +554,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 =end
 
   #--
-  # count / 600 / * NEW, TBD
+  # count / 600 / * DONE
   #++
   #
   # Test the <tt>count</tt> method.
@@ -562,7 +562,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_600_count
     @@log.debug "test_600_count starts" if @@log.debug?
     assert_respond_to(@list, :count, "test_600_count_respond")
-    flunk("FIXME test_600_count")
+    assert(@list.count == 4, "test_600_count_count")
+    assert(@list.count(@mdb) == 1, "test_600_count_oneobj_1")
+    assert(@list.count(42) == 0, "test_600_count_oneobj_2")
+    result = @list.count {|obj| obj.ndata > 2}
+    assert(result == 3, "test_600_count_trueres")
     @@log.debug "test_600_count ends" if @@log.debug?
   end
 
