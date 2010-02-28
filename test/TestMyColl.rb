@@ -545,7 +545,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  minmax / 730 / * NEW, DONE
 //  minmax_by / 740 / * NEW, DONE
 //  none? / 750 / * NEW, DONE
-//  one? / 760 / * NEW, TBD
+//  one? / 760 / * NEW, DONE
 //  reduce (inject synonym)  / 770 / * NEW, DONE
 //  reverse_each / 780 / * NEW, TBD
 //  take / 790 / * NEW, TBD
@@ -941,7 +941,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # one? / 760 / * NEW, TBD
+  # one? / 760 / * NEW, DONE
   #++
   #
   # Test the <tt>one?</tt> method.
@@ -949,7 +949,29 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_760_one?
     @@log.debug "test_760_one? starts" if @@log.debug?
     assert_respond_to(@list, :one?, "test_760_one?_respond")
-    flunk("FIXME test_760_one?")
+    #
+    result = @list.one? {|obj|
+      case
+        when obj == @mda
+          true
+        else
+          false
+      end
+    }
+    assert(result, "test_760_one?_true")
+    #
+    result = @list.one? {|obj|
+      case
+        when obj == @mda
+          true
+        when obj == @mdd
+          true
+        else
+          false
+      end
+    }
+    assert(result == false, "test_760_one?_false")
+    #
     @@log.debug "test_760_one? ends" if @@log.debug?
   end
 
