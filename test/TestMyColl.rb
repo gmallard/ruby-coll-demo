@@ -547,9 +547,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  none? / 750 / * NEW, DONE
 //  one? / 760 / * NEW, DONE
 //  reduce (inject synonym)  / 770 / * NEW, DONE
-//  reverse_each / 780 / * NEW, TBD
-//  take / 790 / * NEW, TBD
-//  take_while / 800 / * NEW, TBD
+//  reverse_each / 780 / * NEW, DONE
+//  take / 790 / * NEW, DONE
+//  take_while / 800 / * NEW, DONE
 //  to_a / 810 / * NEW, TBD
 
 =end
@@ -991,7 +991,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # reverse_each / 780 / * NEW, TBD
+  # reverse_each / 780 / * NEW, DONE
   #++
   #
   # Test the <tt>reverse_each</tt> method.
@@ -1004,12 +1004,18 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     result = enum.is_a? Enumerator
     assert(result,"test_780_reverse_each_class") 
     #
-    flunk("FIXME test_780_reverse_each")
+    holder = []
+    @list.reverse_each {|obj|
+      holder << obj
+    }
+    assert_equal(holder,
+      [@mdd, @mdc, @mdb, @mda],
+      "test_780_reverse_each_reversed")
     @@log.debug "test_780_reverse_each ends" if @@log.debug?
   end
 
   #--
-  # take / 790 / * NEW, TBD
+  # take / 790 / * NEW, DONE
   #++
   #
   # Test the <tt>take</tt> method.
@@ -1017,12 +1023,17 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_790_take
     @@log.debug "test_790_take starts" if @@log.debug?
     assert_respond_to(@list, :take, "test_790_take_respond")
-    flunk("FIXME test_790_take")
+    #
+    result = @list.take(1)
+    assert_equal(result, [@mda], "test_790_take_1")
+    #
+    result = @list.take(2)
+    assert_equal(result, [@mda, @mdb], "test_790_take_2")
     @@log.debug "test_790_take ends" if @@log.debug?
   end
 
   #--
-  # take_while / 800 / * NEW, TBD
+  # take_while / 800 / * NEW, DONE
   #++
   #
   # Test the <tt>take_while</tt> method.
@@ -1035,7 +1046,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     result = enum.is_a? Enumerator
     assert(result,"test_800_take_while_class") 
     #
-    flunk("FIXME test_800_take_while")
+    result = @list.take_while {|obj|
+      obj == @mdc ? false : true
+    }
+    assert_equal(result, [@mda, @mdb], "test_800_take_while_first2")
+    #
     @@log.debug "test_800_take_while ends" if @@log.debug?
   end
 
