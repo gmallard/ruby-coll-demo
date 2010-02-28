@@ -535,7 +535,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  each_cons / 640 / * DONE
 //  each_slice / 650 / * DONE
 //  each_with_index / 655 / * DONE
-//  each_with_object / 660 / * NEW, TBD
+//  each_with_object / 660 / * DONE
 //  find_index / 670 / * NEW, TBD
 //  first / 680 / * NEW, TBD
 //  group_by / 690 / * NEW, TBD
@@ -731,7 +731,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # each_with_object / 660 / * NEW, TBD
+  # each_with_object / 660 / * DONE
   #++
   #
   # Test the <tt>each_with_object</tt> method.
@@ -743,6 +743,13 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     enum = @list.each_with_object({})
     result = enum.is_a? Enumerator
     assert(result,"test_660_each_with_object_class") 
+    #
+    hash = @list.each_with_object({}) do |item, memo|
+      memo[item.sdata] = item.ndata
+    end
+    assert_equal(hash,
+      {"AA12"=>123, "BB1"=>2, "CA1234"=>3, "DB123"=>4},
+      "test_660_each_with_object_hash")
     #
     flunk("FIXME test_660_each_with_object")
     @@log.debug "test_660_each_with_object ends" if @@log.debug?
