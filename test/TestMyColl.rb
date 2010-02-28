@@ -542,7 +542,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  inject / 700 / * MOD1.9, DONE
 //  max_by / 710 / * NEW, DONE
 //  min_by / 720 / * NEW, DONE
-//  minmax / 730 / * NEW, TBD
+//  minmax / 730 / * NEW, DONE
 //  minmax_by / 740 / * NEW, TBD
 //  none? / 750 / * NEW, TBD
 //  one? / 760 / * NEW, TBD
@@ -876,7 +876,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # minmax / 730 / * NEW, TBD
+  # minmax / 730 / * NEW, DONE
   #++
   #
   # Test the <tt>minmax</tt> method.
@@ -884,7 +884,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_730_minmax
     @@log.debug "test_730_minmax starts" if @@log.debug?
     assert_respond_to(@list, :minmax, "test_730_minmax_respond")
-    flunk("FIXME test_730_minmax")
+    #
+    result = @list.minmax
+    assert_equal(result, [@mdb, @mda], "test_730_minmax_natural")
     @@log.debug "test_730_minmax ends" if @@log.debug?
   end
 
