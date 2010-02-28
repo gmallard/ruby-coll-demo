@@ -23,6 +23,11 @@
 #
 # A script is provided to generate +rdoc+ for the project.
 #
+# === Ruby 1.9+
+#
+# As of Feb 28, 2010 additional Enumerable methods in ruby 1.9 are also
+# demonstrated.  Ruby 1.8 compatability is maintained.
+#
 # == Author
 #
 # Guy Allard
