@@ -532,7 +532,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  cycle / 610 / * DONE
 //  drop / 620 / * DONE
 //  drop_while / 630 / * DONE
-//  each_cons / 640 / * NEW, TBD
+//  each_cons / 640 / * DONE
 //  each_slice / 650 / * NEW, TBD
 //  each_with_object / 660 / * NEW, TBD
 //  find_index / 670 / * NEW, TBD
@@ -625,7 +625,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # each_cons / 640 / * NEW, TBD
+  # each_cons / 640 / * DONE
   #++
   #
   # Test the <tt>each_cons</tt> method.
@@ -633,7 +633,26 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_640_each_cons
     @@log.debug "test_640_each_cons starts" if @@log.debug?
     assert_respond_to(@list, :each_cons, "test_640_each_cons_respond")
-    flunk("FIXME test_640_each_cons")
+    #
+    enum = @list.each_cons(2)
+    result = enum.is_a? Enumerator
+    assert(result,"test_640_each_cons_class") 
+    #
+    pass = 0
+    @list.each_cons(2) {|suba|
+      pass += 1
+      case pass
+        when 1
+          assert_equal([@mda, @mdb], suba, "test_640_each_cons_p1")
+        when 2
+          assert_equal([@mdb, @mdc], suba, "test_640_each_cons_p2")
+        when 3
+          assert_equal([@mdc, @mdd], suba, "test_640_each_cons_p3")
+        else
+          fail("test_640_each_cons_invalid")
+      end
+      # p suba
+    }
     @@log.debug "test_640_each_cons ends" if @@log.debug?
   end
 
