@@ -739,6 +739,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_660_each_with_object
     @@log.debug "test_660_each_with_object starts" if @@log.debug?
     assert_respond_to(@list, :each_with_object, "test_660_each_with_object_respond")
+    #
+    enum = @list.each_with_object({})
+    result = enum.is_a? Enumerator
+    assert(result,"test_660_each_with_object_class") 
+    #
     flunk("FIXME test_660_each_with_object")
     @@log.debug "test_660_each_with_object ends" if @@log.debug?
   end
@@ -752,6 +757,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_670_find_index
     @@log.debug "test_670_find_index starts" if @@log.debug?
     assert_respond_to(@list, :find_index, "test_670_find_index_respond")
+    #
+    enum = @list.find_index
+    result = enum.is_a? Enumerator
+    assert(result,"test_670_find_index_class") 
+    #
     flunk("FIXME test_670_find_index")
     @@log.debug "test_670_find_index ends" if @@log.debug?
   end
@@ -778,6 +788,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_690_group_by
     @@log.debug "test_690_group_by starts" if @@log.debug?
     assert_respond_to(@list, :group_by, "test_690_group_by_respond")
+    #
+    enum = @list.group_by
+    result = enum.is_a? Enumerator
+    assert(result,"test_690_group_by_class") 
+    #
     flunk("FIXME test_690_group_by")
     @@log.debug "test_690_group_by ends" if @@log.debug?
   end
@@ -804,6 +819,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_710_max_by
     @@log.debug "test_710_max_by starts" if @@log.debug?
     assert_respond_to(@list, :max_by, "test_710_max_by_respond")
+    #
+    enum = @list.max_by
+    result = enum.is_a? Enumerator
+    assert(result,"test_710_max_by_class") 
+    #
     flunk("FIXME test_710_max_by")
     @@log.debug "test_710_max_by ends" if @@log.debug?
   end
@@ -817,6 +837,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_720_min_by
     @@log.debug "test_720_min_by starts" if @@log.debug?
     assert_respond_to(@list, :min_by, "test_720_min_by_respond")
+    #
+    enum = @list.min_by
+    result = enum.is_a? Enumerator
+    assert(result,"test_720_min_by_class") 
+    #
     flunk("FIXME test_720_min_by")
     @@log.debug "test_720_min_by ends" if @@log.debug?
   end
@@ -843,6 +868,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_740_minmax_by
     @@log.debug "test_740_minmax_by starts" if @@log.debug?
     assert_respond_to(@list, :minmax_by, "test_740_minmax_by_respond")
+    #
+    enum = @list.minmax_by
+    result = enum.is_a? Enumerator
+    assert(result,"test_740_minmax_by_class") 
+    #
     flunk("FIXME test_740_minmax_by")
     @@log.debug "test_740_minmax_by ends" if @@log.debug?
   end
@@ -895,6 +925,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_780_reverse_each
     @@log.debug "test_780_reverse_each starts" if @@log.debug?
     assert_respond_to(@list, :reverse_each, "test_780_reverse_each_respond")
+    #
+    enum = @list.reverse_each
+    result = enum.is_a? Enumerator
+    assert(result,"test_780_reverse_each_class") 
+    #
     flunk("FIXME test_780_reverse_each")
     @@log.debug "test_780_reverse_each ends" if @@log.debug?
   end
@@ -921,6 +956,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_800_take_while
     @@log.debug "test_800_take_while starts" if @@log.debug?
     assert_respond_to(@list, :take_while, "test_800_take_while_respond")
+    #
+    enum = @list.take_while
+    result = enum.is_a? Enumerator
+    assert(result,"test_800_take_while_class") 
+    #
     flunk("FIXME test_800_take_while")
     @@log.debug "test_800_take_while ends" if @@log.debug?
   end
