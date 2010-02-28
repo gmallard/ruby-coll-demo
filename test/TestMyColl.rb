@@ -544,7 +544,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  min_by / 720 / * NEW, DONE
 //  minmax / 730 / * NEW, DONE
 //  minmax_by / 740 / * NEW, DONE
-//  none? / 750 / * NEW, TBD
+//  none? / 750 / * NEW, DONE
 //  one? / 760 / * NEW, TBD
 //  reduce (inject synonym)  / 770 / * NEW, DONE
 //  reverse_each / 780 / * NEW, TBD
@@ -920,7 +920,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # none? / 750 / * NEW, TBD
+  # none? / 750 / * NEW, DONE
   #++
   #
   # Test the <tt>none?</tt> method.
@@ -928,7 +928,15 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_750_none?
     @@log.debug "test_750_none? starts" if @@log.debug?
     assert_respond_to(@list, :none?, "test_750_none?_respond")
-    flunk("FIXME test_750_none?")
+    #
+    result = @list.none? {|obj| false }
+    assert(result, "test_750_none?_false")
+    #
+    result = @list.none? {|obj| true }
+    assert(result == false, "test_750_none?_truea")
+    #
+    result = @list.none? {|obj| obj.ndata == 2 ? true : false }
+    assert(result == false, "test_750_none?_true1")
     @@log.debug "test_750_none? ends" if @@log.debug?
   end
 
