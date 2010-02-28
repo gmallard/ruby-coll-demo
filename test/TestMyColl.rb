@@ -529,7 +529,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   To be tested:
 
 //  count / 600 / * DONE
-//  cycle / 610 / * NEW, TBD
+//  cycle / 610 / * DONE
 //  drop / 620 / * NEW, TBD
 //  drop_while / 630 / * NEW, TBD
 //  each_cons / 640 / * NEW, TBD
@@ -571,7 +571,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # cycle / 610 / * NEW, TBD
+  # cycle / 610 / * DONE
   #++
   #
   # Test the <tt>cycle</tt> method.
@@ -579,7 +579,15 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_610_cycle
     @@log.debug "test_610_cycle starts" if @@log.debug?
     assert_respond_to(@list, :cycle, "test_610_cycle_respond")
-    flunk("FIXME test_610_cycle")
+    #
+    enum = @list.cycle
+    result = enum.is_a? Enumerator
+    assert(result,"test_610_cycle_class") 
+    #
+    assert_equal([@mda, @mdb, @mdc, @mdd], @list.cycle(1).to_a, "test_610_cycle_once")
+    # 
+    assert_equal([@mda, @mdb, @mdc, @mdd, @mda, @mdb, @mdc, @mdd], 
+      @list.cycle(2).to_a, "test_610_cycle_twice") 
     @@log.debug "test_610_cycle ends" if @@log.debug?
   end
 
