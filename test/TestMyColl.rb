@@ -1063,7 +1063,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_810_to_a
     @@log.debug "test_810_to_a starts" if @@log.debug?
     assert_respond_to(@list, :to_a, "test_810_to_a_respond")
-    flunk("FIXME test_810_to_a")
+    #
+    result = @list.to_a
+    assert_equal(result,
+      [@mda, @mdb, @mdc, @mdd],
+      "test_810_to_a_all")
     @@log.debug "test_810_to_a ends" if @@log.debug?
   end
 
