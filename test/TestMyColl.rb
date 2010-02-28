@@ -539,7 +539,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  find_index / 670 / * DONE
 //  first / 680 / * DONE
 //  group_by / 690 / * DONE
-//  inject / 700 / * MOD1.9, TBD
+//  inject / 700 / * MOD1.9, DONE
 //  max_by / 710 / * NEW, TBD
 //  min_by / 720 / * NEW, TBD
 //  minmax / 730 / * NEW, TBD
@@ -817,7 +817,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # inject / 700 / * MOD1.9, TBD
+  # inject / 700 / * MOD1.9, DONE
   #++
   #
   # Test the <tt>inject</tt> method.
@@ -825,7 +825,14 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_700_inject
     @@log.debug "test_700_inject starts" if @@log.debug?
     assert_respond_to(@list, :inject, "test_700_inject_respond")
-    flunk("FIXME test_700_inject")
+    #
+    test_220_inject
+    #
+    biggest_nd = @list.inject(@mda) {|memo, item|
+      memo.ndata > item.ndata ? memo : item
+    }
+    assert_equal(biggest_nd, @mda, "test_700_inject_biggest")
+    # What else?
     @@log.debug "test_700_inject ends" if @@log.debug?
   end
 
