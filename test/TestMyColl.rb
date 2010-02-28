@@ -540,7 +540,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
 //  first / 680 / * DONE
 //  group_by / 690 / * DONE
 //  inject / 700 / * MOD1.9, DONE
-//  max_by / 710 / * NEW, TBD
+//  max_by / 710 / * NEW, DONE
 //  min_by / 720 / * NEW, TBD
 //  minmax / 730 / * NEW, TBD
 //  minmax_by / 740 / * NEW, TBD
@@ -837,7 +837,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # max_by / 710 / * NEW, TBD
+  # max_by / 710 / * NEW, DONE
   #++
   #
   # Test the <tt>max_by</tt> method.
@@ -850,7 +850,8 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     result = enum.is_a? Enumerator
     assert(result,"test_710_max_by_class") 
     #
-    flunk("FIXME test_710_max_by")
+    result = @list.max_by {|item| item == @mdc ? 9999 : 0 }
+    assert_equal(result, @mdc, "test_710_max_by_mdc")
     @@log.debug "test_710_max_by ends" if @@log.debug?
   end
 
