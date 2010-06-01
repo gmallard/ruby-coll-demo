@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_680_first (Colldemo::TestMyColl)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 786</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_680_first</span>
+    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_680_first starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>
+    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:first</span>, <span class="ruby-value str">&quot;test_680_first_respond&quot;</span>)
+    <span class="ruby-comment cmt">#</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, <span class="ruby-ivar">@mda</span>, <span class="ruby-value str">&quot;test_680_first_one&quot;</span>)
+    <span class="ruby-comment cmt">#</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">first</span>(<span class="ruby-value">2</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, [<span class="ruby-ivar">@mda</span>,<span class="ruby-ivar">@mdb</span>], <span class="ruby-value str">&quot;test_680_first_two&quot;</span>)
+    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_680_first ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

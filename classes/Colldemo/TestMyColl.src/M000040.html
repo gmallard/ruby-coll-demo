@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_660_each_with_object (Colldemo::TestMyColl)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 739</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_660_each_with_object</span>
+    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_660_each_with_object starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>
+    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:each_with_object</span>, <span class="ruby-value str">&quot;test_660_each_with_object_respond&quot;</span>)
+    <span class="ruby-comment cmt">#</span>
+    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_with_object</span>({})
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>
+    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_660_each_with_object_class&quot;</span>) 
+    <span class="ruby-comment cmt">#</span>
+    <span class="ruby-identifier">hash</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_with_object</span>({}) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span>, <span class="ruby-identifier">memo</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">memo</span>[<span class="ruby-identifier">item</span>.<span class="ruby-identifier">sdata</span>] = <span class="ruby-identifier">item</span>.<span class="ruby-identifier">ndata</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">hash</span>,
+      {<span class="ruby-value str">&quot;AA12&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">123</span>, <span class="ruby-value str">&quot;BB1&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">2</span>, <span class="ruby-value str">&quot;CA1234&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">3</span>, <span class="ruby-value str">&quot;DB123&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">4</span>},
+      <span class="ruby-value str">&quot;test_660_each_with_object_hash&quot;</span>)
+    <span class="ruby-comment cmt">#</span>
+    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_660_each_with_object ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
