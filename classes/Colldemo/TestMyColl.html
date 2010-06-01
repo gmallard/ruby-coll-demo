@@ -1,0 +1,1067 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: Colldemo::TestMyColl [RDoc Documentation]</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <link href='../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          Colldemo::TestMyColl
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../files/test/TestMyColl_rb.html">test/TestMyColl.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong>Test::Unit::TestCase</strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000011">new</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000012">setup</a></li>
+              <li><a href="#M000013">teardown</a></li>
+              <li><a href="#M000014">test_010_each</a></li>
+              <li><a href="#M000015">test_020_size</a></li>
+              <li><a href="#M000016">test_030_index_method</a></li>
+              <li><a href="#M000017">test_040_del_methods</a></li>
+              <li><a href="#M000018">test_100_allq</a></li>
+              <li><a href="#M000019">test_110_anyq</a></li>
+              <li><a href="#M000020">test_120_collect</a></li>
+              <li><a href="#M000021">test_130_map</a></li>
+              <li><a href="#M000022">test_140_detect</a></li>
+              <li><a href="#M000023">test_150_find</a></li>
+              <li><a href="#M000024">test_160_each_with_index</a></li>
+              <li><a href="#M000025">test_170_entries</a></li>
+              <li><a href="#M000026">test_180_to_a</a></li>
+              <li><a href="#M000027">test_190_find_all</a></li>
+              <li><a href="#M000028">test_200_grep</a></li>
+              <li><a href="#M000029">test_210_includeq</a></li>
+              <li><a href="#M000030">test_220_inject</a></li>
+              <li><a href="#M000031">test_230_max</a></li>
+              <li><a href="#M000032">test_240_memberq</a></li>
+              <li><a href="#M000033">test_250_min</a></li>
+              <li><a href="#M000034">test_260_partition</a></li>
+              <li><a href="#M000035">test_270_reject</a></li>
+              <li><a href="#M000036">test_275_select</a></li>
+              <li><a href="#M000037">test_280_sort</a></li>
+              <li><a href="#M000038">test_290_sort_by</a></li>
+              <li><a href="#M000039">test_300_zip</a></li>
+              <li><a href="#M000040">test_600_count</a></li>
+              <li><a href="#M000041">test_610_cycle</a></li>
+              <li><a href="#M000042">test_620_drop</a></li>
+              <li><a href="#M000043">test_630_drop_while</a></li>
+              <li><a href="#M000044">test_640_each_cons</a></li>
+              <li><a href="#M000045">test_650_each_slice</a></li>
+              <li><a href="#M000046">test_655_each_with_index</a></li>
+              <li><a href="#M000047">test_660_each_with_object</a></li>
+              <li><a href="#M000048">test_670_find_index</a></li>
+              <li><a href="#M000049">test_680_first</a></li>
+              <li><a href="#M000050">test_690_group_by</a></li>
+              <li><a href="#M000051">test_700_inject</a></li>
+              <li><a href="#M000052">test_710_max_by</a></li>
+              <li><a href="#M000053">test_720_min_by</a></li>
+              <li><a href="#M000054">test_730_minmax</a></li>
+              <li><a href="#M000055">test_740_minmax_by</a></li>
+              <li><a href="#M000056">test_750_none?</a></li>
+              <li><a href="#M000057">test_760_one?</a></li>
+              <li><a href="#M000058">test_770_reduce</a></li>
+              <li><a href="#M000059">test_780_reverse_each</a></li>
+              <li><a href="#M000060">test_790_take</a></li>
+              <li><a href="#M000061">test_800_take_while</a></li>
+              <li><a href="#M000062">test_810_to_a</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='method public-class' id='method-M000011'>
+                <a name='M000011'></a>
+                <div class='synopsis'>
+                  <span class='name'>new</span>
+                  <span class='arguments'>(name)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Initialize this test class.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000011-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000011-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 28</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>)&#x000A;    <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">name</span>)&#x000A;    <span class="ruby-ivar">@@log</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDOUT</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">DEBUG</span>&#x000A;    <span class="ruby-ivar">@mda</span> = <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-ivar">@mdb</span> = <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-ivar">@mdc</span> = <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-ivar">@mdd</span> = <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-ivar">@list</span> = <span class="ruby-keyword kw">nil</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='method public-instance' id='method-M000012'>
+                <a name='M000012'></a>
+                <div class='synopsis'>
+                  <span class='name'>setup</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Setup for each test.
+                  </p>
+                  <ul>
+                  <li>Define four <a href="MyData.html">MyData</a> objects
+                  
+                  </li>
+                  <li>Define one <a href="MyCollection.html">MyCollection</a> object
+                  
+                  </li>
+                  <li>Add all <a href="MyData.html">MyData</a> objects to the <a
+                  href="MyCollection.html">MyCollection</a> object
+                  
+                  </li>
+                  </ul>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000012-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000012-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 44</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setup</span>&#x000A;    <span class="ruby-ivar">@mda</span> = <span class="ruby-constant">MyData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;AA12&quot;</span>)&#x000A;    <span class="ruby-ivar">@mdb</span> = <span class="ruby-constant">MyData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;BB1&quot;</span>,<span class="ruby-value">2</span>)&#x000A;    <span class="ruby-ivar">@mdc</span> = <span class="ruby-constant">MyData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;CA1234&quot;</span>,<span class="ruby-value">3</span>)&#x000A;    <span class="ruby-ivar">@mdd</span> = <span class="ruby-constant">MyData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;DB123&quot;</span>,<span class="ruby-value">4</span>)&#x000A;    <span class="ruby-ivar">@list</span> = <span class="ruby-constant">MyCollection</span><span class="ruby-operator">::</span><span class="ruby-identifier">new</span>&#x000A;    <span class="ruby-comment cmt"># An implicit test of append :-)</span>&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">append</span>(<span class="ruby-ivar">@mda</span>).<span class="ruby-identifier">append</span>(<span class="ruby-ivar">@mdb</span>).<span class="ruby-identifier">append</span>(<span class="ruby-ivar">@mdc</span>).<span class="ruby-identifier">append</span>(<span class="ruby-ivar">@mdd</span>)&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000013'>
+                <a name='M000013'></a>
+                <div class='synopsis'>
+                  <span class='name'>teardown</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Teardown after each test. Currently does nothing.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000013-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000013-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 56</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">teardown</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000014'>
+                <a name='M000014'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_010_each</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>each</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000014-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000014-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 61</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_010_each</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_010_each starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elt</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>&#x000A;    <span class="ruby-keyword kw">end</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">4</span>, <span class="ruby-identifier">count</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_010_each ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000015'>
+                <a name='M000015'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_020_size</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>size</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000015-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000015-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 73</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_020_size</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_020_size starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">4</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">size</span>)&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">append</span>(<span class="ruby-constant">MyData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;A&quot;</span>))&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">5</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">size</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_020_size ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000016'>
+                <a name='M000016'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_030_index_method</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>index</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000016-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000016-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 83</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_030_index_method</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_030_index_method starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-comment cmt"># Appends done in setup</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@mda</span>,<span class="ruby-ivar">@list</span>[<span class="ruby-value">0</span>])&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@mdb</span>,<span class="ruby-ivar">@list</span>[<span class="ruby-value">1</span>])&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@mdc</span>,<span class="ruby-ivar">@list</span>[<span class="ruby-value">2</span>])&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@mdd</span>,<span class="ruby-ivar">@list</span>[<span class="ruby-value">3</span>])&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">assert_nil</span>(<span class="ruby-ivar">@list</span>[<span class="ruby-value">9</span>])&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_030_index_method ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000017'>
+                <a name='M000017'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_040_del_methods</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>delete_first</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000017-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000017-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 97</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_040_del_methods</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_040_del_methods starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">delete_first</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">delete_first</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@mdd</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">delete_last</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">delete_last</span>)&#x000A;    <span class="ruby-identifier">assert_nil</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">delete_last</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_040_del_methods ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000018'>
+                <a name='M000018'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_100_allq</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>all?</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000018-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000018-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 140</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_100_allq</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_100_allq starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:all?</span>, <span class="ruby-value str">&quot;test_100_allq_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">all?</span>,<span class="ruby-value str">&quot;test_100_allq_basic&quot;</span>)&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">all?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">true</span>}&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>, <span class="ruby-value str">&quot;test_100_allq_block_01&quot;</span>)&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">all?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">==</span> <span class="ruby-value">123</span> }&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-value str">&quot;test_100_allq_block_02&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_100_allq ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000019'>
+                <a name='M000019'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_110_anyq</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>any?</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000019-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000019-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 159</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_110_anyq</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_110_anyq starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:any?</span>, <span class="ruby-value str">&quot;test_110_anyq_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">any?</span>, <span class="ruby-value str">&quot;test_110_anyq_basic&quot;</span>)&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">true</span>}&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>, <span class="ruby-value str">&quot;test_100_anyq_block_01&quot;</span>)&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span> }&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>, <span class="ruby-value str">&quot;test_100_anyq_block_02&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_110_anyq ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000020'>
+                <a name='M000020'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_120_collect</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>collect</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000020-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000020-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 178</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_120_collect</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_120_collect starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:collect</span>, <span class="ruby-value str">&quot;test_120_collect_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">new_list</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">collect</span> { <span class="ruby-value str">&quot;dummy&quot;</span> }&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">new_list</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">size</span>,<span class="ruby-value str">&quot;test_120_collect_basic&quot;</span>)&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">new_list</span>[<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;dummy&quot;</span>,<span class="ruby-value str">&quot;test_120_collect_sizecheck&quot;</span>)&#x000A;    <span class="ruby-comment cmt"># Something else needs to be done for testing.  What is practical?</span>&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_120_collect ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000021'>
+                <a name='M000021'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_130_map</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>map</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000021-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000021-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 197</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_130_map</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_130_map starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:map</span>, <span class="ruby-value str">&quot;test_130_map_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">new_list</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">map</span> { <span class="ruby-value str">&quot;dummy&quot;</span> }&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">new_list</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">size</span>,<span class="ruby-value str">&quot;test_130_map_basic&quot;</span>)&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">new_list</span>[<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;dummy&quot;</span>,<span class="ruby-value str">&quot;test_130_map_sizecheck&quot;</span>)&#x000A;    <span class="ruby-comment cmt"># Something else needs to be done for testing.  What is practical?</span>&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_130_map ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000022'>
+                <a name='M000022'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_140_detect</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>detect</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000022-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000022-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 216</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_140_detect</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_140_detect starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:detect</span>, <span class="ruby-value str">&quot;test_140_detect_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">mdx</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">detect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@mdc</span>, <span class="ruby-identifier">mdx</span>, <span class="ruby-value str">&quot;test_140_detect_feq_01&quot;</span>)&#x000A;    <span class="ruby-identifier">sorry</span> = <span class="ruby-identifier">lambda</span> { <span class="ruby-value str">&quot;not found&quot;</span> }&#x000A;    <span class="ruby-identifier">mdx</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">detect</span>(<span class="ruby-identifier">sorry</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">==</span> <span class="ruby-value">999</span> }      &#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;not found&quot;</span>, <span class="ruby-identifier">mdx</span>, <span class="ruby-value str">&quot;test_140_detect_feq_02&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_140_detect ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000023'>
+                <a name='M000023'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_150_find</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>find</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000023-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000023-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 235</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_150_find</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_150_find starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:find</span>, <span class="ruby-value str">&quot;test_150_find_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">mdx</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@mdc</span>, <span class="ruby-identifier">mdx</span>, <span class="ruby-value str">&quot;test_150_find_feq_01&quot;</span>)&#x000A;    <span class="ruby-identifier">sorry</span> = <span class="ruby-identifier">lambda</span> { <span class="ruby-value str">&quot;not found&quot;</span> }&#x000A;    <span class="ruby-identifier">mdx</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">sorry</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">==</span> <span class="ruby-value">999</span> }      &#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;not found&quot;</span>, <span class="ruby-identifier">mdx</span>, <span class="ruby-value str">&quot;test_150_find_feq_02&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_150_find ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000024'>
+                <a name='M000024'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_160_each_with_index</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>each_with_index</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000024-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000024-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 254</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_160_each_with_index</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_160_each_with_index starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:each_with_index</span>, <span class="ruby-value str">&quot;test_160_each_with_index_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">ta</span> = []&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">obj</span>, <span class="ruby-identifier">ndx</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-identifier">ta</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{obj.ndata}-#{ndx}&quot;</span>&#x000A;    <span class="ruby-keyword kw">end</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-value str">&quot;123-0&quot;</span>, <span class="ruby-value str">&quot;2-1&quot;</span>, <span class="ruby-value str">&quot;3-2&quot;</span>, <span class="ruby-value str">&quot;4-3&quot;</span>], <span class="ruby-identifier">ta</span>, <span class="ruby-value str">&quot;test_160_each_with_index_basic&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_160_each_with_index ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000025'>
+                <a name='M000025'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_170_entries</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>entries</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000025-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000025-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 273</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_170_entries</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_170_entries starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:entries</span>, <span class="ruby-value str">&quot;test_170_entries_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">entries</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-identifier">ta</span>, <span class="ruby-value str">&quot;test_170_entries_basic&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_170_entries ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000026'>
+                <a name='M000026'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_180_to_a</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>to_a</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000026-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000026-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 289</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_180_to_a</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_180_to_a starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:to_a</span>, <span class="ruby-value str">&quot;test_180_to_a_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">to_a</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-identifier">ta</span>, <span class="ruby-value str">&quot;test_180_to_a_basic&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_180_to_a ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000027'>
+                <a name='M000027'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_190_find_all</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>find_all</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000027-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000027-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 305</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_190_find_all</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_190_find_all starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:find_all</span>, <span class="ruby-value str">&quot;test_190_find_all_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">find_all</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">3</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>], <span class="ruby-identifier">ta</span>, <span class="ruby-value str">&quot;test_190_find_all_eq01&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_190_find_all ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000028'>
+                <a name='M000028'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_200_grep</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>grep</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000028-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000028-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 321</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_200_grep</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_200_grep starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:grep</span>, <span class="ruby-value str">&quot;test_200_grep_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-comment cmt"># very contrived</span>&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">append</span>(<span class="ruby-value str">&quot;aaa&quot;</span>)&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">append</span>(<span class="ruby-value">456</span>)&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-constant">MyData</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-identifier">ta</span>, <span class="ruby-value str">&quot;test_200_grep_class&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_200_grep ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000029'>
+                <a name='M000029'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_210_includeq</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>include?</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000029-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000029-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 340</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_210_includeq</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_210_includeq starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:include?</span>, <span class="ruby-value str">&quot;test_210_includeq_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@mdb</span>),<span class="ruby-value str">&quot;test_210_includeq_basic&quot;</span>)&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-constant">MyData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;XYZ&quot;</span>, <span class="ruby-value">456</span>)&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">ta</span>) <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>,<span class="ruby-value str">&quot;test_210_includeq_backwards&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_210_includeq ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000030'>
+                <a name='M000030'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_220_inject</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>inject</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000030-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000030-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 357</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_220_inject</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_220_inject starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:inject</span>, <span class="ruby-value str">&quot;test_220_inject_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">sumnd</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">memo</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">132</span>, <span class="ruby-identifier">sumnd</span>, <span class="ruby-value str">&quot;test_220_inject_sumnd&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">catsd</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value str">&quot;&quot;</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{memo}#{obj.sdata}&quot;</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;AA12BB1CA1234DB123&quot;</span>, <span class="ruby-identifier">catsd</span>, <span class="ruby-value str">&quot;test_220_inject_catsd&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_220_inject ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000031'>
+                <a name='M000031'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_230_max</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>max</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000031-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000031-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 376</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_230_max</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_230_max starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:max</span>, <span class="ruby-value str">&quot;test_230_max_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">123</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">max</span>.<span class="ruby-identifier">ndata</span>, <span class="ruby-value str">&quot;test_230_max_basic&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_230_max ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000032'>
+                <a name='M000032'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_240_memberq</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>member?</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000032-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000032-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 391</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_240_memberq</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_240_memberq starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:member?</span>, <span class="ruby-value str">&quot;test_240_memberq_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">member?</span>(<span class="ruby-ivar">@mdb</span>),<span class="ruby-value str">&quot;test_240_memberq_basic&quot;</span>)&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-constant">MyData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;XYZ&quot;</span>, <span class="ruby-value">456</span>)&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">member?</span>(<span class="ruby-identifier">ta</span>) <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>,<span class="ruby-value str">&quot;test_240_memberq_backwards&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_240_memberq ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000033'>
+                <a name='M000033'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_250_min</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>min</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000033-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000033-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 408</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_250_min</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_250_min starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:min</span>, <span class="ruby-value str">&quot;test_250_min_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">2</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">min</span>.<span class="ruby-identifier">ndata</span>, <span class="ruby-value str">&quot;test_250_min_basic&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_250_min ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000034'>
+                <a name='M000034'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_260_partition</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>partition</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000034-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000034-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 423</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_260_partition</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_260_partition starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:partition</span>, <span class="ruby-value str">&quot;test_260_partition_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">partition</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">3</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">2</span>, <span class="ruby-identifier">ta</span>.<span class="ruby-identifier">size</span>,<span class="ruby-value str">&quot;test_260_partition_basic_01&quot;</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>], <span class="ruby-identifier">ta</span>[<span class="ruby-value">0</span>], <span class="ruby-value str">&quot;test_260_partition_basic_02&quot;</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-identifier">ta</span>[<span class="ruby-value">1</span>], <span class="ruby-value str">&quot;test_260_partition_basic_03&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_260_partition ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000035'>
+                <a name='M000035'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_270_reject</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>reject</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000035-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000035-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 441</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_270_reject</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_270_reject starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:reject</span>, <span class="ruby-value str">&quot;test_270_reject_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">3</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-identifier">ta</span>, <span class="ruby-value str">&quot;test_270_reject_eq01&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_270_reject ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000036'>
+                <a name='M000036'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_275_select</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>select</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000036-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000036-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 457</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_275_select</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_275_select starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:select</span>, <span class="ruby-value str">&quot;test_275_select_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">3</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>], <span class="ruby-identifier">ta</span>, <span class="ruby-value str">&quot;test_275_select_eq01&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_275_select ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000037'>
+                <a name='M000037'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_280_sort</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>sort</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000037-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000037-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 473</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_280_sort</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_280_sort starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:sort</span>, <span class="ruby-value str">&quot;test_280_sort_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">sort</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>, <span class="ruby-ivar">@mda</span>], <span class="ruby-identifier">ta</span>, <span class="ruby-value str">&quot;test_280_sort_basic&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_280_sort ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000038'>
+                <a name='M000038'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_290_sort_by</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>sort_by</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000038-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000038-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 489</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_290_sort_by</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_290_sort_by starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:sort_by</span>, <span class="ruby-value str">&quot;test_290_sort_by_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">sdata</span>.<span class="ruby-identifier">length</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdd</span>, <span class="ruby-ivar">@mdc</span>], <span class="ruby-identifier">ta</span>, <span class="ruby-value str">&quot;test_290_sort_by_basic&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_290_sort_by ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000039'>
+                <a name='M000039'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_300_zip</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>zip</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000039-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000039-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 505</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_300_zip</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_300_zip starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:zip</span>, <span class="ruby-value str">&quot;test_300_zip_respond&quot;</span>)&#x000A;&#x000A;    <span class="ruby-identifier">a</span> = [<span class="ruby-value">1</span>]&#x000A;    <span class="ruby-identifier">b</span> = [<span class="ruby-value">2</span>,<span class="ruby-value">3</span>]&#x000A;    <span class="ruby-identifier">c</span> = [<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>]&#x000A;    <span class="ruby-identifier">ta</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">te</span> = [[<span class="ruby-ivar">@mda</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">4</span>], &#x000A;          [<span class="ruby-ivar">@mdb</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-value">3</span>, <span class="ruby-value">5</span>], &#x000A;          [<span class="ruby-ivar">@mdc</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-value">6</span>], &#x000A;          [<span class="ruby-ivar">@mdd</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>]]&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">te</span>, <span class="ruby-identifier">ta</span>, <span class="ruby-value str">&quot;test_300_zip_basic&quot;</span>)&#x000A;&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_300_zip ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000040'>
+                <a name='M000040'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_600_count</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>count</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000040-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000040-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 563</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_600_count</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_600_count starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:count</span>, <span class="ruby-value str">&quot;test_600_count_respond&quot;</span>)&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">4</span>, <span class="ruby-value str">&quot;test_600_count_count&quot;</span>)&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span>(<span class="ruby-ivar">@mdb</span>) <span class="ruby-operator">==</span> <span class="ruby-value">1</span>, <span class="ruby-value str">&quot;test_600_count_oneobj_1&quot;</span>)&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span>(<span class="ruby-value">42</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>, <span class="ruby-value str">&quot;test_600_count_oneobj_2&quot;</span>)&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>}&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>, <span class="ruby-value str">&quot;test_600_count_trueres&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_600_count ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000041'>
+                <a name='M000041'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_610_cycle</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>cycle</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000041-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000041-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 580</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_610_cycle</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_610_cycle starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:cycle</span>, <span class="ruby-value str">&quot;test_610_cycle_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">cycle</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_610_cycle_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">cycle</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">to_a</span>, <span class="ruby-value str">&quot;test_610_cycle_once&quot;</span>)&#x000A;    <span class="ruby-comment cmt"># </span>&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>, <span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], &#x000A;      <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">cycle</span>(<span class="ruby-value">2</span>).<span class="ruby-identifier">to_a</span>, <span class="ruby-value str">&quot;test_610_cycle_twice&quot;</span>) &#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_610_cycle ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000042'>
+                <a name='M000042'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_620_drop</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>drop</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000042-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000042-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 601</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_620_drop</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_620_drop starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:drop</span>, <span class="ruby-value str">&quot;test_620_drop_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">drop</span>(<span class="ruby-value">1</span>), <span class="ruby-value str">&quot;test_620_drop_one&quot;</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">drop</span>(<span class="ruby-value">2</span>), <span class="ruby-value str">&quot;test_620_drop_two&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_620_drop ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000043'>
+                <a name='M000043'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_630_drop_while</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>drop_while</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000043-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000043-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 616</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_630_drop_while</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_630_drop_while starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:drop_while</span>, <span class="ruby-value str">&quot;test_630_drop_while_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">drop_while</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">!=</span> <span class="ruby-value">2</span>}&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-identifier">result</span>, <span class="ruby-value str">&quot;test_630_drop_while_ne2&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">drop_while</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">!=</span> <span class="ruby-value">3</span>}&#x000A;    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-identifier">result</span>, <span class="ruby-value str">&quot;test_630_drop_while_ne3&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_630_drop_while ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000044'>
+                <a name='M000044'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_640_each_cons</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>each_cons</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000044-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000044-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 634</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_640_each_cons</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_640_each_cons starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:each_cons</span>, <span class="ruby-value str">&quot;test_640_each_cons_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_cons</span>(<span class="ruby-value">2</span>)&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_640_each_cons_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">pass</span> = <span class="ruby-value">0</span>&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_cons</span>(<span class="ruby-value">2</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">suba</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-identifier">pass</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>&#x000A;      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">pass</span>&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-value">1</span>&#x000A;          <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>], <span class="ruby-identifier">suba</span>, <span class="ruby-value str">&quot;test_640_each_cons_p1&quot;</span>)&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-value">2</span>&#x000A;          <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>], <span class="ruby-identifier">suba</span>, <span class="ruby-value str">&quot;test_640_each_cons_p2&quot;</span>)&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-value">3</span>&#x000A;          <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-identifier">suba</span>, <span class="ruby-value str">&quot;test_640_each_cons_p3&quot;</span>)&#x000A;        <span class="ruby-keyword kw">else</span>&#x000A;          <span class="ruby-identifier">fail</span>(<span class="ruby-value str">&quot;test_640_each_cons_invalid&quot;</span>)&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    }&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_640_each_cons ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000045'>
+                <a name='M000045'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_650_each_slice</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>each_slice</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000045-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000045-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 665</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_650_each_slice</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_650_each_slice starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:each_slice</span>, <span class="ruby-value str">&quot;test_650_each_slice_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-value">2</span>)&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_650_each_slice_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">pass</span> = <span class="ruby-value">0</span>&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-value">2</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">suba</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-identifier">pass</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>&#x000A;      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">pass</span>&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-value">1</span>&#x000A;          <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>], <span class="ruby-identifier">suba</span>, <span class="ruby-value str">&quot;test_650_each_slice_p1&quot;</span>)&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-value">2</span>&#x000A;          <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-identifier">suba</span>, <span class="ruby-value str">&quot;test_650_each_slice_p2&quot;</span>)&#x000A;        <span class="ruby-keyword kw">else</span>&#x000A;          <span class="ruby-identifier">fail</span>(<span class="ruby-value str">&quot;test_650_each_slice_invalid&quot;</span>)&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    }&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">pass</span> = <span class="ruby-value">0</span>&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-value">3</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">suba</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-identifier">pass</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>&#x000A;      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">pass</span>&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-value">1</span>&#x000A;          <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>], <span class="ruby-identifier">suba</span>, <span class="ruby-value str">&quot;test_650_each_slice_p1b&quot;</span>)&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-value">2</span>&#x000A;          <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@mdd</span>], <span class="ruby-identifier">suba</span>, <span class="ruby-value str">&quot;test_650_each_slice_p2b&quot;</span>)&#x000A;        <span class="ruby-keyword kw">else</span>&#x000A;          <span class="ruby-identifier">fail</span>(<span class="ruby-value str">&quot;test_650_each_slice_invalid_b&quot;</span>)&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    }&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_650_each_slice ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000046'>
+                <a name='M000046'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_655_each_with_index</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>each_with_index</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000046-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000046-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 707</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_655_each_with_index</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_655_each_with_index starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:each_with_index</span>, <span class="ruby-value str">&quot;test_655_each_with_index_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_with_index</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_655_each_with_index_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_with_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-keyword kw">case</span>&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mda</span>&#x000A;          <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>, <span class="ruby-value str">&quot;test_655_each_with_index_i0&quot;</span>)&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mdb</span>&#x000A;          <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>, <span class="ruby-value str">&quot;test_655_each_with_index_i1&quot;</span>)&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mdc</span>&#x000A;          <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>, <span class="ruby-value str">&quot;test_655_each_with_index_i2&quot;</span>)&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mdd</span>&#x000A;          <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>, <span class="ruby-value str">&quot;test_655_each_with_index_i3&quot;</span>)&#x000A;        <span class="ruby-keyword kw">else</span>&#x000A;          <span class="ruby-identifier">flunk</span>(<span class="ruby-value str">&quot;test_655_each_with_index_invalid&quot;</span>)&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    }&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_655_each_with_index ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000047'>
+                <a name='M000047'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_660_each_with_object</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>each_with_object</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000047-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000047-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 739</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_660_each_with_object</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_660_each_with_object starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:each_with_object</span>, <span class="ruby-value str">&quot;test_660_each_with_object_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_with_object</span>({})&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_660_each_with_object_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">hash</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">each_with_object</span>({}) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span>, <span class="ruby-identifier">memo</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-identifier">memo</span>[<span class="ruby-identifier">item</span>.<span class="ruby-identifier">sdata</span>] = <span class="ruby-identifier">item</span>.<span class="ruby-identifier">ndata</span>&#x000A;    <span class="ruby-keyword kw">end</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">hash</span>,&#x000A;      {<span class="ruby-value str">&quot;AA12&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">123</span>, <span class="ruby-value str">&quot;BB1&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">2</span>, <span class="ruby-value str">&quot;CA1234&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">3</span>, <span class="ruby-value str">&quot;DB123&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-value">4</span>},&#x000A;      <span class="ruby-value str">&quot;test_660_each_with_object_hash&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_660_each_with_object ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000048'>
+                <a name='M000048'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_670_find_index</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>find_index</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000048-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000048-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 763</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_670_find_index</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_670_find_index starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:find_index</span>, <span class="ruby-value str">&quot;test_670_find_index_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">find_index</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_670_find_index_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">find_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">false</span> }&#x000A;    <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">enum</span>, <span class="ruby-value str">&quot;test_670_find_index_allfalse&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">find_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span> }&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">enum</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>, <span class="ruby-value str">&quot;test_670_find_index_ndata3&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_670_find_index ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000049'>
+                <a name='M000049'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_680_first</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>first</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000049-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000049-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 786</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_680_first</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_680_first starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:first</span>, <span class="ruby-value str">&quot;test_680_first_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">first</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, <span class="ruby-ivar">@mda</span>, <span class="ruby-value str">&quot;test_680_first_one&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">first</span>(<span class="ruby-value">2</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, [<span class="ruby-ivar">@mda</span>,<span class="ruby-ivar">@mdb</span>], <span class="ruby-value str">&quot;test_680_first_two&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_680_first ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000050'>
+                <a name='M000050'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_690_group_by</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>group_by</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000050-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000050-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 804</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_690_group_by</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_690_group_by starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:group_by</span>, <span class="ruby-value str">&quot;test_690_group_by_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">group_by</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_690_group_by_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">hash</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">group_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">2</span> <span class="ruby-operator">?</span> <span class="ruby-value str">&quot;le2&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;gt2&quot;</span>}&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">hash</span>,&#x000A;      {<span class="ruby-value str">&quot;gt2&quot;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-value str">&quot;le2&quot;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@mdb</span>]},&#x000A;      <span class="ruby-value str">&quot;test_690_group_by_hash&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_690_group_by ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000051'>
+                <a name='M000051'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_700_inject</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>inject</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000051-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000051-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 825</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_700_inject</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_700_inject starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:inject</span>, <span class="ruby-value str">&quot;test_700_inject_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">test_220_inject</span>&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">biggest_nd</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-ivar">@mda</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, <span class="ruby-identifier">item</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-identifier">memo</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-value">? </span><span class="ruby-identifier">memo</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">item</span>&#x000A;    }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">biggest_nd</span>, <span class="ruby-ivar">@mda</span>, <span class="ruby-value str">&quot;test_700_inject_biggest&quot;</span>)&#x000A;    <span class="ruby-comment cmt"># What else?</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_700_inject ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000052'>
+                <a name='M000052'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_710_max_by</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>max_by</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000052-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000052-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 845</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_710_max_by</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_710_max_by starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:max_by</span>, <span class="ruby-value str">&quot;test_710_max_by_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">max_by</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_710_max_by_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">max_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mdc</span> <span class="ruby-operator">?</span> <span class="ruby-value">9999</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-value str">&quot;test_710_max_by_mdc&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_710_max_by ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000053'>
+                <a name='M000053'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_720_min_by</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>min_by</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000053-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000053-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 864</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_720_min_by</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_720_min_by starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:min_by</span>, <span class="ruby-value str">&quot;test_720_min_by_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">min_by</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_720_min_by_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">min_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mda</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-value">9999</span> }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, <span class="ruby-ivar">@mda</span>, <span class="ruby-value str">&quot;test_720_min_by_mda&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_720_min_by ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000054'>
+                <a name='M000054'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_730_minmax</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>minmax</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000054-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000054-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 884</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_730_minmax</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_730_minmax starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:minmax</span>, <span class="ruby-value str">&quot;test_730_minmax_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">minmax</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, [<span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mda</span>], <span class="ruby-value str">&quot;test_730_minmax_natural&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_730_minmax ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000055'>
+                <a name='M000055'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_740_minmax_by</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>minmax_by</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000055-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000055-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 899</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_740_minmax_by</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_740_minmax_by starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:minmax_by</span>, <span class="ruby-value str">&quot;test_740_minmax_by_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">minmax_by</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_740_minmax_by_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">minmax_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-keyword kw">case</span>&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mdd</span>&#x000A;          <span class="ruby-value">9999</span>&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mdc</span>&#x000A;          <span class="ruby-value">0</span>&#x000A;        <span class="ruby-keyword kw">else</span>&#x000A;          <span class="ruby-value">1</span>&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, [<span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>], <span class="ruby-value str">&quot;740_minmax_by_res01&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_740_minmax_by ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000056'>
+                <a name='M000056'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_750_none?</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>none?</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000056-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000056-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 928</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_750_none?</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_750_none? starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:none?</span>, <span class="ruby-value str">&quot;test_750_none?_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">none?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">false</span> }&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>, <span class="ruby-value str">&quot;test_750_none?_false&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">none?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">true</span> }&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-value str">&quot;test_750_none?_truea&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">none?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ndata</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span> }&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-value str">&quot;test_750_none?_true1&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_750_none? ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000057'>
+                <a name='M000057'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_760_one?</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>one?</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000057-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000057-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 949</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_760_one?</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_760_one? starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:one?</span>, <span class="ruby-value str">&quot;test_760_one?_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">one?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-keyword kw">case</span>&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">obj</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mda</span>&#x000A;          <span class="ruby-keyword kw">true</span>&#x000A;        <span class="ruby-keyword kw">else</span>&#x000A;          <span class="ruby-keyword kw">false</span>&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    }&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>, <span class="ruby-value str">&quot;test_760_one?_true&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">one?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-keyword kw">case</span>&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">obj</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mda</span>&#x000A;          <span class="ruby-keyword kw">true</span>&#x000A;        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">obj</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mdd</span>&#x000A;          <span class="ruby-keyword kw">true</span>&#x000A;        <span class="ruby-keyword kw">else</span>&#x000A;          <span class="ruby-keyword kw">false</span>&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    }&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-value str">&quot;test_760_one?_false&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_760_one? ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000058'>
+                <a name='M000058'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_770_reduce</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>reduce</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000058-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000058-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 984</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_770_reduce</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_770_reduce starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:reduce</span>, <span class="ruby-value str">&quot;test_770_reduce_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">test_700_inject</span>&#x000A;    <span class="ruby-comment cmt"># What else?</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_770_reduce ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000059'>
+                <a name='M000059'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_780_reverse_each</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>reverse_each</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000059-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000059-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 999</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_780_reverse_each</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_780_reverse_each starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:reverse_each</span>, <span class="ruby-value str">&quot;test_780_reverse_each_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">reverse_each</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_780_reverse_each_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">holder</span> = []&#x000A;    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">reverse_each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-identifier">holder</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">obj</span>&#x000A;    }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">holder</span>,&#x000A;      [<span class="ruby-ivar">@mdd</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mda</span>],&#x000A;      <span class="ruby-value str">&quot;test_780_reverse_each_reversed&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_780_reverse_each ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000060'>
+                <a name='M000060'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_790_take</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>take</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000060-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000060-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 1023</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_790_take</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_790_take starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:take</span>, <span class="ruby-value str">&quot;test_790_take_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">1</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, [<span class="ruby-ivar">@mda</span>], <span class="ruby-value str">&quot;test_790_take_1&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">2</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, [<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>], <span class="ruby-value str">&quot;test_790_take_2&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_790_take ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000061'>
+                <a name='M000061'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_800_take_while</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>take_while</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000061-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000061-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 1041</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_800_take_while</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_800_take_while starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:take_while</span>, <span class="ruby-value str">&quot;test_800_take_while_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">enum</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">take_while</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Enumerator</span>&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">result</span>,<span class="ruby-value str">&quot;test_800_take_while_class&quot;</span>) &#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">take_while</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>&#x000A;      <span class="ruby-identifier">obj</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mdc</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">false</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">true</span>&#x000A;    }&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>, [<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>], <span class="ruby-value str">&quot;test_800_take_while_first2&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_800_take_while ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000062'>
+                <a name='M000062'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_810_to_a</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the <tt>to_a</tt> method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000062-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000062-source'><span class="ruby-comment cmt"># File test/TestMyColl.rb, line 1063</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_810_to_a</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_810_to_a starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@list</span>, <span class="ruby-identifier">:to_a</span>, <span class="ruby-value str">&quot;test_810_to_a_respond&quot;</span>)&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">to_a</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">result</span>,&#x000A;      [<span class="ruby-ivar">@mda</span>, <span class="ruby-ivar">@mdb</span>, <span class="ruby-ivar">@mdc</span>, <span class="ruby-ivar">@mdd</span>],&#x000A;      <span class="ruby-value str">&quot;test_810_to_a_all&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_810_to_a ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>
