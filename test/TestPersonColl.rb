@@ -1,7 +1,7 @@
 #
 # == Purpose
 #
-# Unit tests for MyCollection objects.
+# Unit tests for PersonCollection objects.
 #
 # == Author
 #
@@ -16,12 +16,12 @@ require 'test/unit'
 require 'logger'
 # To be tested or used
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
-require 'mycollection'
-require 'mydata'
+require 'personcollection'
+require 'person'
 
 #
 module Colldemo
-class TestMyColl < Test::Unit::TestCase
+class TestPersonColl < Test::Unit::TestCase
   #
   # Initialize this test class.
   #
@@ -29,26 +29,30 @@ class TestMyColl < Test::Unit::TestCase
     super(name)
     @@log = Logger.new(STDOUT)
     @@log.level = Logger::DEBUG
-    @mda = nil
-    @mdb = nil
-    @mdc = nil
-    @mdd = nil
+    @aen = nil
+    @bsb = nil
+    @cab = nil
+    @dav = nil
     @list = nil
   end
   #
   # Setup for each test.
-  # * Define four MyData objects
-  # * Define one MyCollection object
-  # * Add all MyData objects to the MyCollection object
+  # * Define four Person objects
+  # * Define one PersonCollection object
+  # * Add all Person objects to the PersonCollection object
   #
   def setup
-    @mda = MyData.new("AA12")
-    @mdb = MyData.new("BB1",2)
-    @mdc = MyData.new("CA1234",3)
-    @mdd = MyData.new("DB123",4)
-    @list = MyCollection::new
+    # Alfred E Newman
+    @aen = Person.new("Alfred", "E", "Newman")
+    # Bob S Barker
+    @bsb = Person.new("Bob", "S", "Barker")
+    # Charlie A Bronson
+    @cab = Person.new("Charlie", "A", "Bronson")
+    # Dilbert A Dev
+    @dav = Person.new("Dilbert", "A", "Dev")
+    @list = PersonCollection::new
     # An implicit test of append :-)
-    @list.append(@mda).append(@mdb).append(@mdc).append(@mdd)
+    @list.append(@aen).append(@bsb).append(@cab).append(@dav)
   end
   #
   # Teardown after each test.  Currently does nothing.
@@ -73,7 +77,7 @@ class TestMyColl < Test::Unit::TestCase
   def test_020_size
     @@log.debug "test_020_size starts" if @@log.debug?
     assert_equal(4, @list.size)
-    @list.append(MyData.new("A"))
+    @list.append(Person.new("Robert", "NMN", "Zimmerman"))
     assert_equal(5, @list.size)
     @@log.debug "test_020_size ends" if @@log.debug?
   end
@@ -83,10 +87,10 @@ class TestMyColl < Test::Unit::TestCase
   def test_030_index_method
     @@log.debug "test_030_index_method starts" if @@log.debug?
     # Appends done in setup
-    assert_equal(@mda,@list[0])
-    assert_equal(@mdb,@list[1])
-    assert_equal(@mdc,@list[2])
-    assert_equal(@mdd,@list[3])
+    assert_equal(@aen,@list[0])
+    assert_equal(@bsb,@list[1])
+    assert_equal(@cab,@list[2])
+    assert_equal(@dav,@list[3])
     #
     assert_nil(@list[9])
     @@log.debug "test_030_index_method ends" if @@log.debug?
@@ -96,10 +100,10 @@ class TestMyColl < Test::Unit::TestCase
   #
   def test_040_del_methods
     @@log.debug "test_040_del_methods starts" if @@log.debug?
-    assert_equal(@mda, @list.delete_first)
-    assert_equal(@mdb, @list.delete_first)
-    assert_equal(@mdd, @list.delete_last)
-    assert_equal(@mdc, @list.delete_last)
+    assert_equal(@aen, @list.delete_first)
+    assert_equal(@bsb, @list.delete_first)
+    assert_equal(@dav, @list.delete_last)
+    assert_equal(@cab, @list.delete_last)
     assert_nil(@list.delete_last)
     @@log.debug "test_040_del_methods ends" if @@log.debug?
   end
@@ -144,7 +148,7 @@ class TestMyColl < Test::Unit::TestCase
     assert(@list.all?,"test_100_allq_basic")
     result = @list.all? {|obj| true}
     assert(result, "test_100_allq_block_01")
-    result = @list.all? {|obj| obj.ndata == 123 }
+    result = @list.all? {|obj| obj.last == "ZZTop" }
     assert(result == false, "test_100_allq_block_02")
 
     @@log.debug "test_100_allq ends" if @@log.debug?
@@ -163,7 +167,7 @@ class TestMyColl < Test::Unit::TestCase
     assert(@list.any?, "test_110_anyq_basic")
     result = @list.any? {|obj| true}
     assert(result, "test_100_anyq_block_01")
-    result = @list.any? {|obj| obj.ndata == 3 }
+    result = @list.any? {|obj| obj.last == "Bronson" }
     assert(result, "test_100_anyq_block_02")
 
     @@log.debug "test_110_anyq ends" if @@log.debug?
@@ -217,10 +221,10 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_140_detect starts" if @@log.debug?
     assert_respond_to(@list, :detect, "test_140_detect_respond")
 
-    mdx = @list.detect {|obj| obj.ndata == 3 }
-    assert_equal(@mdc, mdx, "test_140_detect_feq_01")
+    mdx = @list.detect {|obj| obj.last == "Dev" }
+    assert_equal(@cab, mdx, "test_140_detect_feq_01")
     sorry = lambda { "not found" }
-    mdx = @list.detect(sorry) {|obj| obj.ndata == 999 }      
+    mdx = @list.detect(sorry) {|obj| obj.last == "Allard" }      
     assert_equal("not found", mdx, "test_140_detect_feq_02")
 
     @@log.debug "test_140_detect ends" if @@log.debug?
@@ -236,10 +240,10 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_150_find starts" if @@log.debug?
     assert_respond_to(@list, :find, "test_150_find_respond")
 
-    mdx = @list.find {|obj| obj.ndata == 3 }
-    assert_equal(@mdc, mdx, "test_150_find_feq_01")
+    mdx = @list.find {|obj| obj.middle == "E" }
+    assert_equal(@cab, mdx, "test_150_find_feq_01")
     sorry = lambda { "not found" }
-    mdx = @list.find(sorry) {|obj| obj.ndata == 999 }      
+    mdx = @list.find(sorry) {|obj| obj.middle == "Q" }      
     assert_equal("not found", mdx, "test_150_find_feq_02")
 
     @@log.debug "test_150_find ends" if @@log.debug?
@@ -257,9 +261,9 @@ class TestMyColl < Test::Unit::TestCase
 
     ta = []
     @list.each_with_index do |obj, ndx|
-      ta << "#{obj.ndata}-#{ndx}"
+      ta << "#{obj.first}-#{ndx}"
     end
-    assert_equal(["123-0", "2-1", "3-2", "4-3"], ta, "test_160_each_with_index_basic")
+    assert_equal(["Alfred-0", "Bob-1", "Charlie-2", "Dilbert-3"], ta, "test_160_each_with_index_basic")
 
     @@log.debug "test_160_each_with_index ends" if @@log.debug?
   end
@@ -275,7 +279,7 @@ class TestMyColl < Test::Unit::TestCase
     assert_respond_to(@list, :entries, "test_170_entries_respond")
 
     ta = @list.entries
-    assert_equal([@mda, @mdb, @mdc, @mdd], ta, "test_170_entries_basic")
+    assert_equal([@aen, @bsb, @cab, @dav], ta, "test_170_entries_basic")
 
     @@log.debug "test_170_entries ends" if @@log.debug?
   end
@@ -291,7 +295,7 @@ class TestMyColl < Test::Unit::TestCase
     assert_respond_to(@list, :to_a, "test_180_to_a_respond")
 
     ta = @list.to_a
-    assert_equal([@mda, @mdb, @mdc, @mdd], ta, "test_180_to_a_basic")
+    assert_equal([@aen, @bsb, @cab, @dav], ta, "test_180_to_a_basic")
 
     @@log.debug "test_180_to_a ends" if @@log.debug?
   end
@@ -306,8 +310,8 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_190_find_all starts" if @@log.debug?
     assert_respond_to(@list, :find_all, "test_190_find_all_respond")
 
-    ta = @list.find_all {|obj| obj.ndata <= 3 }
-    assert_equal([@mdb, @mdc], ta, "test_190_find_all_eq01")
+    ta = @list.find_all {|obj| obj.first <= "Bob" }
+    assert_equal([@bsb, @cab], ta, "test_190_find_all_eq01")
 
     @@log.debug "test_190_find_all ends" if @@log.debug?
   end
@@ -325,8 +329,8 @@ class TestMyColl < Test::Unit::TestCase
     # very contrived
     @list.append("aaa")
     @list.append(456)
-    ta = @list.grep(MyData)
-    assert_equal([@mda, @mdb, @mdc, @mdd], ta, "test_200_grep_class")
+    ta = @list.grep(Person)
+    assert_equal([@aen, @bsb, @cab, @dav], ta, "test_200_grep_class")
 
     @@log.debug "test_200_grep ends" if @@log.debug?
   end
@@ -341,8 +345,8 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_210_includeq starts" if @@log.debug?
     assert_respond_to(@list, :include?, "test_210_includeq_respond")
 
-    assert(@list.include?(@mdb),"test_210_includeq_basic")
-    ta = MyData.new("XYZ", 456)
+    assert(@list.include?(@bsb),"test_210_includeq_basic")
+    ta = Person.new("XYZ", 456)
     assert(@list.include?(ta) == false,"test_210_includeq_backwards")
 
     @@log.debug "test_210_includeq ends" if @@log.debug?
@@ -357,12 +361,12 @@ class TestMyColl < Test::Unit::TestCase
   def test_220_inject
     @@log.debug "test_220_inject starts" if @@log.debug?
     assert_respond_to(@list, :inject, "test_220_inject_respond")
-
+=begin
     sumnd = @list.inject(0) {|memo, obj| memo + obj.ndata }
     assert_equal(132, sumnd, "test_220_inject_sumnd")
-
-    catsd = @list.inject("") {|memo, obj| "#{memo}#{obj.sdata}" }
-    assert_equal("AA12BB1CA1234DB123", catsd, "test_220_inject_catsd")
+=end
+    catsd = @list.inject("") {|memo, obj| "#{memo}#{obj.first}" }
+    assert_equal("AlfredCharlieBobDilbert", catsd, "test_220_inject_catsd")
 
     @@log.debug "test_220_inject ends" if @@log.debug?
   end
@@ -377,7 +381,7 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_230_max starts" if @@log.debug?
     assert_respond_to(@list, :max, "test_230_max_respond")
 
-    assert_equal(123, @list.max.ndata, "test_230_max_basic")
+    assert_equal("Dev", @list.max.last, "test_230_max_basic")
 
     @@log.debug "test_230_max ends" if @@log.debug?
   end
@@ -392,8 +396,8 @@ class TestMyColl < Test::Unit::TestCase
     @@log.debug "test_240_memberq starts" if @@log.debug?
     assert_respond_to(@list, :member?, "test_240_memberq_respond")
 
-    assert(@list.member?(@mdb),"test_240_memberq_basic")
-    ta = MyData.new("XYZ", 456)
+    assert(@list.member?(@bsb),"test_240_memberq_basic")
+    ta = Person.new("XYZ", 456)
     assert(@list.member?(ta) == false,"test_240_memberq_backwards")
 
     @@log.debug "test_240_memberq ends" if @@log.debug?
@@ -426,8 +430,8 @@ class TestMyColl < Test::Unit::TestCase
 
     ta = @list.partition {|obj| obj.ndata <= 3 }
     assert_equal(2, ta.size,"test_260_partition_basic_01")
-    assert_equal([@mdb, @mdc], ta[0], "test_260_partition_basic_02")
-    assert_equal([@mda, @mdd], ta[1], "test_260_partition_basic_03")
+    assert_equal([@bsb, @cab], ta[0], "test_260_partition_basic_02")
+    assert_equal([@aen, @dav], ta[1], "test_260_partition_basic_03")
 
     @@log.debug "test_260_partition ends" if @@log.debug?
   end
@@ -443,7 +447,7 @@ class TestMyColl < Test::Unit::TestCase
     assert_respond_to(@list, :reject, "test_270_reject_respond")
 
     ta = @list.reject {|obj| obj.ndata <= 3 }
-    assert_equal([@mda, @mdd], ta, "test_270_reject_eq01")
+    assert_equal([@aen, @dav], ta, "test_270_reject_eq01")
 
     @@log.debug "test_270_reject ends" if @@log.debug?
   end
@@ -459,7 +463,7 @@ class TestMyColl < Test::Unit::TestCase
     assert_respond_to(@list, :select, "test_275_select_respond")
 
     ta = @list.select {|obj| obj.ndata <= 3 }
-    assert_equal([@mdb, @mdc], ta, "test_275_select_eq01")
+    assert_equal([@bsb, @cab], ta, "test_275_select_eq01")
 
     @@log.debug "test_275_select ends" if @@log.debug?
   end
@@ -475,7 +479,7 @@ class TestMyColl < Test::Unit::TestCase
     assert_respond_to(@list, :sort, "test_280_sort_respond")
 
     ta = @list.sort
-    assert_equal([@mdb, @mdc, @mdd, @mda], ta, "test_280_sort_basic")
+    assert_equal([@bsb, @cab, @dav, @aen], ta, "test_280_sort_basic")
 
     @@log.debug "test_280_sort ends" if @@log.debug?
   end
@@ -491,7 +495,7 @@ class TestMyColl < Test::Unit::TestCase
     assert_respond_to(@list, :sort_by, "test_290_sort_by_respond")
 
     ta = @list.sort_by {|obj| obj.sdata.length }
-    assert_equal([@mdb, @mda, @mdd, @mdc], ta, "test_290_sort_by_basic")
+    assert_equal([@bsb, @aen, @dav, @cab], ta, "test_290_sort_by_basic")
 
     @@log.debug "test_290_sort_by ends" if @@log.debug?
   end
@@ -511,10 +515,10 @@ class TestMyColl < Test::Unit::TestCase
     c = [4,5,6]
     ta = @list.zip(a, b, c)
     #
-    te = [[@mda, 1, 2, 4], 
-          [@mdb, nil, 3, 5], 
-          [@mdc, nil, nil, 6], 
-          [@mdd, nil, nil, nil]]
+    te = [[@aen, 1, 2, 4], 
+          [@bsb, nil, 3, 5], 
+          [@cab, nil, nil, 6], 
+          [@dav, nil, nil, nil]]
     #
     assert_equal(te, ta, "test_300_zip_basic")
 
@@ -564,7 +568,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     @@log.debug "test_600_count starts" if @@log.debug?
     assert_respond_to(@list, :count, "test_600_count_respond")
     assert(@list.count == 4, "test_600_count_count")
-    assert(@list.count(@mdb) == 1, "test_600_count_oneobj_1")
+    assert(@list.count(@bsb) == 1, "test_600_count_oneobj_1")
     assert(@list.count(42) == 0, "test_600_count_oneobj_2")
     result = @list.count {|obj| obj.ndata > 2}
     assert(result == 3, "test_600_count_trueres")
@@ -585,9 +589,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     result = enum.is_a? Enumerator
     assert(result,"test_610_cycle_class") 
     #
-    assert_equal([@mda, @mdb, @mdc, @mdd], @list.cycle(1).to_a, "test_610_cycle_once")
+    assert_equal([@aen, @bsb, @cab, @dav], @list.cycle(1).to_a, "test_610_cycle_once")
     # 
-    assert_equal([@mda, @mdb, @mdc, @mdd, @mda, @mdb, @mdc, @mdd], 
+    assert_equal([@aen, @bsb, @cab, @dav, @aen, @bsb, @cab, @dav], 
       @list.cycle(2).to_a, "test_610_cycle_twice") 
     @@log.debug "test_610_cycle ends" if @@log.debug?
   end
@@ -602,8 +606,8 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     @@log.debug "test_620_drop starts" if @@log.debug?
     assert_respond_to(@list, :drop, "test_620_drop_respond")
     #
-    assert_equal([@mdb, @mdc, @mdd], @list.drop(1), "test_620_drop_one")
-    assert_equal([@mdc, @mdd], @list.drop(2), "test_620_drop_two")
+    assert_equal([@bsb, @cab, @dav], @list.drop(1), "test_620_drop_one")
+    assert_equal([@cab, @dav], @list.drop(2), "test_620_drop_two")
     @@log.debug "test_620_drop ends" if @@log.debug?
   end
 
@@ -618,10 +622,10 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert_respond_to(@list, :drop_while, "test_630_drop_while_respond")
     #
     result = @list.drop_while {|item| item.ndata != 2}
-    assert_equal([@mdb, @mdc, @mdd], result, "test_630_drop_while_ne2")
+    assert_equal([@bsb, @cab, @dav], result, "test_630_drop_while_ne2")
     #
     result = @list.drop_while {|item| item.ndata != 3}
-    assert_equal([@mdc, @mdd], result, "test_630_drop_while_ne3")
+    assert_equal([@cab, @dav], result, "test_630_drop_while_ne3")
     @@log.debug "test_630_drop_while ends" if @@log.debug?
   end
 
@@ -644,11 +648,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
       pass += 1
       case pass
         when 1
-          assert_equal([@mda, @mdb], suba, "test_640_each_cons_p1")
+          assert_equal([@aen, @bsb], suba, "test_640_each_cons_p1")
         when 2
-          assert_equal([@mdb, @mdc], suba, "test_640_each_cons_p2")
+          assert_equal([@bsb, @cab], suba, "test_640_each_cons_p2")
         when 3
-          assert_equal([@mdc, @mdd], suba, "test_640_each_cons_p3")
+          assert_equal([@cab, @dav], suba, "test_640_each_cons_p3")
         else
           fail("test_640_each_cons_invalid")
       end
@@ -675,9 +679,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
       pass += 1
       case pass
         when 1
-          assert_equal([@mda, @mdb], suba, "test_650_each_slice_p1")
+          assert_equal([@aen, @bsb], suba, "test_650_each_slice_p1")
         when 2
-          assert_equal([@mdc, @mdd], suba, "test_650_each_slice_p2")
+          assert_equal([@cab, @dav], suba, "test_650_each_slice_p2")
         else
           fail("test_650_each_slice_invalid")
       end
@@ -688,9 +692,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
       pass += 1
       case pass
         when 1
-          assert_equal([@mda, @mdb, @mdc], suba, "test_650_each_slice_p1b")
+          assert_equal([@aen, @bsb, @cab], suba, "test_650_each_slice_p1b")
         when 2
-          assert_equal([@mdd], suba, "test_650_each_slice_p2b")
+          assert_equal([@dav], suba, "test_650_each_slice_p2b")
         else
           fail("test_650_each_slice_invalid_b")
       end
@@ -714,13 +718,13 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     #
     @list.each_with_index {|item, index|
       case
-        when item == @mda
+        when item == @aen
           assert(index == 0, "test_655_each_with_index_i0")
-        when item == @mdb
+        when item == @bsb
           assert(index == 1, "test_655_each_with_index_i1")
-        when item == @mdc
+        when item == @cab
           assert(index == 2, "test_655_each_with_index_i2")
-        when item == @mdd
+        when item == @dav
           assert(index == 3, "test_655_each_with_index_i3")
         else
           flunk("test_655_each_with_index_invalid")
@@ -788,10 +792,10 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert_respond_to(@list, :first, "test_680_first_respond")
     #
     result = @list.first
-    assert_equal(result, @mda, "test_680_first_one")
+    assert_equal(result, @aen, "test_680_first_one")
     #
     result = @list.first(2)
-    assert_equal(result, [@mda,@mdb], "test_680_first_two")
+    assert_equal(result, [@aen,@bsb], "test_680_first_two")
     @@log.debug "test_680_first ends" if @@log.debug?
   end
 
@@ -811,7 +815,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     #
     hash = @list.group_by {|item| item.ndata <= 2 ? "le2" : "gt2"}
     assert_equal(hash,
-      {"gt2" => [@mda, @mdc, @mdd], "le2" => [@mdb]},
+      {"gt2" => [@aen, @cab, @dav], "le2" => [@bsb]},
       "test_690_group_by_hash")
     @@log.debug "test_690_group_by ends" if @@log.debug?
   end
@@ -828,10 +832,10 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     #
     test_220_inject
     #
-    biggest_nd = @list.inject(@mda) {|memo, item|
+    biggest_nd = @list.inject(@aen) {|memo, item|
       memo.ndata > item.ndata ? memo : item
     }
-    assert_equal(biggest_nd, @mda, "test_700_inject_biggest")
+    assert_equal(biggest_nd, @aen, "test_700_inject_biggest")
     # What else?
     @@log.debug "test_700_inject ends" if @@log.debug?
   end
@@ -850,8 +854,8 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     result = enum.is_a? Enumerator
     assert(result,"test_710_max_by_class") 
     #
-    result = @list.max_by {|item| item == @mdc ? 9999 : 0 }
-    assert_equal(result, @mdc, "test_710_max_by_mdc")
+    result = @list.max_by {|item| item == @cab ? 9999 : 0 }
+    assert_equal(result, @cab, "test_710_max_by_mdc")
     @@log.debug "test_710_max_by ends" if @@log.debug?
   end
 
@@ -869,8 +873,8 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     result = enum.is_a? Enumerator
     assert(result,"test_720_min_by_class") 
     #
-    result = @list.min_by {|item| item == @mda ? 0 : 9999 }
-    assert_equal(result, @mda, "test_720_min_by_mda")
+    result = @list.min_by {|item| item == @aen ? 0 : 9999 }
+    assert_equal(result, @aen, "test_720_min_by_mda")
     #
     @@log.debug "test_720_min_by ends" if @@log.debug?
   end
@@ -886,7 +890,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert_respond_to(@list, :minmax, "test_730_minmax_respond")
     #
     result = @list.minmax
-    assert_equal(result, [@mdb, @mda], "test_730_minmax_natural")
+    assert_equal(result, [@bsb, @aen], "test_730_minmax_natural")
     @@log.debug "test_730_minmax ends" if @@log.debug?
   end
 
@@ -906,15 +910,15 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     #
     result = @list.minmax_by {|item|
       case
-        when item == @mdd
+        when item == @dav
           9999
-        when item == @mdc
+        when item == @cab
           0
         else
           1
       end
     }
-    assert_equal(result, [@mdc, @mdd], "740_minmax_by_res01")
+    assert_equal(result, [@cab, @dav], "740_minmax_by_res01")
     #
     @@log.debug "test_740_minmax_by ends" if @@log.debug?
   end
@@ -952,7 +956,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     #
     result = @list.one? {|obj|
       case
-        when obj == @mda
+        when obj == @aen
           true
         else
           false
@@ -962,9 +966,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     #
     result = @list.one? {|obj|
       case
-        when obj == @mda
+        when obj == @aen
           true
-        when obj == @mdd
+        when obj == @dav
           true
         else
           false
@@ -1009,7 +1013,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
       holder << obj
     }
     assert_equal(holder,
-      [@mdd, @mdc, @mdb, @mda],
+      [@dav, @cab, @bsb, @aen],
       "test_780_reverse_each_reversed")
     @@log.debug "test_780_reverse_each ends" if @@log.debug?
   end
@@ -1025,10 +1029,10 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert_respond_to(@list, :take, "test_790_take_respond")
     #
     result = @list.take(1)
-    assert_equal(result, [@mda], "test_790_take_1")
+    assert_equal(result, [@aen], "test_790_take_1")
     #
     result = @list.take(2)
-    assert_equal(result, [@mda, @mdb], "test_790_take_2")
+    assert_equal(result, [@aen, @bsb], "test_790_take_2")
     @@log.debug "test_790_take ends" if @@log.debug?
   end
 
@@ -1047,9 +1051,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert(result,"test_800_take_while_class") 
     #
     result = @list.take_while {|obj|
-      obj == @mdc ? false : true
+      obj == @cab ? false : true
     }
-    assert_equal(result, [@mda, @mdb], "test_800_take_while_first2")
+    assert_equal(result, [@aen, @bsb], "test_800_take_while_first2")
     #
     @@log.debug "test_800_take_while ends" if @@log.debug?
   end
@@ -1066,13 +1070,13 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     #
     result = @list.to_a
     assert_equal(result,
-      [@mda, @mdb, @mdc, @mdd],
+      [@aen, @bsb, @cab, @dav],
       "test_810_to_a_all")
     @@log.debug "test_810_to_a ends" if @@log.debug?
   end
 
 end # of ruby 1.9+ code
 
-end # of class TestMyColl
+end # of class TestPersonColl
 end # of module Colldemo
 
