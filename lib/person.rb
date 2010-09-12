@@ -17,11 +17,12 @@ require 'logger'
 module Colldemo
 class Person
   include Comparable
-  attr_reader :first, :mi, :last
-  def initialize(first, middle, last)
+  attr_reader :first, :mi, :last, :ndata
+  def initialize(first, middle, last, num)
     @first = first
     @mi = middle
     @last = last
+    @ndata = num
   end
   #
   def <=>(other)

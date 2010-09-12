@@ -35,11 +35,11 @@ class TestPerson < Test::Unit::TestCase
   #
   def setup
     # Allen B Sheppard
-    @abs = Person.new("Allen","B", "Sheppard")
+    @abs = Person.new("Allen","B", "Sheppard", 3)
     # John A Smith
-    @jas = Person.new("John","A", "Smith")
+    @jas = Person.new("John","A", "Smith", 2)
     # John B Smith
-    @jbs = Person.new("John","B", "Smith")
+    @jbs = Person.new("John","B", "Smith", 1)
   end
   #
   # Teardown after each test.  Currently does nothing.
