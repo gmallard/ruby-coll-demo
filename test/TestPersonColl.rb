@@ -570,7 +570,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert(@list.count(@bsb) == 1, "test_600_count_oneobj_1")
     assert(@list.count(42) == 0, "test_600_count_oneobj_2")
     result = @list.count {|obj| obj.ndata > 2}
-    assert(result == 3, "test_600_count_trueres")
+    assert(result == 2, "test_600_count_trueres")
     @@log.debug "test_600_count ends" if @@log.debug?
   end
 
@@ -621,10 +621,10 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert_respond_to(@list, :drop_while, "test_630_drop_while_respond")
     #
     result = @list.drop_while {|item| item.ndata != 2}
-    assert_equal([@bsb, @cab, @dad], result, "test_630_drop_while_ne2")
+    assert_equal([@cab, @dad], result, "test_630_drop_while_ne2")
     #
     result = @list.drop_while {|item| item.ndata != 3}
-    assert_equal([@cab, @dad], result, "test_630_drop_while_ne3")
+    assert_equal([@bsb, @cab, @dad], result, "test_630_drop_while_ne3")
     @@log.debug "test_630_drop_while ends" if @@log.debug?
   end
 
@@ -748,10 +748,10 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert(result,"test_660_each_with_object_class") 
     #
     hash = @list.each_with_object({}) do |item, memo|
-      memo[item.sdata] = item.ndata
+      memo[item.last] = item.ndata
     end
     assert_equal(hash,
-      {"AA12"=>123, "BB1"=>2, "CA1234"=>3, "DB123"=>4},
+      {"Newman"=>4, "Barker"=>3, "Bronson"=>2, "Dev"=>1},
       "test_660_each_with_object_hash")
     #
     @@log.debug "test_660_each_with_object ends" if @@log.debug?
@@ -775,7 +775,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert_nil(enum, "test_670_find_index_allfalse")
     #
     enum = @list.find_index {|item| item.ndata == 3 }
-    assert(enum == 2, "test_670_find_index_ndata3")
+    assert(enum == 1, "test_670_find_index_ndata3")
     #
     @@log.debug "test_670_find_index ends" if @@log.debug?
   end
@@ -814,7 +814,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     #
     hash = @list.group_by {|item| item.ndata <= 2 ? "le2" : "gt2"}
     assert_equal(hash,
-      {"gt2" => [@aen, @cab, @dad], "le2" => [@bsb]},
+      {"gt2" => [@aen, @bsb], "le2" => [@cab, @dad]},
       "test_690_group_by_hash")
     @@log.debug "test_690_group_by ends" if @@log.debug?
   end
