@@ -30,7 +30,9 @@ class Person
     compa << (@first <=> other.first)
     compa << (@mi <=> other.mi)
     #
-    compa.detect(0) {|i| i != 0}
+    all_zero = lambda { 0 }
+    compa.detect(all_zero) {|i| i != 0}
   end
+end # of class Person
 end # of Module CollDemo
 
