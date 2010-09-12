@@ -28,6 +28,11 @@
 # As of Feb 28, 2010 additional Enumerable methods in ruby 1.9 are also
 # demonstrated.  Ruby 1.8 compatability is maintained.
 #
+# === Clarifications
+#
+# As of Sep 12, 2010 the class used as a data element and the collection
+# have changed in order to clarify and simplify the example.
+#
 # == Author
 #
 # Guy Allard
