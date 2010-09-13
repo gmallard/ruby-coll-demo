@@ -62,6 +62,8 @@ class TestPersonColl < Test::Unit::TestCase
   #
   # Test the +each+ method.
   #
+  # The +each+ method is required for the Enumerable mixin.
+  #
   def test_010_each
     @@log.debug "test_010_each starts" if @@log.debug?
     count = 0
@@ -71,6 +73,21 @@ class TestPersonColl < Test::Unit::TestCase
     assert_equal(4, count)
     @@log.debug "test_010_each ends" if @@log.debug?
   end
+=begin
+
+  Test methods provided by Array#method pass throughs.
+
+  To be tested:
+
+  size
+  index[]
+  pop
+  shift
+
+  Note: implementation of these methods is +not+ required for the 
+    Enumerable mixin.
+
+=end
   #
   # Test the +size+ method.
   #
@@ -156,13 +173,15 @@ class TestPersonColl < Test::Unit::TestCase
   def test_100_allq
     @@log.debug "test_100_allq starts" if @@log.debug?
     assert_respond_to(@list, :all?, "test_100_allq_respond")
-
+    # No members are false or nil
     assert(@list.all?,"test_100_allq_basic")
+    # Block never returns false or nil
     result = @list.all? {|obj| true}
     assert(result, "test_100_allq_block_01")
+    # Any member has .last == "ZZTop"
     result = @list.all? {|obj| obj.last == "ZZTop" }
     assert(result == false, "test_100_allq_block_02")
-
+    #
     @@log.debug "test_100_allq ends" if @@log.debug?
   end
 
