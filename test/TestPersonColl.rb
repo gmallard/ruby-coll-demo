@@ -281,13 +281,26 @@ end
   def test_130_map
     @@log.debug "test_130_map starts" if @@log.debug?
     assert_respond_to(@list, :map, "test_130_map_respond")
-
-    #
+    # And array of dummy objects is returned
     new_list = @list.map { "dummy" }
     assert(new_list.size == @list.size,"test_130_map_basic")
     assert(new_list[@list.size - 1] == "dummy","test_130_map_sizecheck")
-    # Something else needs to be done for testing.  What is practical?
-
+    # Check Enumerator or Array return, no block given
+    new_list = @list.map
+if RUBY_VERSION =~ /(1.9)|(2.)/
+    result = new_list.is_a? Enumerator
+    assert(result, "test_130_map_enumcheck")
+else
+    result = new_list.is_a? Array
+    assert(result, "test_130_map_arraycheck")
+end
+    # Create new Array 2
+    new_list = @list.map {|obj| obj.ndata * 2 }
+    assert(new_list == [8,6,4,2], "test_130_map_ndx2")
+    # Create new Array 3
+    new_list = @list.map {|obj| obj.last }
+    expected = ["Newman", "Barker", "Bronson", "Dev"]
+    assert(new_list == expected, "test_130_map_lastname")
     @@log.debug "test_130_map ends" if @@log.debug?
   end
 
