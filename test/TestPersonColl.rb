@@ -313,13 +313,22 @@ end
   def test_150_find
     @@log.debug "test_150_find starts" if @@log.debug?
     assert_respond_to(@list, :find, "test_150_find_respond")
-
-    persobj = @list.find {|obj| obj.mi == "E" }
-    assert_equal(@aen, persobj, "test_150_find_feq_01")
+    # Object with .last == "Dev"
+    persobj = @list.find {|obj| obj.last == "Dev" }
+    assert_equal(@dad, persobj, "test_150_find_feq_01")
+    # Object with .last == "Allard"
     sorry = lambda { "not found" }
-    persobj = @list.find(sorry) {|obj| obj.mi == "Q" }      
+    persobj = @list.find(sorry) {|obj| obj.last == "Allard" }      
     assert_equal("not found", persobj, "test_150_find_feq_02")
-
+    # Check Enumerator or Enumerable::Enumerator return, no block given
+    new_list = @list.find
+if RUBY_VERSION =~ /(1.9)|(2.)/
+    result = new_list.is_a? Enumerator
+    assert(result, "test_150_find_enumcheck")
+else
+    result = new_list.is_a? Enumerable::Enumerator
+    assert(result, "test_150_find_enumenumcheck")
+end
     @@log.debug "test_150_find ends" if @@log.debug?
   end
 
