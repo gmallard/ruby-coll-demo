@@ -51,8 +51,8 @@ class TestPersonColl < Test::Unit::TestCase
     # Dilbert A Dev
     @dad = Person.new("Dilbert", "A", "Dev", 1)
     @list = PersonCollection::new
-    # An implicit test of append :-)
-    @list.append(@aen).append(@bsb).append(@cab).append(@dad)
+    # An implicit test of << :-)
+    @list << @aen << @bsb << @cab << @dad
   end
   #
   # Teardown after each test.  Currently does nothing.
@@ -77,7 +77,7 @@ class TestPersonColl < Test::Unit::TestCase
   def test_020_size
     @@log.debug "test_020_size starts" if @@log.debug?
     assert_equal(4, @list.size)
-    @list.append(Person.new("Robert", "NMN", "Zimmerman", 5))
+    @list << Person.new("Robert", "NMN", "Zimmerman", 5)
     assert_equal(5, @list.size)
     @@log.debug "test_020_size ends" if @@log.debug?
   end
@@ -86,7 +86,7 @@ class TestPersonColl < Test::Unit::TestCase
   #
   def test_030_index_method
     @@log.debug "test_030_index_method starts" if @@log.debug?
-    # Appends done in setup
+    # <<'s done in setup
     assert_equal(@aen,@list[0])
     assert_equal(@bsb,@list[1])
     assert_equal(@cab,@list[2])
@@ -96,16 +96,28 @@ class TestPersonColl < Test::Unit::TestCase
     @@log.debug "test_030_index_method ends" if @@log.debug?
   end
   #
-  # Test the +delete_first+ method.
+  # Test the +pop+ method.
   #
-  def test_040_del_methods
-    @@log.debug "test_040_del_methods starts" if @@log.debug?
-    assert_equal(@aen, @list.delete_first)
-    assert_equal(@bsb, @list.delete_first)
-    assert_equal(@dad, @list.delete_last)
-    assert_equal(@cab, @list.delete_last)
-    assert_nil(@list.delete_last)
-    @@log.debug "test_040_del_methods ends" if @@log.debug?
+  def test_040_pop_method
+    @@log.debug "test_040_pop_method starts" if @@log.debug?
+    assert_equal(@dad, @list.pop)
+    assert_equal(@cab, @list.pop)
+    assert_equal(@bsb, @list.pop)
+    assert_equal(@aen, @list.pop)
+    assert_nil(@list.pop)
+    @@log.debug "test_040_pop_method ends" if @@log.debug?
+  end
+  #
+  # Test the +shift+ method.
+  #
+  def test_050_shift_method
+    @@log.debug "test_050_shift_method starts" if @@log.debug?
+    assert_equal(@aen, @list.shift)
+    assert_equal(@bsb, @list.shift)
+    assert_equal(@cab, @list.shift)
+    assert_equal(@dad, @list.shift)
+    assert_nil(@list.shift)
+    @@log.debug "test_050_shift_method ends" if @@log.debug?
   end
 =begin
 
