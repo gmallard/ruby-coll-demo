@@ -369,10 +369,9 @@ end
   def test_170_entries
     @@log.debug "test_170_entries starts" if @@log.debug?
     assert_respond_to(@list, :entries, "test_170_entries_respond")
-
+    # Check expected Array
     ta = @list.entries
     assert_equal([@aen, @bsb, @cab, @dad], ta, "test_170_entries_basic")
-
     @@log.debug "test_170_entries ends" if @@log.debug?
   end
 
