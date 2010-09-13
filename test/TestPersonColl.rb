@@ -461,13 +461,16 @@ end
   def test_220_inject
     @@log.debug "test_220_inject starts" if @@log.debug?
     assert_respond_to(@list, :inject, "test_220_inject_respond")
-
+    # Inject for sum
     sumnd = @list.inject(0) {|memo, obj| memo + obj.ndata }
     assert_equal(10, sumnd, "test_220_inject_sumnd")
-
+    # Inject for product
+    prodnd = @list.inject(1) {|memo, obj| memo * obj.ndata }
+    assert_equal(24, prodnd, "test_220_inject_prodnd")
+    # Inject for concatenation
     catsd = @list.inject("") {|memo, obj| "#{memo}#{obj.first}" }
     assert_equal("AlfredBobCharlieDilbert", catsd, "test_220_inject_catsd")
-
+    #
     @@log.debug "test_220_inject ends" if @@log.debug?
   end
 
