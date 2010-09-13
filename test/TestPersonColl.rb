@@ -484,6 +484,8 @@ end
     @@log.debug "test_230_max starts" if @@log.debug?
     assert_respond_to(@list, :max, "test_230_max_respond")
     # Basic max for a field (assumes all objects implement <=>)
+    # See the test for .min for a surprising resultusing this coding
+    # technique.
     assert_equal("Newman", @list.max.last, "test_230_max_basic")
     # Basic max for an object
     lastmax = @list.max {|a,b| a.last <=> b.last }
@@ -518,10 +520,16 @@ end
   def test_250_min
     @@log.debug "test_250_min starts" if @@log.debug?
     assert_respond_to(@list, :min, "test_250_min_respond")
-
-    # This is subtle.
+    # This is subtle, and the result is suprising at first.
+    # This coding style assumes that all objects implement <=>.
+    # However, the .ndata member of Person is _not_ included in a Person's
+    # <=> algorithm.  This method returns .ndata for the .min of all
+    # Person's in the collection, as determined by <=>.
+    # Because of this, it is probably not a great coding technique. :-)
     assert_equal(3, @list.min.ndata, "test_250_min_basic")
-
+    # Basic min for an object
+    lastmin = @list.min {|a,b| a.last <=> b.last }
+    assert_equal(@bsb, lastmin, "test_250_min_block")
     @@log.debug "test_250_min ends" if @@log.debug?
   end
 
