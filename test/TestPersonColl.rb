@@ -337,17 +337,26 @@ end
   #++
   #
   # Test the +each_with_index+ method.
+  # Ruby 1.8 behavior.
   #
   def test_160_each_with_index
     @@log.debug "test_160_each_with_index starts" if @@log.debug?
     assert_respond_to(@list, :each_with_index, "test_160_each_with_index_respond")
-
+    # Basic operation
     ta = []
     @list.each_with_index do |obj, ndx|
       ta << "#{obj.first}-#{ndx}"
     end
     assert_equal(["Alfred-0", "Bob-1", "Charlie-2", "Dilbert-3"], ta, "test_160_each_with_index_basic")
-
+    # Check Enumerator or Enumerable::Enumerator return, no block given
+    new_list = @list.each_with_index
+if RUBY_VERSION =~ /(1.9)|(2.)/
+    result = new_list.is_a? Enumerator
+    assert(result, "test_160_each_with_index_enumcheck")
+else
+    result = new_list.is_a? Enumerable::Enumerator
+    assert(result, "test_160_each_with_index_enumenumcheck")
+end
     @@log.debug "test_160_each_with_index ends" if @@log.debug?
   end
 
