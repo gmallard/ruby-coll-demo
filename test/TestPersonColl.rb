@@ -483,9 +483,11 @@ end
   def test_230_max
     @@log.debug "test_230_max starts" if @@log.debug?
     assert_respond_to(@list, :max, "test_230_max_respond")
-
+    # Basic max for a field (assumes all objects implement <=>)
     assert_equal("Newman", @list.max.last, "test_230_max_basic")
-
+    # Basic max for an object
+    lastmax = @list.max {|a,b| a.last <=> b.last }
+    assert_equal(@aen, lastmax, "test_230_max_block")
     @@log.debug "test_230_max ends" if @@log.debug?
   end
 
