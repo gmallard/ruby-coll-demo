@@ -243,24 +243,6 @@ end
     @@log.debug "test_120_collect ends" if @@log.debug?
   end
 
-  #--
-  #  map (collect synonym) / 130 / *DONE / See comments
-  #++
-  #
-  # Test the +map+ method.
-  #
-  def test_130_map
-    @@log.debug "test_130_map starts" if @@log.debug?
-    assert_respond_to(@list, :map, "test_130_map_respond")
-
-    #
-    new_list = @list.map { "dummy" }
-    assert(new_list.size == @list.size,"test_130_map_basic")
-    assert(new_list[@list.size - 1] == "dummy","test_130_map_sizecheck")
-    # Something else needs to be done for testing.  What is practical?
-
-    @@log.debug "test_130_map ends" if @@log.debug?
-  end
 
   #--
   # detect (find synonym) / 140 / *DONE
@@ -279,6 +261,25 @@ end
     assert_equal("not found", mdx, "test_140_detect_feq_02")
 
     @@log.debug "test_140_detect ends" if @@log.debug?
+  end
+
+  #--
+  #  map (collect synonym) / 130 / *DONE / See comments
+  #++
+  #
+  # Test the +map+ method.
+  #
+  def test_130_map
+    @@log.debug "test_130_map starts" if @@log.debug?
+    assert_respond_to(@list, :map, "test_130_map_respond")
+
+    #
+    new_list = @list.map { "dummy" }
+    assert(new_list.size == @list.size,"test_130_map_basic")
+    assert(new_list[@list.size - 1] == "dummy","test_130_map_sizecheck")
+    # Something else needs to be done for testing.  What is practical?
+
+    @@log.debug "test_130_map ends" if @@log.debug?
   end
 
   #--
