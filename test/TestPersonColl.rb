@@ -194,12 +194,19 @@ class TestPersonColl < Test::Unit::TestCase
   def test_110_anyq
     @@log.debug "test_110_anyq starts" if @@log.debug?
     assert_respond_to(@list, :any?, "test_110_anyq_respond")
-
+    # Is any member false or nil?
     assert(@list.any?, "test_110_anyq_basic")
+    # Does any member ever return false or nil?
     result = @list.any? {|obj| true}
     assert(result, "test_100_anyq_block_01")
+    # Does any member have .last != "Bronson"?
+    # Note negation of the logical here.
     result = @list.any? {|obj| obj.last == "Bronson" }
     assert(result, "test_100_anyq_block_02")
+    # Does any member have .last == "Bronson"?
+    # Note negation of the logical here.
+    result = @list.any? {|obj| obj.last != "Bronson" }
+    assert(result, "test_100_anyq_block_03")
 
     @@log.debug "test_110_anyq ends" if @@log.debug?
   end
