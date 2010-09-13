@@ -220,13 +220,26 @@ class TestPersonColl < Test::Unit::TestCase
   def test_120_collect
     @@log.debug "test_120_collect starts" if @@log.debug?
     assert_respond_to(@list, :collect, "test_120_collect_respond")
-
-    #
+    # And array of dummy objects is returned
     new_list = @list.collect { "dummy" }
     assert(new_list.size == @list.size,"test_120_collect_basic")
     assert(new_list[@list.size - 1] == "dummy","test_120_collect_sizecheck")
-    # Something else needs to be done for testing.  What is practical?
-
+    # Check Enumerator or Array return, no block given
+    new_list = @list.collect
+if RUBY_VERSION =~ /(1.9)|(2.)/
+    result = new_list.is_a? Enumerator
+    assert(result, "test_120_collect_enumcheck")
+else
+    result = new_list.is_a? Array
+    assert(result, "test_120_collect_arraycheck")
+end
+    # Create new Array 2
+    new_list = @list.collect {|obj| obj.ndata * 2 }
+    assert(new_list == [8,6,4,2], "test_120_collect_ndx2")
+    # Create new Array 3
+    new_list = @list.collect {|obj| obj.last }
+    expected = ["Newman", "Barker", "Bronson", "Dev"]
+    assert(new_list == expected, "test_120_collect_lastname")
     @@log.debug "test_120_collect ends" if @@log.debug?
   end
 
