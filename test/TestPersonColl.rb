@@ -426,11 +426,11 @@ end
   def test_200_grep
     @@log.debug "test_200_grep starts" if @@log.debug?
     assert_respond_to(@list, :grep, "test_200_grep_respond")
-
-    # very contrived
+    # Very contrived, technique useful for differing data elements.
     ta = @list.grep(Person)
     assert_equal([@aen, @bsb, @cab, @dad], ta, "test_200_grep_class")
-
+    # A more realistic search seems difficult with the chosen data and
+    # values.
     @@log.debug "test_200_grep ends" if @@log.debug?
   end
 
