@@ -443,8 +443,9 @@ end
   def test_210_includeq
     @@log.debug "test_210_includeq starts" if @@log.debug?
     assert_respond_to(@list, :include?, "test_210_includeq_respond")
-
+    # Test does include
     assert(@list.include?(@bsb),"test_210_includeq_basic")
+    # Test does not include
     ta = Person.new("A", "B", "C", 456)
     assert(@list.include?(ta) == false,"test_210_includeq_backwards")
 
