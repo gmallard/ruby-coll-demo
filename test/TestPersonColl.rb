@@ -399,10 +399,21 @@ end
   def test_190_find_all
     @@log.debug "test_190_find_all starts" if @@log.debug?
     assert_respond_to(@list, :find_all, "test_190_find_all_respond")
-
+    # Basic find_all check
     ta = @list.find_all {|obj| obj.first <= "Bob" }
     assert_equal([@aen, @bsb], ta, "test_190_find_all_eq01")
-
+    # Check Enumerator or Enumerable::Enumerator return, no block given
+    new_list = @list.find_all
+if RUBY_VERSION =~ /(1.9)|(2.)/
+    result = new_list.is_a? Enumerator
+    assert(result, "test_190_find_all_enumcheck")
+else
+    # Note: the author's version of the 1.8 Pickaxe documents this
+    # as an Array.  Testing with 1.8.7 however, shows this to be
+    # incorrect. YMMV.
+    result = new_list.is_a? Enumerable::Enumerator
+    assert(result, "test_190_find_all_enumenumcheck")
+end
     @@log.debug "test_190_find_all ends" if @@log.debug?
   end
 
