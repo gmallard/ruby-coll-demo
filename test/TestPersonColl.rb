@@ -500,11 +500,12 @@ end
   def test_240_memberq
     @@log.debug "test_240_memberq starts" if @@log.debug?
     assert_respond_to(@list, :member?, "test_240_memberq_respond")
-
+    # Test has member
     assert(@list.member?(@bsb),"test_240_memberq_basic")
+    # Test does not have member
     ta = Person.new("First", "M", "Last", 456)
     assert(@list.member?(ta) == false,"test_240_memberq_backwards")
-
+    #
     @@log.debug "test_240_memberq ends" if @@log.debug?
   end
 
