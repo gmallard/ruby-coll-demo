@@ -384,10 +384,9 @@ end
   def test_180_to_a
     @@log.debug "test_180_to_a starts" if @@log.debug?
     assert_respond_to(@list, :to_a, "test_180_to_a_respond")
-
+    # Check expected Array
     ta = @list.to_a
     assert_equal([@aen, @bsb, @cab, @dad], ta, "test_180_to_a_basic")
-
     @@log.debug "test_180_to_a ends" if @@log.debug?
   end
 
