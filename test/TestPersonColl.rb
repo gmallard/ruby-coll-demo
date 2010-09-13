@@ -253,13 +253,22 @@ end
   def test_140_detect
     @@log.debug "test_140_detect starts" if @@log.debug?
     assert_respond_to(@list, :detect, "test_140_detect_respond")
-
+    # Object with .last == "Dev"
     persobj = @list.detect {|obj| obj.last == "Dev" }
     assert_equal(@dad, persobj, "test_140_detect_feq_01")
+    # Object with .last == "Allard"
     sorry = lambda { "not found" }
     persobj = @list.detect(sorry) {|obj| obj.last == "Allard" }      
     assert_equal("not found", persobj, "test_140_detect_feq_02")
-
+    # Check Enumerator or Enumerable::Enumerator return, no block given
+    new_list = @list.detect
+if RUBY_VERSION =~ /(1.9)|(2.)/
+    result = new_list.is_a? Enumerator
+    assert(result, "test_140_detect_enumcheck")
+else
+    result = new_list.is_a? Enumerable::Enumerator
+    assert(result, "test_140_detect_enumenumcheck")
+end
     @@log.debug "test_140_detect ends" if @@log.debug?
   end
 
