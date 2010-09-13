@@ -254,11 +254,11 @@ end
     @@log.debug "test_140_detect starts" if @@log.debug?
     assert_respond_to(@list, :detect, "test_140_detect_respond")
 
-    mdx = @list.detect {|obj| obj.last == "Dev" }
-    assert_equal(@dad, mdx, "test_140_detect_feq_01")
+    persobj = @list.detect {|obj| obj.last == "Dev" }
+    assert_equal(@dad, persobj, "test_140_detect_feq_01")
     sorry = lambda { "not found" }
-    mdx = @list.detect(sorry) {|obj| obj.last == "Allard" }      
-    assert_equal("not found", mdx, "test_140_detect_feq_02")
+    persobj = @list.detect(sorry) {|obj| obj.last == "Allard" }      
+    assert_equal("not found", persobj, "test_140_detect_feq_02")
 
     @@log.debug "test_140_detect ends" if @@log.debug?
   end
@@ -292,11 +292,11 @@ end
     @@log.debug "test_150_find starts" if @@log.debug?
     assert_respond_to(@list, :find, "test_150_find_respond")
 
-    mdx = @list.find {|obj| obj.mi == "E" }
-    assert_equal(@aen, mdx, "test_150_find_feq_01")
+    persobj = @list.find {|obj| obj.mi == "E" }
+    assert_equal(@aen, persobj, "test_150_find_feq_01")
     sorry = lambda { "not found" }
-    mdx = @list.find(sorry) {|obj| obj.mi == "Q" }      
-    assert_equal("not found", mdx, "test_150_find_feq_02")
+    persobj = @list.find(sorry) {|obj| obj.mi == "Q" }      
+    assert_equal("not found", persobj, "test_150_find_feq_02")
 
     @@log.debug "test_150_find ends" if @@log.debug?
   end
