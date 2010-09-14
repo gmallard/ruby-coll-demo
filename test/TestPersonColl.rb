@@ -771,8 +771,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_620_drop
     @@log.debug "test_620_drop starts" if @@log.debug?
     assert_respond_to(@list, :drop, "test_620_drop_respond")
-    #
+    # Drop the first element
     assert_equal([@bsb, @cab, @dad], @list.drop(1), "test_620_drop_one")
+    # Drop the first two elements
     assert_equal([@cab, @dad], @list.drop(2), "test_620_drop_two")
     @@log.debug "test_620_drop ends" if @@log.debug?
   end
