@@ -947,17 +947,22 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_660_each_with_object
     @@log.debug "test_660_each_with_object starts" if @@log.debug?
     assert_respond_to(@list, :each_with_object, "test_660_each_with_object_respond")
-    #
+    # Type check
     enum = @list.each_with_object({})
     result = enum.is_a? Enumerator
     assert(result,"test_660_each_with_object_class") 
-    #
+    # With block - build a Hash
     hash = @list.each_with_object({}) do |item, memo|
       memo[item.last] = item.ndata
     end
     assert_equal(hash,
       {"Newman"=>4, "Barker"=>3, "Bronson"=>2, "Dev"=>1},
       "test_660_each_with_object_hash")
+    # With block - build an Array
+    csvs = @list.each_with_object([]) { |item, memo|
+      memo << "#{item.last}"
+    }.join(",")
+    assert(csvs == "Newman,Barker,Bronson,Dev", "test_660_each_with_object_array")
     #
     @@log.debug "test_660_each_with_object ends" if @@log.debug?
   end
