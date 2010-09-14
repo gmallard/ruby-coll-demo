@@ -671,7 +671,7 @@ end
   def test_300_zip
     @@log.debug "test_300_zip starts" if @@log.debug?
     assert_respond_to(@list, :zip, "test_300_zip_respond")
-
+    # Basic example
     a = [1]
     b = [2,3]
     c = [4,5,6]
@@ -683,7 +683,7 @@ end
           [@dad, nil, nil, nil]]
     #
     assert_equal(te, ta, "test_300_zip_basic")
-
+    # TODO: A practical example ???  What could this possibly be used for??
     @@log.debug "test_300_zip ends" if @@log.debug?
   end
   #
@@ -729,9 +729,13 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_600_count
     @@log.debug "test_600_count starts" if @@log.debug?
     assert_respond_to(@list, :count, "test_600_count_respond")
+    # Count of all items in the collection
     assert(@list.count == 4, "test_600_count_count")
+    # Count of a single present object
     assert(@list.count(@bsb) == 1, "test_600_count_oneobj_1")
+    # Count of a non-present object
     assert(@list.count(42) == 0, "test_600_count_oneobj_2")
+    # Count of all objects for which the block returns true
     result = @list.count {|obj| obj.ndata > 2}
     assert(result == 2, "test_600_count_trueres")
     @@log.debug "test_600_count ends" if @@log.debug?
