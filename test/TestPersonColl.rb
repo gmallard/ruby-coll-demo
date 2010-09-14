@@ -1063,13 +1063,13 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_710_max_by
     @@log.debug "test_710_max_by starts" if @@log.debug?
     assert_respond_to(@list, :max_by, "test_710_max_by_respond")
-    #
+    # Type check
     enum = @list.max_by
     result = enum.is_a? Enumerator
     assert(result,"test_710_max_by_class") 
-    #
-    result = @list.max_by {|item| item == @cab ? 9999 : 0 }
-    assert_equal(result, @cab, "test_710_max_by_mdc")
+    # Real max search
+    result = @list.max_by {|item| item.ndata }
+    assert_equal(result, @aen, "test_710_max_by_ndata")
     @@log.debug "test_710_max_by ends" if @@log.debug?
   end
 
@@ -1082,13 +1082,13 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_720_min_by
     @@log.debug "test_720_min_by starts" if @@log.debug?
     assert_respond_to(@list, :min_by, "test_720_min_by_respond")
-    #
+    # Type check
     enum = @list.min_by
     result = enum.is_a? Enumerator
     assert(result,"test_720_min_by_class") 
-    #
-    result = @list.min_by {|item| item == @aen ? 0 : 9999 }
-    assert_equal(result, @aen, "test_720_min_by_mda")
+    # Real min search
+    result = @list.min_by {|item| item.first }
+    assert_equal(result, @aen, "test_720_min_by_first")
     #
     @@log.debug "test_720_min_by ends" if @@log.debug?
   end
