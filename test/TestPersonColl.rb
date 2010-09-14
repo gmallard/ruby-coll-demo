@@ -1208,9 +1208,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_770_reduce
     @@log.debug "test_770_reduce starts" if @@log.debug?
     assert_respond_to(@list, :reduce, "test_770_reduce_respond")
-    #
+    # Call 1.9 inject
     test_700_inject
-    # What else?
+    #
     @@log.debug "test_770_reduce ends" if @@log.debug?
   end
 
