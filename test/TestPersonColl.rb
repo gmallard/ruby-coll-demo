@@ -542,11 +542,26 @@ end
   def test_260_partition
     @@log.debug "test_260_partition starts" if @@log.debug?
     assert_respond_to(@list, :partition, "test_260_partition_respond")
-
+    # Basic partition
     ta = @list.partition {|obj| obj.ndata >= 3 }
     assert_equal(2, ta.size,"test_260_partition_basic_01")
+    # First array: block evaluated to true
     assert_equal([@aen, @bsb], ta[0], "test_260_partition_basic_02")
+    # Second array: block evaluated to false
     assert_equal([@cab, @dad], ta[1], "test_260_partition_basic_03")
+    # Check Enumerator or Enumerable::Enumerator return, no block given
+    # This form not documented by the 1.8 Pickaxe.
+    new_list = @list.partition
+if RUBY_VERSION =~ /(1.9)|(2.)/
+    result = new_list.is_a? Enumerator
+    assert(result, "test_260_partition_enumcheck")
+else
+    # Note: the author's version of the 1.8 Pickaxe documents this
+    # as an Array, however does not document this form of code at all.
+    # YMMV.
+    result = new_list.is_a? Enumerable::Enumerator
+    assert(result, "test_260_partition_enumenumcheck")
+end
 
     @@log.debug "test_260_partition ends" if @@log.debug?
   end
