@@ -810,11 +810,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_640_each_cons
     @@log.debug "test_640_each_cons starts" if @@log.debug?
     assert_respond_to(@list, :each_cons, "test_640_each_cons_respond")
-    #
+    # Type check
     enum = @list.each_cons(2)
     result = enum.is_a? Enumerator
     assert(result,"test_640_each_cons_class") 
-    #
+    # Ckeck each consecutive array
     pass = 0
     @list.each_cons(2) {|suba|
       pass += 1
