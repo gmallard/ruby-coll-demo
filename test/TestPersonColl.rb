@@ -1017,11 +1017,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_690_group_by
     @@log.debug "test_690_group_by starts" if @@log.debug?
     assert_respond_to(@list, :group_by, "test_690_group_by_respond")
-    #
+    # Type check
     enum = @list.group_by
     result = enum.is_a? Enumerator
     assert(result,"test_690_group_by_class") 
-    #
+    # Build basic Hash groups
     hash = @list.group_by {|item| item.ndata <= 2 ? "le2" : "gt2"}
     assert_equal(hash,
       {"gt2" => [@aen, @bsb], "le2" => [@cab, @dad]},
