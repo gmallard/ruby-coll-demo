@@ -794,6 +794,10 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     # Items with .ndata == 3 and following.
     result = @list.drop_while {|item| item.ndata != 3}
     assert_equal([@bsb, @cab, @dad], result, "test_630_drop_while_ne3")
+    # Type check
+    new_list = @list.drop_while
+    result = new_list.is_a? Enumerator
+    assert(result,"test_630_drop_while_enumcheck")
     @@log.debug "test_630_drop_while ends" if @@log.debug?
   end
 
