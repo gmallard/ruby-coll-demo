@@ -409,8 +409,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert(result, "test_190_find_all_enumcheck")
 else
     # Note: the author's version of the 1.8 Pickaxe documents this
-    # as an Array.  Testing with 1.8.7 however, shows this to be
-    # incorrect. YMMV.
+    # as an Array. Note however that this form is not documented by
+    # that publication at all.
+    # YMMV.
     result = new_list.is_a? Enumerable::Enumerator
     assert(result, "test_190_find_all_enumenumcheck")
 end
@@ -591,10 +592,22 @@ end
   def test_275_select
     @@log.debug "test_275_select starts" if @@log.debug?
     assert_respond_to(@list, :select, "test_275_select_respond")
-
-    ta = @list.select {|obj| obj.ndata <= 3 }
-    assert_equal([@bsb, @cab, @dad], ta, "test_275_select_eq01")
-
+    # Basic select check
+    ta = @list.select {|obj| obj.first <= "Bob" }
+    assert_equal([@aen, @bsb], ta, "test_275_select_eq01")
+    # Check Enumerator or Enumerable::Enumerator return, no block given
+    new_list = @list.select
+if RUBY_VERSION =~ /(1.9)|(2.)/
+    result = new_list.is_a? Enumerator
+    assert(result, "test_275_select_enumcheck")
+else
+    # Note: the author's version of the 1.8 Pickaxe documents this
+    # as an Array. Note however that this form is not documented by
+    # that publication at all.
+    # YMMV.
+    result = new_list.is_a? Enumerable::Enumerator
+    assert(result, "test_275_select_enumenumcheck")
+end
     @@log.debug "test_275_select ends" if @@log.debug?
   end
 
