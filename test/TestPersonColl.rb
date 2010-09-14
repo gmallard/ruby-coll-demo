@@ -576,9 +576,9 @@ end
   def test_270_reject
     @@log.debug "test_270_reject starts" if @@log.debug?
     assert_respond_to(@list, :reject, "test_270_reject_respond")
-
-    ta = @list.reject {|obj| obj.ndata <= 3 }
-    assert_equal([@aen], ta, "test_270_reject_eq01")
+    # List false returns
+    ta = @list.reject {|obj| (obj.ndata % 2) == 0}
+    assert_equal([@bsb, @dad], ta, "test_270_reject_eq01")
 
     @@log.debug "test_270_reject ends" if @@log.debug?
   end
