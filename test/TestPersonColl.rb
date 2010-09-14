@@ -1223,11 +1223,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_780_reverse_each
     @@log.debug "test_780_reverse_each starts" if @@log.debug?
     assert_respond_to(@list, :reverse_each, "test_780_reverse_each_respond")
-    #
+    # Type check
     enum = @list.reverse_each
     result = enum.is_a? Enumerator
     assert(result,"test_780_reverse_each_class") 
-    #
+    # Reverse natural order
     holder = []
     @list.reverse_each {|obj|
       holder << obj
@@ -1235,6 +1235,14 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert_equal(holder,
       [@dad, @cab, @bsb, @aen],
       "test_780_reverse_each_reversed")
+    # Reverse by first
+    holder = ""
+    @list.reverse_each {|obj|
+      holder << obj.first
+    }
+    assert_equal(holder,
+      "DilbertCharlieBobAlfred",
+      "test_780_reverse_each_reversed_first")
     @@log.debug "test_780_reverse_each ends" if @@log.debug?
   end
 
