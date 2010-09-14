@@ -1102,9 +1102,12 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_730_minmax
     @@log.debug "test_730_minmax starts" if @@log.debug?
     assert_respond_to(@list, :minmax, "test_730_minmax_respond")
-    #
+    # Basic, no block.
     result = @list.minmax
     assert_equal(result, [@bsb, @aen], "test_730_minmax_natural")
+    # Basic, block check.
+    result = @list.minmax {|a,b| a.first <=> b.first}
+    assert_equal(result, [@aen, @dad], "test_730_minmax_first")
     @@log.debug "test_730_minmax ends" if @@log.debug?
   end
 
