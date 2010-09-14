@@ -620,10 +620,12 @@ end
   def test_280_sort
     @@log.debug "test_280_sort starts" if @@log.debug?
     assert_respond_to(@list, :sort, "test_280_sort_respond")
-
+    # Basic sort.  Assumes all objects implement <=>.
     ta = @list.sort
     assert_equal([@bsb, @cab, @dad, @aen], ta, "test_280_sort_basic")
-
+    # Sort with block
+    ta = @list.sort {|a,b| a.first <=> b.first}
+    assert_equal([@aen, @bsb, @cab, @dad], ta, "test_280_sort_block")
     @@log.debug "test_280_sort ends" if @@log.debug?
   end
 
