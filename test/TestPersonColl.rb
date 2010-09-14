@@ -1173,7 +1173,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_760_one?
     @@log.debug "test_760_one? starts" if @@log.debug?
     assert_respond_to(@list, :one?, "test_760_one?_respond")
-    #
+    # Only one true, gives true
     result = @list.one? {|obj|
       case
         when obj == @aen
@@ -1183,7 +1183,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
       end
     }
     assert(result, "test_760_one?_true")
-    #
+    # Multiple true gives false
     result = @list.one? {|obj|
       case
         when obj == @aen
