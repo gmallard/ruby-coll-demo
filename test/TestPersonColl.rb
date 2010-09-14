@@ -735,7 +735,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
     assert(@list.count(@bsb) == 1, "test_600_count_oneobj_1")
     # Count of a non-present object
     assert(@list.count(42) == 0, "test_600_count_oneobj_2")
-    # Count of all objects for which the block returns true
+    # Count of all objects for which the block returns 
     result = @list.count {|obj| obj.ndata > 2}
     assert(result == 2, "test_600_count_trueres")
     @@log.debug "test_600_count ends" if @@log.debug?
@@ -750,13 +750,13 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_610_cycle
     @@log.debug "test_610_cycle starts" if @@log.debug?
     assert_respond_to(@list, :cycle, "test_610_cycle_respond")
-    #
+    # Type check
     enum = @list.cycle
     result = enum.is_a? Enumerator
     assert(result,"test_610_cycle_class") 
-    #
+    # One cycle
     assert_equal([@aen, @bsb, @cab, @dad], @list.cycle(1).to_a, "test_610_cycle_once")
-    # 
+    # Two cycles
     assert_equal([@aen, @bsb, @cab, @dad, @aen, @bsb, @cab, @dad], 
       @list.cycle(2).to_a, "test_610_cycle_twice") 
     @@log.debug "test_610_cycle ends" if @@log.debug?
