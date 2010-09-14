@@ -841,11 +841,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_650_each_slice
     @@log.debug "test_650_each_slice starts" if @@log.debug?
     assert_respond_to(@list, :each_slice, "test_650_each_slice_respond")
-    #
+    # Type check.
     enum = @list.each_slice(2)
     result = enum.is_a? Enumerator
     assert(result,"test_650_each_slice_class") 
-    #
+    # Check each array slice.
     pass = 0
     @list.each_slice(2) {|suba|
       pass += 1
