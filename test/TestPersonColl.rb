@@ -976,16 +976,16 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_670_find_index
     @@log.debug "test_670_find_index starts" if @@log.debug?
     assert_respond_to(@list, :find_index, "test_670_find_index_respond")
-    #
+    # Type check
     enum = @list.find_index
     result = enum.is_a? Enumerator
     assert(result,"test_670_find_index_class") 
-    #
+    # nil check
     enum = @list.find_index {|item| false }
     assert_nil(enum, "test_670_find_index_allfalse")
-    #
-    enum = @list.find_index {|item| item.ndata == 3 }
-    assert(enum == 1, "test_670_find_index_ndata3")
+    # Index check
+    found = @list.find_index {|item| item.ndata == 3 }
+    assert(found == 1, "test_670_find_index_ndata3")
     #
     @@log.debug "test_670_find_index ends" if @@log.debug?
   end
