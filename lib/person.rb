@@ -9,7 +9,7 @@
 #
 # == Copyright
 #
-# Copyright (c) 2009 Guy Allard
+# Copyright (c) 2009, 2010 Guy Allard
 # Licensed under the same terms as Ruby.  No warranty is provided.
 #
 require 'logger'
@@ -25,14 +25,27 @@ class Person
     @ndata = num
   end
   #
+  # Spaceship operator for completion of Comparable.
+  #
+  # Attempt to show a somewhat generalized spaceship operator in that:
+  #
+  # * Result depends on more than one field of the class
+  # * Generalized method of returning that result
+  #
   def <=>(other)
-    compa = []
-    compa << (@last <=> other.last)
-    compa << (@first <=> other.first)
-    compa << (@mi <=> other.mi)
+    compare_array = []
+    # Lastname, Firstname, Middle
+    compare_array << (@last <=> other.last) <<
+      (@first <=> other.first) <<
+      (@mi <=> other.mi)
+    #
+    # Return either:
+    #
+    # * zero
+    # * the first compare that is non-zero
     #
     all_zero = lambda { 0 }
-    compa.detect(all_zero) {|i| i != 0}
+    compare_array.detect(all_zero) {|i| i != 0}
   end
 end # of class Person
 end # of Module CollDemo
