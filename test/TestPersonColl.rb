@@ -787,10 +787,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_630_drop_while
     @@log.debug "test_630_drop_while starts" if @@log.debug?
     assert_respond_to(@list, :drop_while, "test_630_drop_while_respond")
-    #
+    #  All items after block returns false (inclusive).
+    # Items with .ndata == 2 and following.
     result = @list.drop_while {|item| item.ndata != 2}
     assert_equal([@cab, @dad], result, "test_630_drop_while_ne2")
-    #
+    # Items with .ndata == 3 and following.
     result = @list.drop_while {|item| item.ndata != 3}
     assert_equal([@bsb, @cab, @dad], result, "test_630_drop_while_ne3")
     @@log.debug "test_630_drop_while ends" if @@log.debug?
