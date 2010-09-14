@@ -1287,7 +1287,7 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   end
 
   #--
-  # to_a / 810 / * NEW, TBD
+  # to_a / 810 / * NEW, DONE
   #++
   #
   # Test the <tt>to_a</tt> method.
@@ -1295,11 +1295,16 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_810_to_a
     @@log.debug "test_810_to_a starts" if @@log.debug?
     assert_respond_to(@list, :to_a, "test_810_to_a_respond")
-    #
+    # Straight conversion
     result = @list.to_a
     assert_equal(result,
       [@aen, @bsb, @cab, @dad],
       "test_810_to_a_all")
+    #
+    # This is another case where the 1.9 Pickaxe implies that to_a may 
+    # be passed argument(s).  This does not appear to be the case, as 
+    # described previously.
+    #
     @@log.debug "test_810_to_a ends" if @@log.debug?
   end
 
