@@ -1255,10 +1255,10 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_790_take
     @@log.debug "test_790_take starts" if @@log.debug?
     assert_respond_to(@list, :take, "test_790_take_respond")
-    #
+    # Take the first one
     result = @list.take(1)
     assert_equal(result, [@aen], "test_790_take_1")
-    #
+    # Take the first two
     result = @list.take(2)
     assert_equal(result, [@aen, @bsb], "test_790_take_2")
     @@log.debug "test_790_take ends" if @@log.debug?
@@ -1273,11 +1273,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_800_take_while
     @@log.debug "test_800_take_while starts" if @@log.debug?
     assert_respond_to(@list, :take_while, "test_800_take_while_respond")
-    #
+    # Type check
     enum = @list.take_while
     result = enum.is_a? Enumerator
     assert(result,"test_800_take_while_class") 
-    #
+    # Take while true
     result = @list.take_while {|obj|
       obj == @cab ? false : true
     }
