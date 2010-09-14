@@ -1120,11 +1120,11 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_740_minmax_by
     @@log.debug "test_740_minmax_by starts" if @@log.debug?
     assert_respond_to(@list, :minmax_by, "test_740_minmax_by_respond")
-    #
+    # Type check
     enum = @list.minmax_by
     result = enum.is_a? Enumerator
     assert(result,"test_740_minmax_by_class") 
-    #
+    # Search by item
     result = @list.minmax_by {|item|
       case
         when item == @dad
@@ -1136,6 +1136,9 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
       end
     }
     assert_equal(result, [@cab, @dad], "740_minmax_by_res01")
+    # Search by length of first name (note first found for max)
+    result = @list.minmax_by {|item| item.first.length }
+    assert_equal(result, [@bsb, @cab], "740_minmax_by_res02")
     #
     @@log.debug "test_740_minmax_by ends" if @@log.debug?
   end
