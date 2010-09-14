@@ -1038,14 +1038,19 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_700_inject
     @@log.debug "test_700_inject starts" if @@log.debug?
     assert_respond_to(@list, :inject, "test_700_inject_respond")
-    #
+    # Invoke 1.8 logic
     test_220_inject
-    #
+    # Search for largest
     biggest_nd = @list.inject(@aen) {|memo, item|
       memo.ndata > item.ndata ? memo : item
     }
     assert_equal(biggest_nd, @aen, "test_700_inject_biggest")
-    # What else?
+    # Contrived.  Use symbol form only to invoke memo.send
+    ary_last = @list.each_with_object([]) do |item, memo|
+      memo << "#{item.last}"
+    end
+    concat_last = ary_last.inject("", :+)
+    assert(concat_last == "NewmanBarkerBronsonDev", "test_700_inject_sym")
     @@log.debug "test_700_inject ends" if @@log.debug?
   end
 
