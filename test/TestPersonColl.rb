@@ -1152,13 +1152,13 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_750_none?
     @@log.debug "test_750_none? starts" if @@log.debug?
     assert_respond_to(@list, :none?, "test_750_none?_respond")
-    #
+    # All false gives true
     result = @list.none? {|obj| false }
     assert(result, "test_750_none?_false")
-    #
+    # All true gives false
     result = @list.none? {|obj| true }
     assert(result == false, "test_750_none?_truea")
-    #
+    # Any true gives false
     result = @list.none? {|obj| obj.ndata == 2 ? true : false }
     assert(result == false, "test_750_none?_true1")
     @@log.debug "test_750_none? ends" if @@log.debug?
