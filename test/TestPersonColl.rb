@@ -638,9 +638,26 @@ end
   def test_290_sort_by
     @@log.debug "test_290_sort_by starts" if @@log.debug?
     assert_respond_to(@list, :sort_by, "test_290_sort_by_respond")
-
+    # Sort_by basic test.
     ta = @list.sort_by {|obj| obj.first.length }
     assert_equal([@bsb, @aen, @cab, @dad], ta, "test_290_sort_by_basic")
+    # Example from the Pickaxe: multilevel sorting
+    words = %w{ puma cat bass ant aardvark gnu fish }
+    sorted = words.sort_by {|w| [w.length, w] }
+    assert(sorted == ["ant", "cat", "gnu", "bass", "fish", "puma", "aardvark"],
+      "test_290_sort_by_multilevel")
+    # Check Enumerator or Enumerable::Enumerator return, no block given
+    new_list = @list.sort_by
+if RUBY_VERSION =~ /(1.9)|(2.)/
+    result = new_list.is_a? Enumerator
+    assert(result, "test_275_select_enumcheck")
+else
+    # Note: the author's version of the 1.8 Pickaxe does not document 
+    # this form at all.
+    # YMMV.
+    result = new_list.is_a? Enumerable::Enumerator
+    assert(result, "test_275_select_enumenumcheck")
+end
 
     @@log.debug "test_290_sort_by ends" if @@log.debug?
   end
