@@ -879,15 +879,16 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   #++
   #
   # Test the <tt>each_with_index</tt> method.
+  # Ruby 1.9.x behavior
   #
   def test_655_each_with_index
     @@log.debug "test_655_each_with_index starts" if @@log.debug?
     assert_respond_to(@list, :each_with_index, "test_655_each_with_index_respond")
-    #
+    # Type check
     enum = @list.each_with_index
     result = enum.is_a? Enumerator
     assert(result,"test_655_each_with_index_class") 
-    #
+    # Check each index number
     @list.each_with_index {|item, index|
       case
         when item == @aen
@@ -902,7 +903,38 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
           flunk("test_655_each_with_index_invalid")
       end
     }
-    #
+#
+# The author's paper copy of the 1.9 Pickaxe implies that each_with_index
+# can be invoked with one or more arguments as shown below.
+#
+# This appears to be incorrect, which can be confirmed by either:
+#
+# * Attempting to run the code shown
+# * Documentation at http://ruby-doc.org/core-1.9/classes/Enumerable.html
+#
+=begin
+    # Invoke with argument(s)
+    myarg = "-tag"
+    accum = ""
+    @list.each_with_index(myarg) {|item, index|
+      case
+        when item == @aen
+          assert(index == 0, "test_655_each_with_index_i0a")
+          assert(myarg == "-tag", "test_655_each_with_index_tag0")
+        when item == @bsb
+          assert(index == 1, "test_655_each_with_index_i1a")
+          assert(myarg == "-tag", "test_655_each_with_index_tag1")
+        when item == @cab
+          assert(index == 2, "test_655_each_with_index_i2a")
+          assert(myarg == "-tag", "test_655_each_with_index_tag2")
+        when item == @dad
+          assert(index == 3, "test_655_each_with_index_i3a")
+          assert(myarg == "-tag", "test_655_each_with_index_tag3")
+        else
+          flunk("test_655_each_with_index_invalid")
+      end
+    }
+=end
     @@log.debug "test_655_each_with_index ends" if @@log.debug?
   end
 
