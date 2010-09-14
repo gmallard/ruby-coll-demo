@@ -999,10 +999,10 @@ if RUBY_VERSION =~ /(1.9)|(2.)/
   def test_680_first
     @@log.debug "test_680_first starts" if @@log.debug?
     assert_respond_to(@list, :first, "test_680_first_respond")
-    #
+    # Get first item only
     result = @list.first
     assert_equal(result, @aen, "test_680_first_one")
-    #
+    # Get first two items
     result = @list.first(2)
     assert_equal(result, [@aen,@bsb], "test_680_first_two")
     @@log.debug "test_680_first ends" if @@log.debug?
