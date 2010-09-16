@@ -1334,7 +1334,20 @@ if RUBY_VERSION =~ /(1.9.2)/
   def test_0900_chunk
     @@log.debug "test_0900_chunk starts" if @@log.debug?
     assert_respond_to(@list, :chunk, "test_0900_chunk_respond")
-    fail("tests TBD");
+    # Type check
+    result = @list.chunk {|pers| pers.first > "Cary" }
+    type_check = result.is_a? Enumerator
+    assert(type_check,"test_0900_chunk_class") 
+    # chunk results check.  In this case, should be a simple (and single)
+    # true/false switch.
+    result.each do |even, ary|
+      if even
+        assert(ary == [@cab, @dad], "test_0900_chunk_truec")
+      else
+        assert(ary == [@aen, @bsb], "test_0900_chunk_falsec")
+      end
+    end
+    #
     @@log.debug "test_0900_chunk ends" if @@log.debug?
   end
 
