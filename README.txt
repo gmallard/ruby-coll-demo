@@ -81,9 +81,9 @@
 # The following methods added in 1.9.2 are TBD:
 #
 # * chunk
-# * collect_concat
+# * collect_concat (Syn flat_map)
 # * each_entry
-# * flat_map
+# * flat_map (Syn collect_concat)
 # * slice_before
 #
 # == Author
