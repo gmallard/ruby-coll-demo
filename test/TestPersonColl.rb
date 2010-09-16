@@ -1385,7 +1385,11 @@ if RUBY_VERSION =~ /(1.9.2)/
   def test_0920_each_entry
     @@log.debug "test_0920_each_entry starts" if @@log.debug?
     assert_respond_to(@list, :each_entry, "test_0920_each_entry_respond")
-    fail("tests TBD");
+    # Type check
+    enum = @list.each_entry
+    type_check = enum.is_a? Enumerator
+    assert(type_check,"test_0920_each_entry_class")
+    # :TODO: Realistic example(s).
     @@log.debug "test_0920_each_entry ends" if @@log.debug?
   end
 
@@ -1422,7 +1426,11 @@ if RUBY_VERSION =~ /(1.9.2)/
   def test_0940_slice_before
     @@log.debug "test_0940_slice_before starts" if @@log.debug?
     assert_respond_to(@list, :slice_before, "test_0940_slice_before_respond")
-    fail("tests TBD");
+    # Type check
+    enum = @list.slice_before {|pers| pers.last[0] == "B"}
+    type_check = enum.is_a? Enumerator
+    assert(type_check,"test_0940_slice_before_class")
+    # :TODO: Realistic example(s).
     @@log.debug "test_0940_slice_before ends" if @@log.debug?
   end
 end # Ruby 1.9.2 specific
