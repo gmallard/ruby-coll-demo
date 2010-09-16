@@ -64,7 +64,7 @@ class TestPersonColl < Test::Unit::TestCase
   #
   # The +each+ method is required for the Enumerable mixin.
   #
-  def test_010_each
+  def test_0010_each
     @@log.debug "test_010_each starts" if @@log.debug?
     count = 0
     @list.each do |elt|
@@ -75,7 +75,7 @@ class TestPersonColl < Test::Unit::TestCase
   end
 =begin
 
-  Test methods provided by Array#method pass throughs.
+  Test methods provided for Array#method pass throughs.
 
   To be tested:
 
@@ -91,7 +91,7 @@ class TestPersonColl < Test::Unit::TestCase
   #
   # Test the +size+ method.
   #
-  def test_020_size
+  def test_0020_size
     @@log.debug "test_020_size starts" if @@log.debug?
     assert_equal(4, @list.size)
     @list << Person.new("Robert", "NMN", "Zimmerman", 5)
@@ -101,7 +101,7 @@ class TestPersonColl < Test::Unit::TestCase
   #
   # Test the +index+ method.
   #
-  def test_030_index_method
+  def test_0030_index_method
     @@log.debug "test_030_index_method starts" if @@log.debug?
     # <<'s done in setup
     assert_equal(@aen,@list[0])
@@ -115,7 +115,7 @@ class TestPersonColl < Test::Unit::TestCase
   #
   # Test the +pop+ method.
   #
-  def test_040_pop_method
+  def test_0040_pop_method
     @@log.debug "test_040_pop_method starts" if @@log.debug?
     assert_equal(@dad, @list.pop)
     assert_equal(@cab, @list.pop)
@@ -127,7 +127,7 @@ class TestPersonColl < Test::Unit::TestCase
   #
   # Test the +shift+ method.
   #
-  def test_050_shift_method
+  def test_0050_shift_method
     @@log.debug "test_050_shift_method starts" if @@log.debug?
     assert_equal(@aen, @list.shift)
     assert_equal(@bsb, @list.shift)
@@ -138,7 +138,7 @@ class TestPersonColl < Test::Unit::TestCase
   end
 =begin
 
-  Test methods provided by Enumerable mixin.
+  Test methods provided for Enumerable mixin.
 
   To be tested:
 
@@ -170,7 +170,7 @@ class TestPersonColl < Test::Unit::TestCase
   #
   # Test the <tt>all?</tt> method.
   #
-  def test_100_allq
+  def test_0100_allq
     @@log.debug "test_100_allq starts" if @@log.debug?
     assert_respond_to(@list, :all?, "test_100_allq_respond")
     # No members are false or nil
@@ -191,7 +191,7 @@ class TestPersonColl < Test::Unit::TestCase
   #
   # Test the <tt>any?</tt> method.
   #
-  def test_110_anyq
+  def test_0110_anyq
     @@log.debug "test_110_anyq starts" if @@log.debug?
     assert_respond_to(@list, :any?, "test_110_anyq_respond")
     # Is any member false or nil?
@@ -217,7 +217,7 @@ class TestPersonColl < Test::Unit::TestCase
   #
   # Test the +collect+ method.
   #
-  def test_120_collect
+  def test_0120_collect
     @@log.debug "test_120_collect starts" if @@log.debug?
     assert_respond_to(@list, :collect, "test_120_collect_respond")
     # And array of dummy objects is returned
@@ -250,7 +250,7 @@ end
   #
   # Test the +detect+ method.
   #
-  def test_140_detect
+  def test_0140_detect
     @@log.debug "test_140_detect starts" if @@log.debug?
     assert_respond_to(@list, :detect, "test_140_detect_respond")
     # Object with .last == "Dev"
@@ -278,7 +278,7 @@ end
   #
   # Test the +map+ method.
   #
-  def test_130_map
+  def test_0130_map
     @@log.debug "test_130_map starts" if @@log.debug?
     assert_respond_to(@list, :map, "test_130_map_respond")
     # And array of dummy objects is returned
@@ -310,7 +310,7 @@ end
   #
   # Test the +find+ method.
   #
-  def test_150_find
+  def test_0150_find
     @@log.debug "test_150_find starts" if @@log.debug?
     assert_respond_to(@list, :find, "test_150_find_respond")
     # Object with .last == "Dev"
@@ -339,7 +339,7 @@ end
   # Test the +each_with_index+ method.
   # Ruby 1.8 behavior.
   #
-  def test_160_each_with_index
+  def test_0160_each_with_index
     @@log.debug "test_160_each_with_index starts" if @@log.debug?
     assert_respond_to(@list, :each_with_index, "test_160_each_with_index_respond")
     # Basic operation
@@ -366,7 +366,7 @@ end
   #
   # Test the +entries+ method.
   #
-  def test_170_entries
+  def test_0170_entries
     @@log.debug "test_170_entries starts" if @@log.debug?
     assert_respond_to(@list, :entries, "test_170_entries_respond")
     # Check expected Array
@@ -381,7 +381,7 @@ end
   #
   # Test the +to_a+ method.
   #
-  def test_180_to_a
+  def test_0180_to_a
     @@log.debug "test_180_to_a starts" if @@log.debug?
     assert_respond_to(@list, :to_a, "test_180_to_a_respond")
     # Check expected Array
@@ -396,7 +396,7 @@ end
   #
   # Test the +find_all+ method.
   #
-  def test_190_find_all
+  def test_0190_find_all
     @@log.debug "test_190_find_all starts" if @@log.debug?
     assert_respond_to(@list, :find_all, "test_190_find_all_respond")
     # Basic find_all check
@@ -424,7 +424,7 @@ end
   #
   # Test the +grep+ method.
   #
-  def test_200_grep
+  def test_0200_grep
     @@log.debug "test_200_grep starts" if @@log.debug?
     assert_respond_to(@list, :grep, "test_200_grep_respond")
     # Very contrived, technique useful for differing data elements.
@@ -441,7 +441,7 @@ end
   #
   # Test the <tt>include?</tt> method.
   #
-  def test_210_includeq
+  def test_0210_includeq
     @@log.debug "test_210_includeq starts" if @@log.debug?
     assert_respond_to(@list, :include?, "test_210_includeq_respond")
     # Test does include
@@ -459,7 +459,7 @@ end
   #
   # Test the +inject+ method.
   #
-  def test_220_inject
+  def test_0220_inject
     @@log.debug "test_220_inject starts" if @@log.debug?
     assert_respond_to(@list, :inject, "test_220_inject_respond")
     # Inject for sum
@@ -481,7 +481,7 @@ end
   #
   # Test the +max+ method.
   #
-  def test_230_max
+  def test_0230_max
     @@log.debug "test_230_max starts" if @@log.debug?
     assert_respond_to(@list, :max, "test_230_max_respond")
     # Basic max for a field (assumes all objects implement <=>)
@@ -500,7 +500,7 @@ end
   #
   # Test the <tt>member?</tt> method.
   #
-  def test_240_memberq
+  def test_0240_memberq
     @@log.debug "test_240_memberq starts" if @@log.debug?
     assert_respond_to(@list, :member?, "test_240_memberq_respond")
     # Test has member
@@ -518,7 +518,7 @@ end
   #
   # Test the +min+ method.
   #
-  def test_250_min
+  def test_0250_min
     @@log.debug "test_250_min starts" if @@log.debug?
     assert_respond_to(@list, :min, "test_250_min_respond")
     # This is subtle, and the result is suprising at first.
@@ -540,7 +540,7 @@ end
   #
   # Test the +partition+ method.
   #
-  def test_260_partition
+  def test_0260_partition
     @@log.debug "test_260_partition starts" if @@log.debug?
     assert_respond_to(@list, :partition, "test_260_partition_respond")
     # Basic partition
@@ -573,7 +573,7 @@ end
   #
   # Test the +reject+ method.
   #
-  def test_270_reject
+  def test_0270_reject
     @@log.debug "test_270_reject starts" if @@log.debug?
     assert_respond_to(@list, :reject, "test_270_reject_respond")
     # List false returns
@@ -589,7 +589,7 @@ end
   #
   # Test the +select+ method.
   #
-  def test_275_select
+  def test_0275_select
     @@log.debug "test_275_select starts" if @@log.debug?
     assert_respond_to(@list, :select, "test_275_select_respond")
     # Basic select check
@@ -617,7 +617,7 @@ end
   #
   # Test the +sort+ method.
   #
-  def test_280_sort
+  def test_0280_sort
     @@log.debug "test_280_sort starts" if @@log.debug?
     assert_respond_to(@list, :sort, "test_280_sort_respond")
     # Basic sort.  Assumes all objects implement <=>.
@@ -635,7 +635,7 @@ end
   #
   # Test the +sort_by+ method.
   #
-  def test_290_sort_by
+  def test_0290_sort_by
     @@log.debug "test_290_sort_by starts" if @@log.debug?
     assert_respond_to(@list, :sort_by, "test_290_sort_by_respond")
     # Sort_by basic test.
@@ -668,7 +668,7 @@ end
   #
   # Test the +zip+ method.
   #
-  def test_300_zip
+  def test_0300_zip
     @@log.debug "test_300_zip starts" if @@log.debug?
     assert_respond_to(@list, :zip, "test_300_zip_respond")
     # Basic example
@@ -690,7 +690,7 @@ end
 if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
 =begin
 
-  Test methods provided by Enumerable mixin for ruby 1.9+
+  Test methods provided for Enumerable mixin for ruby 1.9+
 
   To be tested:
 
@@ -726,7 +726,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>count</tt> method.
   #
-  def test_600_count
+  def test_0600_count
     @@log.debug "test_600_count starts" if @@log.debug?
     assert_respond_to(@list, :count, "test_600_count_respond")
     # Count of all items in the collection
@@ -747,7 +747,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>cycle</tt> method.
   #
-  def test_610_cycle
+  def test_0610_cycle
     @@log.debug "test_610_cycle starts" if @@log.debug?
     assert_respond_to(@list, :cycle, "test_610_cycle_respond")
     # Type check
@@ -768,7 +768,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>drop</tt> method.
   #
-  def test_620_drop
+  def test_0620_drop
     @@log.debug "test_620_drop starts" if @@log.debug?
     assert_respond_to(@list, :drop, "test_620_drop_respond")
     # Drop the first element
@@ -784,7 +784,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>drop_while</tt> method.
   #
-  def test_630_drop_while
+  def test_0630_drop_while
     @@log.debug "test_630_drop_while starts" if @@log.debug?
     assert_respond_to(@list, :drop_while, "test_630_drop_while_respond")
     #  All items after block returns false (inclusive).
@@ -807,7 +807,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>each_cons</tt> method.
   #
-  def test_640_each_cons
+  def test_0640_each_cons
     @@log.debug "test_640_each_cons starts" if @@log.debug?
     assert_respond_to(@list, :each_cons, "test_640_each_cons_respond")
     # Type check
@@ -838,7 +838,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>each_slice</tt> method.
   #
-  def test_650_each_slice
+  def test_0650_each_slice
     @@log.debug "test_650_each_slice starts" if @@log.debug?
     assert_respond_to(@list, :each_slice, "test_650_each_slice_respond")
     # Type check.
@@ -881,7 +881,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   # Test the <tt>each_with_index</tt> method.
   # Ruby 1.9.x behavior
   #
-  def test_655_each_with_index
+  def test_0655_each_with_index
     @@log.debug "test_655_each_with_index starts" if @@log.debug?
     assert_respond_to(@list, :each_with_index, "test_655_each_with_index_respond")
     # Type check
@@ -944,7 +944,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>each_with_object</tt> method.
   #
-  def test_660_each_with_object
+  def test_0660_each_with_object
     @@log.debug "test_660_each_with_object starts" if @@log.debug?
     assert_respond_to(@list, :each_with_object, "test_660_each_with_object_respond")
     # Type check
@@ -973,7 +973,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>find_index</tt> method.
   #
-  def test_670_find_index
+  def test_0670_find_index
     @@log.debug "test_670_find_index starts" if @@log.debug?
     assert_respond_to(@list, :find_index, "test_670_find_index_respond")
     # Type check
@@ -996,7 +996,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>first</tt> method.
   #
-  def test_680_first
+  def test_0680_first
     @@log.debug "test_680_first starts" if @@log.debug?
     assert_respond_to(@list, :first, "test_680_first_respond")
     # Get first item only
@@ -1014,7 +1014,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>group_by</tt> method.
   #
-  def test_690_group_by
+  def test_0690_group_by
     @@log.debug "test_690_group_by starts" if @@log.debug?
     assert_respond_to(@list, :group_by, "test_690_group_by_respond")
     # Type check
@@ -1035,11 +1035,11 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>inject</tt> method.
   #
-  def test_700_inject
+  def test_0700_inject
     @@log.debug "test_700_inject starts" if @@log.debug?
     assert_respond_to(@list, :inject, "test_700_inject_respond")
     # Invoke 1.8 logic
-    test_220_inject
+    test_0220_inject
     # Search for largest
     biggest_nd = @list.inject(@aen) {|memo, item|
       memo.ndata > item.ndata ? memo : item
@@ -1060,7 +1060,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>max_by</tt> method.
   #
-  def test_710_max_by
+  def test_0710_max_by
     @@log.debug "test_710_max_by starts" if @@log.debug?
     assert_respond_to(@list, :max_by, "test_710_max_by_respond")
     # Type check
@@ -1079,7 +1079,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>min_by</tt> method.
   #
-  def test_720_min_by
+  def test_0720_min_by
     @@log.debug "test_720_min_by starts" if @@log.debug?
     assert_respond_to(@list, :min_by, "test_720_min_by_respond")
     # Type check
@@ -1099,7 +1099,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>minmax</tt> method.
   #
-  def test_730_minmax
+  def test_0730_minmax
     @@log.debug "test_730_minmax starts" if @@log.debug?
     assert_respond_to(@list, :minmax, "test_730_minmax_respond")
     # Basic, no block.
@@ -1117,7 +1117,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>minmax_by</tt> method.
   #
-  def test_740_minmax_by
+  def test_0740_minmax_by
     @@log.debug "test_740_minmax_by starts" if @@log.debug?
     assert_respond_to(@list, :minmax_by, "test_740_minmax_by_respond")
     # Type check
@@ -1149,7 +1149,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>none?</tt> method.
   #
-  def test_750_none?
+  def test_0750_none?
     @@log.debug "test_750_none? starts" if @@log.debug?
     assert_respond_to(@list, :none?, "test_750_none?_respond")
     # All false gives true
@@ -1170,7 +1170,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>one?</tt> method.
   #
-  def test_760_one?
+  def test_0760_one?
     @@log.debug "test_760_one? starts" if @@log.debug?
     assert_respond_to(@list, :one?, "test_760_one?_respond")
     # Only one true, gives true
@@ -1205,11 +1205,11 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>reduce</tt> method.
   #
-  def test_770_reduce
+  def test_0770_reduce
     @@log.debug "test_770_reduce starts" if @@log.debug?
     assert_respond_to(@list, :reduce, "test_770_reduce_respond")
     # Call 1.9 inject
-    test_700_inject
+    test_0700_inject
     #
     @@log.debug "test_770_reduce ends" if @@log.debug?
   end
@@ -1220,7 +1220,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>reverse_each</tt> method.
   #
-  def test_780_reverse_each
+  def test_0780_reverse_each
     @@log.debug "test_780_reverse_each starts" if @@log.debug?
     assert_respond_to(@list, :reverse_each, "test_780_reverse_each_respond")
     # Type check
@@ -1252,7 +1252,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>take</tt> method.
   #
-  def test_790_take
+  def test_0790_take
     @@log.debug "test_790_take starts" if @@log.debug?
     assert_respond_to(@list, :take, "test_790_take_respond")
     # Take the first one
@@ -1270,7 +1270,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>take_while</tt> method.
   #
-  def test_800_take_while
+  def test_0800_take_while
     @@log.debug "test_800_take_while starts" if @@log.debug?
     assert_respond_to(@list, :take_while, "test_800_take_while_respond")
     # Type check
@@ -1292,7 +1292,7 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   #
   # Test the <tt>to_a</tt> method.
   #
-  def test_810_to_a
+  def test_0810_to_a
     @@log.debug "test_810_to_a starts" if @@log.debug?
     assert_respond_to(@list, :to_a, "test_810_to_a_respond")
     # Straight conversion
@@ -1309,6 +1309,87 @@ if RUBY_VERSION =~ /(1.9.0)|(1.9.1)|(1.9.2)/
   end
 
 end # of ruby 1.9+ code
+
+if RUBY_VERSION =~ /(1.9.2)/
+=begin
+
+  Test methods provided for Enumerable mixin for ruby 1.9.2
+
+  To be tested:
+
+//  chunk / 0900 / *NEW
+//  collect_concat (Syn flat_map)/ 0910 / *NEW
+//  each_entry/ 0920 / *NEW
+//  flat_map (Syn collect_concat)/ 0930 / *NEW
+//  slice_before/ 0940 / *NEW
+
+=end
+
+  #--
+  # chunk / 0900 / *NEW
+  #++
+  #
+  # Test the <tt>chunk</tt> method.
+  #
+  def test_0900_chunk
+    @@log.debug "test_0900_chunk starts" if @@log.debug?
+    assert_respond_to(@list, :chunk, "test_0900_chunk_respond")
+    fail("tests TBD");
+    @@log.debug "test_0900_chunk ends" if @@log.debug?
+  end
+
+  #--
+  # collect_concat / 0910 / *NEW
+  #++
+  #
+  # Test the <tt>collect_concat</tt> method.
+  #
+  def test_0910_collect_concat
+    @@log.debug "test_0910_collect_concat starts" if @@log.debug?
+    assert_respond_to(@list, :collect_concat, "test_0910_collect_concat_respond")
+    fail("tests TBD");
+    @@log.debug "test_0910_collect_concat ends" if @@log.debug?
+  end
+
+  #--
+  # each_entry / 0920 / *NEW
+  #++
+  #
+  # Test the <tt>each_entry</tt> method.
+  #
+  def test_0920_each_entry
+    @@log.debug "test_0920_each_entry starts" if @@log.debug?
+    assert_respond_to(@list, :each_entry, "test_0920_each_entry_respond")
+    fail("tests TBD");
+    @@log.debug "test_0920_each_entry ends" if @@log.debug?
+  end
+
+  #--
+  # flat_map / 0930 / *NEW
+  #++
+  #
+  # Test the <tt>flat_map</tt> method.
+  #
+  def test_0930_flat_map
+    @@log.debug "test_0930_flat_map starts" if @@log.debug?
+    assert_respond_to(@list, :flat_map, "test_0930_flat_map_respond")
+    fail("tests TBD");
+    @@log.debug "test_0930_flat_map ends" if @@log.debug?
+  end
+
+  #--
+  # slice_before / 0940 / *NEW
+  #++
+  #
+  # Test the <tt>slice_before</tt> method.
+  #
+  def test_0940_slice_before
+    @@log.debug "test_0940_slice_before starts" if @@log.debug?
+    assert_respond_to(@list, :slice_before, "test_0940_slice_before_respond")
+    fail("tests TBD");
+    @@log.debug "test_0940_slice_before ends" if @@log.debug?
+  end
+end # Ruby 1.9.2 specific
 
 end # of class TestPersonColl
 end # of module Colldemo
