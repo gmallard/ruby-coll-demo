@@ -1398,7 +1398,18 @@ if RUBY_VERSION =~ /(1.9.2)/
   def test_0930_flat_map
     @@log.debug "test_0930_flat_map starts" if @@log.debug?
     assert_respond_to(@list, :flat_map, "test_0930_flat_map_respond")
-    fail("tests TBD");
+    # Need some arrays for this test .....
+    part_one = [@aen, @bsb]
+    part_two = [@cab, @dad]
+    ary_all = [ part_one, part_two ]
+    # This should be the orignal list
+    cc_res = ary_all.flat_map {|pers| pers }
+    0.upto(cc_res.size-1) do |n|
+      # Each element should be the same
+      assert(cc_res[n] == @list[n], "test_0930_flat_map_eltck_#{n}")
+    end
+    #
+    assert(cc_res == @list.to_a, "test_0930_flat_map_eltck_all")
     @@log.debug "test_0930_flat_map ends" if @@log.debug?
   end
 
