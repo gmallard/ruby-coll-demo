@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: Colldemo::TestPerson [RDoc Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          Colldemo::TestPerson
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../files/test/TestPerson_rb.html">test/TestPerson.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong>Test::Unit::TestCase</strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000068">new</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000069">setup</a></li>
+              <li><a href="#M000070">teardown</a></li>
+              <li><a href="#M000077">test_betweenq</a></li>
+              <li><a href="#M000073">test_eq</a></li>
+              <li><a href="#M000076">test_ge</a></li>
+              <li><a href="#M000072">test_gt</a></li>
+              <li><a href="#M000075">test_le</a></li>
+              <li><a href="#M000071">test_lt</a></li>
+              <li><a href="#M000074">test_ne</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='method public-class' id='method-M000068'>
+                <a name='M000068'></a>
+                <div class='synopsis'>
+                  <span class='name'>new</span>
+                  <span class='arguments'>(name)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Initialize this test class.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000068-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000068-source'><span class="ruby-comment cmt"># File test/TestPerson.rb, line 26</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>)&#x000A;    <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">name</span>)&#x000A;    <span class="ruby-ivar">@@log</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDOUT</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">DEBUG</span>&#x000A;    <span class="ruby-ivar">@abs</span> = <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-ivar">@jas</span> = <span class="ruby-keyword kw">nil</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='method public-instance' id='method-M000069'>
+                <a name='M000069'></a>
+                <div class='synopsis'>
+                  <span class='name'>setup</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Setup for each test. Define three new <a href="Person.html">Person</a>
+                  objects.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000069-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000069-source'><span class="ruby-comment cmt"># File test/TestPerson.rb, line 36</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setup</span>&#x000A;    <span class="ruby-comment cmt"># Allen B Sheppard</span>&#x000A;    <span class="ruby-ivar">@abs</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;Allen&quot;</span>,<span class="ruby-value str">&quot;B&quot;</span>, <span class="ruby-value str">&quot;Sheppard&quot;</span>, <span class="ruby-value">3</span>)&#x000A;    <span class="ruby-comment cmt"># John A Smith</span>&#x000A;    <span class="ruby-ivar">@jas</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;John&quot;</span>,<span class="ruby-value str">&quot;A&quot;</span>, <span class="ruby-value str">&quot;Smith&quot;</span>, <span class="ruby-value">2</span>)&#x000A;    <span class="ruby-comment cmt"># John B Smith</span>&#x000A;    <span class="ruby-ivar">@jbs</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;John&quot;</span>,<span class="ruby-value str">&quot;B&quot;</span>, <span class="ruby-value str">&quot;Smith&quot;</span>, <span class="ruby-value">1</span>)&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000070'>
+                <a name='M000070'></a>
+                <div class='synopsis'>
+                  <span class='name'>teardown</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Teardown after each test. Currently does nothing.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000070-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000070-source'><span class="ruby-comment cmt"># File test/TestPerson.rb, line 47</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">teardown</span>&#x000A;    <span class="ruby-comment cmt">#</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000077'>
+                <a name='M000077'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_betweenq</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the between method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000077-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000077-source'><span class="ruby-comment cmt"># File test/TestPerson.rb, line 108</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_betweenq</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_betweenq starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@jas</span>, <span class="ruby-identifier">:between?</span>, <span class="ruby-value str">&quot;test_betweenq_respond&quot;</span>)&#x000A;    <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@jas</span>.<span class="ruby-identifier">between?</span>(<span class="ruby-ivar">@abs</span>,<span class="ruby-ivar">@jbs</span>),<span class="ruby-value str">&quot;test_betweenq_basic&quot;</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_betweenq ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000073'>
+                <a name='M000073'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_eq</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the equals method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000073-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000073-source'><span class="ruby-comment cmt"># File test/TestPerson.rb, line 71</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_eq</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_eq starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@abs</span>, <span class="ruby-identifier">:==</span>, <span class="ruby-value str">&quot;test_eq_respond&quot;</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@abs</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@jas</span>, <span class="ruby-keyword kw">false</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_eq ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000076'>
+                <a name='M000076'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_ge</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the greater than or equals method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000076-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000076-source'><span class="ruby-comment cmt"># File test/TestPerson.rb, line 98</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_ge</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_ge starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@abs</span>, <span class="ruby-identifier">:&gt;=</span>, <span class="ruby-value str">&quot;test_ge_respond&quot;</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@jas</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@abs</span>, <span class="ruby-keyword kw">true</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@abs</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@abs</span>, <span class="ruby-keyword kw">true</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_ge ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000072'>
+                <a name='M000072'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_gt</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the greater than method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000072-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000072-source'><span class="ruby-comment cmt"># File test/TestPerson.rb, line 62</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_gt</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_gt starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@abs</span>, <span class="ruby-identifier">:&gt;</span>, <span class="ruby-value str">&quot;test_gt_respond&quot;</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@jas</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@abs</span>, <span class="ruby-keyword kw">true</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_gt ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000075'>
+                <a name='M000075'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_le</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the less than or equals method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000075-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000075-source'><span class="ruby-comment cmt"># File test/TestPerson.rb, line 88</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_le</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_le starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@abs</span>, <span class="ruby-identifier">:&lt;=</span>, <span class="ruby-value str">&quot;test_le_respond&quot;</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@abs</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-ivar">@jas</span>, <span class="ruby-keyword kw">true</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@abs</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-ivar">@abs</span>, <span class="ruby-keyword kw">true</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_le ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000071'>
+                <a name='M000071'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_lt</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the less than method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000071-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000071-source'><span class="ruby-comment cmt"># File test/TestPerson.rb, line 53</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_lt</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_lt starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_respond_to</span>(<span class="ruby-ivar">@abs</span>, <span class="ruby-identifier">:&lt;</span>, <span class="ruby-value str">&quot;test_lt_respond&quot;</span>)&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@abs</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@jas</span>, <span class="ruby-keyword kw">true</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_lt ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000074'>
+                <a name='M000074'></a>
+                <div class='synopsis'>
+                  <span class='name'>test_ne</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Test the not equal method.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000074-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000074-source'><span class="ruby-comment cmt"># File test/TestPerson.rb, line 80</span>&#x000A;  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_ne</span>&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_ne starts&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@abs</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@jas</span>, <span class="ruby-keyword kw">true</span>)&#x000A;    <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug</span> <span class="ruby-value str">&quot;test_ne ends&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@log</span>.<span class="ruby-identifier">debug?</span>&#x000A;  <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>File: README.txt [RDoc Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='file' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>README.txt</h1>
+        <div class='paths'>
+          README.txt
+        </div>
+        <div class='last-update'>
+          Last Update:
+          <span class='datetime'>2010-09-16 14:16:35 -0400</span>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <h2>Ruby Collection Demonstration</h2>
+            <p>
+            This project shows how to implement a Ruby collection by:
+            </p>
+            <ol>
+            <li>Defining a collection element type that mixes-in Comparable
+            
+            </li>
+            <li>Defining a collection that mixes-in Enumerable
+            
+            </li>
+            </ol>
+            <p>
+            The collection element and collection type shown here are of no practical
+            value.
+            </p>
+            <p>
+            The intent is to show how little code must be written in order to get back
+            a large amount of functionality from the mix-ins.
+            </p>
+            <h3>Tests</h3>
+            <p>
+            Simple tests are provided for:
+            </p>
+            <ul>
+            <li>All methods provided by the Comparable mix-in
+            
+            </li>
+            <li>All methods provided by the Enumerable mix-in
+            
+            </li>
+            </ul>
+            <p>
+            Code has been tested using:
+            </p>
+            <ul>
+            <li>ruby 1.8.7 (2010-01-10 patchlevel 249) [i486-linux]
+            
+            </li>
+            <li>ruby 1.9.0 (2008-10-04 revision 19669) [i486-linux]
+            
+            </li>
+            <li>ruby 1.9.1p378 (2010-01-10 revision 26273) [i486-linux]
+            
+            </li>
+            <li>ruby 1.9.2p0 (2010-08-18 revision 29034) [i686-linux]
+            
+            </li>
+            </ul>
+            <p>
+            Note: all tests can be run with only the &#8216;minitest&#8217; gem
+            required. This gem is automatically installed in 1.9.2.
+            </p>
+            <h3>Documentation</h3>
+            <p>
+            A script is provided to generate <tt>rdoc</tt> for the project.
+            </p>
+            <h3>Ruby 1.9+</h3>
+            <p>
+            As of Feb 28, 2010 additional Enumerable methods in ruby 1.9 are also
+            demonstrated. Ruby 1.8 compatability is maintained.
+            </p>
+            <h3>Ruby 1.9.2 Specifics</h3>
+            <p>
+            As of Sep 16, 2010 additional Enumerable methods in ruby 1.9.2 are also
+            minimally demonstrated. Additinonal tests need to be developed for:
+            </p>
+            <ul>
+            <li>each_entry
+            
+            </li>
+            <li>slice_before
+            
+            </li>
+            </ul>
+            <h3>Clarifications</h3>
+            <p>
+            As of Sep 12, 2010 the class used as a data element and the collection have
+            changed in order to clarify and simplify the example.
+            </p>
+            <h3>The showmethods.rb Utility</h3>
+            <p>
+            Readers are cautioned about the output of this utility with various Ruby
+            releases and levels. For example, when run using the author&#8217;s 1.8.7
+            system, several methods are listed which have <em>not</em> been carried
+            forward to the 1.9.x environment(s).
+            </p>
+            <h3>Enumerable Methods</h3>
+            <ul>
+            <li>all? (1.8)
+            
+            </li>
+            <li>any? (1.8)
+            
+            </li>
+            <li>collect (1.8)
+            
+            </li>
+            <li>count (1.9)
+            
+            </li>
+            <li>cycle (1.9)
+            
+            </li>
+            <li>detect - (1.8)
+            
+            </li>
+            <li>drop (1.9)
+            
+            </li>
+            <li>drop_while (1.9)
+            
+            </li>
+            <li>each_cons (1.9)
+            
+            </li>
+            <li>each_slice (1.9)
+            
+            </li>
+            <li>each_with_index (1.8 and 1.9-delta)
+            
+            </li>
+            <li>each_with_object (1.9)
+            
+            </li>
+            <li>entries (1.8 and 1.9-delta) (Syn to_a)
+            
+            </li>
+            <li>find (1.8) (Syn detect)
+            
+            </li>
+            <li>find_all (1.8) (Syn select)
+            
+            </li>
+            <li>find_index (1.9)
+            
+            </li>
+            <li>first (1.9)
+            
+            </li>
+            <li>grep (1.8)
+            
+            </li>
+            <li>group_by (1.9)
+            
+            </li>
+            <li>include? (1.8) (Syn member)
+            
+            </li>
+            <li>inject (Syn reduce) (1.8 and 1.9-delta)
+            
+            </li>
+            <li>map (Syn collect)
+            
+            </li>
+            <li>max (1.8)
+            
+            </li>
+            <li>max_by (1.9)
+            
+            </li>
+            <li>member (1.8) (Syn include?)
+            
+            </li>
+            <li>min (1.8)
+            
+            </li>
+            <li>min_by (1.9)
+            
+            </li>
+            <li>minmax (1.9)
+            
+            </li>
+            <li>minmax_by (1.9)
+            
+            </li>
+            <li>none? (1.9)
+            
+            </li>
+            <li>one? (1.9)
+            
+            </li>
+            <li>partition (1.8)
+            
+            </li>
+            <li>reduce (1.9) (Syn inject)
+            
+            </li>
+            <li>reject (1.8)
+            
+            </li>
+            <li>reverse_each (1.9)
+            
+            </li>
+            <li>select (1.8) (Syn find_all)
+            
+            </li>
+            <li>sort (1.8)
+            
+            </li>
+            <li>sort_by (1.8)
+            
+            </li>
+            <li>take (1.9)
+            
+            </li>
+            <li>take_while (1.9)
+            
+            </li>
+            <li>to_a (1.8 and 1.9-delta) (Syn entries)
+            
+            </li>
+            <li>zip (1.8)
+            
+            </li>
+            </ul>
+            <p>
+            The following methods added in 1.9.2 are:
+            </p>
+            <ul>
+            <li>chunk
+            
+            </li>
+            <li>collect_concat (Syn flat_map)
+            
+            </li>
+            <li>each_entry
+            
+            </li>
+            <li>flat_map (Syn collect_concat)
+            
+            </li>
+            <li>slice_before
+            
+            </li>
+            </ul>
+            <h2>Author</h2>
+            <p>
+            Guy Allard
+            </p>
+            <h2>Copyright</h2>
+            <p>
+            Copyright &#169; 2009, 2010 Guy Allard Licensed under the same terms as
+            Ruby. No warranty is provided.
+            </p>
+          </div>
+          <div id='section'>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>
