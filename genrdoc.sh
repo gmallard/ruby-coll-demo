@@ -2,6 +2,6 @@
 #
 set -x
 rm -rf doc
-rdoc **/*.rb README.txt
+rdoc -t "Ruby Collection Demonstration" **/*.rb README.txt
 set +x
 
