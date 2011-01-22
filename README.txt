@@ -25,6 +25,7 @@
 # * ruby 1.9.0 (2008-10-04 revision 19669) [i486-linux]
 # * ruby 1.9.1p378 (2010-01-10 revision 26273) [i486-linux]
 # * ruby 1.9.2p0 (2010-08-18 revision 29034) [i686-linux]
+# * ruby 1.9.2p136 (2010-12-25 revision 30363) [x86_64-linux]
 #
 # Note: all tests can be run with only the 'minitest' gem required.  This gem
 # is automatically installed in 1.9.2.
