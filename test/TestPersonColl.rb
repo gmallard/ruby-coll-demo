@@ -9,7 +9,7 @@
 #
 # == Copyright
 #
-# Copyright (c) 2009, 2010 Guy Allard
+# Copyright (c) 2009, 2010, 2011 Guy Allard
 # Licensed under the same terms as Ruby.  No warranty is provided.
 #
 require 'test/unit'
