@@ -1,3 +1,4 @@
+module Colldemo
 #
 # == Purpose
 #
@@ -13,7 +14,6 @@
 # Copyright (c) 2009, 2010, 2011 Guy Allard
 # Licensed under the same terms as Ruby.  No warranty is provided.
 #
-module Colldemo
 class PersonCollection
   include Enumerable
   #

@@ -1,3 +1,11 @@
+require 'test/unit'
+require 'logger'
+# To be tested or used
+$:.unshift File.join(File.dirname(__FILE__), "..", "lib")
+require 'personcollection'
+require 'person'
+#
+module Colldemo
 #
 # == Purpose
 #
@@ -12,15 +20,6 @@
 # Copyright (c) 2009, 2010, 2011 Guy Allard
 # Licensed under the same terms as Ruby.  No warranty is provided.
 #
-require 'test/unit'
-require 'logger'
-# To be tested or used
-$:.unshift File.join(File.dirname(__FILE__), "..", "lib")
-require 'personcollection'
-require 'person'
-
-#
-module Colldemo
 class TestPersonColl < Test::Unit::TestCase
   #
   # Initialize this test class.

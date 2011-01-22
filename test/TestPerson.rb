@@ -1,17 +1,3 @@
-#
-# == Purpose
-#
-# Unit tests for Person objects.
-#
-# == Author
-#
-# Guy Allard
-#
-# == Copyright
-#
-# Copyright (c) 2009, 2010, 2011 Guy Allard
-# Licensed under the same terms as Ruby.  No warranty is provided.
-#
 require 'test/unit'
 require 'logger'
 # To be tested or used
@@ -19,6 +5,20 @@ $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'person'
 #
 module Colldemo
+  #
+  # == Purpose
+  #
+  # Unit tests for Person objects.
+  #
+  # == Author
+  #
+  # Guy Allard
+  #
+  # == Copyright
+  #
+  # Copyright (c) 2009, 2010, 2011 Guy Allard
+  # Licensed under the same terms as Ruby.  No warranty is provided.
+  #
 class TestPerson < Test::Unit::TestCase
   #
   # Initialize this test class.
