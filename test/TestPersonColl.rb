@@ -1309,7 +1309,7 @@ if RUBY_VERSION =~ /1\.9/
 
 end # of ruby 1.9+ code
 
-if RUBY_VERSION =~ /(1.9.2)|(1.9.2)/
+if RUBY_VERSION =~ /(1.9.2)|(1.9.3)/
 =begin
 
   Test methods provided for Enumerable mixin for ruby 1.9.2 and 1.9.3.
