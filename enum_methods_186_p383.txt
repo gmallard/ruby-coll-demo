@@ -1,0 +1,23 @@
+1.8.6 has 22 instance methods.  They are:
+	all?
+	any?
+	collect
+	detect
+	each_with_index
+	entries
+	find
+	find_all
+	grep
+	include?
+	inject
+	map
+	max
+	member?
+	min
+	partition
+	reject
+	select
+	sort
+	sort_by
+	to_a
+	zip
