@@ -26,6 +26,11 @@
 # * ruby 1.9.1p378 (2010-01-10 revision 26273) [i486-linux]
 # * ruby 1.9.2p0 (2010-08-18 revision 29034) [i686-linux]
 # * ruby 1.9.2p136 (2010-12-25 revision 30363) [x86_64-linux]
+# * And a variety of other Ruby builds.....
+#
+# Note: Tests will currently fail for Ruby versions less than 1.8.7.  To
+# understand why examine the various 'enum_methods*.txt' files and also the 
+# documentation for individual Ruby releases. (*TODO* -fix this.)
 #
 # Note: all tests can be run with only the 'minitest' gem required.  This gem
 # is automatically installed in 1.9.2.
@@ -61,56 +66,21 @@
 #
 # === Enumerable Methods
 #
-# * all? (1.8)
-# * any? (1.8)
-# * collect (1.8)
-# * count (1.9)
-# * cycle (1.9)
-# * detect - (1.8)
-# * drop (1.9)
-# * drop_while (1.9)
-# * each_cons (1.9)
-# * each_slice (1.9)
-# * each_with_index (1.8 and 1.9-delta)
-# * each_with_object (1.9)
-# * entries (1.8 and 1.9-delta) (Syn to_a)
-# * find (1.8) (Syn detect)
-# * find_all (1.8) (Syn select)
-# * find_index (1.9)
-# * first (1.9)
-# * grep (1.8)
-# * group_by (1.9)
-# * include? (1.8) (Syn member)
-# * inject (Syn reduce) (1.8 and 1.9-delta)
-# * map (Syn collect)
-# * max (1.8)
-# * max_by (1.9)
-# * member (1.8) (Syn include?)
-# * min (1.8)
-# * min_by (1.9)
-# * minmax (1.9)
-# * minmax_by (1.9)
-# * none? (1.9)
-# * one? (1.9)
-# * partition (1.8)
-# * reduce (1.9) (Syn inject) 
-# * reject (1.8)
-# * reverse_each (1.9)
-# * select (1.8) (Syn find_all)
-# * sort (1.8)
-# * sort_by (1.8)
-# * take (1.9)
-# * take_while (1.9)
-# * to_a (1.8 and 1.9-delta) (Syn entries)
-# * zip (1.8)
+# For a list of methods provided by the Enumerable mixin in various levels of
+# Ruby, see the files:
 #
-# The following methods added in 1.9.2 are:
+# * enum_methods_185_p231.txt
+# * enum_methods_186_p383.txt
+# * enum_methods_187_p000.txt
+# * enum_methods_187_p299.txt
+# * enum_methods_191_p378.txt
+# * enum_methods_192_p188.txt
+# * enum_methods_193_p0.txt
 #
-# * chunk
-# * collect_concat (Syn flat_map)
-# * each_entry
-# * flat_map (Syn collect_concat)
-# * slice_before
+# == TODO
+#
+# * Fix differences between tests previous to 1.8.7.
+# * Fix subtle differences between tests for the 1.9.x series.
 #
 # == Author
 #
