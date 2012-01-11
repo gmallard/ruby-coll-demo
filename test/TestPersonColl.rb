@@ -225,7 +225,7 @@ class TestPersonColl < Test::Unit::TestCase
     assert(new_list[@list.size - 1] == "dummy","test_0120_collect_sizecheck")
     # Check Enumerator or Array return, no block given
     new_list = @list.collect
-if RUBY_VERSION =~ /1\.9/
+if RUBY_VERSION >= "1.9"
     result = new_list.is_a? Enumerator
     assert(result, "test_0120_collect_enumcheck")
 else
@@ -261,7 +261,7 @@ end
     assert_equal("not found", persobj, "test_0140_detect_feq_02")
     # Check Enumerator or Enumerable::Enumerator return, no block given
     new_list = @list.detect
-if RUBY_VERSION =~ /1\.9/
+if RUBY_VERSION >= "1.9"
     result = new_list.is_a? Enumerator
     assert(result, "test_0140_detect_enumcheck")
 else
@@ -286,7 +286,7 @@ end
     assert(new_list[@list.size - 1] == "dummy","test_0130_map_sizecheck")
     # Check Enumerator or Array return, no block given
     new_list = @list.map
-if RUBY_VERSION =~ /1\.9/
+if RUBY_VERSION >= "1.9"
     result = new_list.is_a? Enumerator
     assert(result, "test_0130_map_enumcheck")
 else
@@ -321,7 +321,7 @@ end
     assert_equal("not found", persobj, "test_0150_find_feq_02")
     # Check Enumerator or Enumerable::Enumerator return, no block given
     new_list = @list.find
-if RUBY_VERSION =~ /1\.9/
+if RUBY_VERSION >= "1.9"
     result = new_list.is_a? Enumerator
     assert(result, "test_0150_find_enumcheck")
 else
@@ -349,7 +349,7 @@ end
     assert_equal(["Alfred-0", "Bob-1", "Charlie-2", "Dilbert-3"], ta, "test_0160_each_with_index_basic")
     # Check Enumerator or Enumerable::Enumerator return, no block given
     new_list = @list.each_with_index
-if RUBY_VERSION =~ /1\.9/
+if RUBY_VERSION >= "1.9"
     result = new_list.is_a? Enumerator
     assert(result, "test_0160_each_with_index_enumcheck")
 else
@@ -403,7 +403,7 @@ end
     assert_equal([@aen, @bsb], ta, "test_0190_find_all_eq01")
     # Check Enumerator or Enumerable::Enumerator return, no block given
     new_list = @list.find_all
-if RUBY_VERSION =~ /1\.9/
+if RUBY_VERSION >= "1.9"
     result = new_list.is_a? Enumerator
     assert(result, "test_0190_find_all_enumcheck")
 else
@@ -552,7 +552,7 @@ end
     # Check Enumerator or Enumerable::Enumerator return, no block given
     # This form not documented by the 1.8 Pickaxe.
     new_list = @list.partition
-if RUBY_VERSION =~ /1\.9/
+if RUBY_VERSION >= "1.9"
     result = new_list.is_a? Enumerator
     assert(result, "test_0260_partition_enumcheck")
 else
@@ -596,7 +596,7 @@ end
     assert_equal([@aen, @bsb], ta, "test_0275_select_eq01")
     # Check Enumerator or Enumerable::Enumerator return, no block given
     new_list = @list.select
-if RUBY_VERSION =~ /1\.9/
+if RUBY_VERSION >= "1.9"
     result = new_list.is_a? Enumerator
     assert(result, "test_0275_select_enumcheck")
 else
@@ -647,7 +647,7 @@ end
       "test_0290_sort_by_multilevel")
     # Check Enumerator or Enumerable::Enumerator return, no block given
     new_list = @list.sort_by
-if RUBY_VERSION =~ /1\.9/
+if RUBY_VERSION >= "1.9"
     result = new_list.is_a? Enumerator
     assert(result, "test_0275_select_enumcheck")
 else
@@ -686,7 +686,7 @@ end
     @@log.debug "test_0300_zip ends" if @@log.debug?
   end
   #
-if RUBY_VERSION =~ /1\.9/
+if RUBY_VERSION >= "1.9"
 =begin
 
   Test methods provided for Enumerable mixin for ruby 1.9+
@@ -1309,7 +1309,7 @@ if RUBY_VERSION =~ /1\.9/
 
 end # of ruby 1.9+ code
 
-if RUBY_VERSION =~ /(1.9.2)|(1.9.3)/
+if RUBY_VERSION >= "1.9.2"
 =begin
 
   Test methods provided for Enumerable mixin for ruby 1.9.2 and 1.9.3.
@@ -1432,7 +1432,7 @@ if RUBY_VERSION =~ /(1.9.2)|(1.9.3)/
     # :TODO: Realistic example(s).
     @@log.debug "test_0940_slice_before ends" if @@log.debug?
   end
-end # Ruby 1.9.2 specific
+end # Ruby >= 1.9.2 specific
 
 end # of class TestPersonColl
 end # of module Colldemo
